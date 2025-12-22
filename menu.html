@@ -1,0 +1,3345 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Јеловник - Ресторан Златар</title>
+    <meta name="description" content="Јеловник ресторана Златар - традиционална српска кухиња, домаће ракије и специјалитети">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --gold-primary: #D4AF37;
+            --gold-light: #FFD700;
+            --gold-dark: #B8860B;
+            --brown-dark: #1a1410;
+            --brown-medium: #2B210F;
+        }
+        
+        html {
+            font-size: 90%;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-feature-settings: 'kern' 1, 'liga' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background: #fafafa;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(20,15,8,0.97) 0%, rgba(35,26,15,0.95) 50%, rgba(25,18,10,0.93) 100%);
+            backdrop-filter: blur(30px) saturate(180%);
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1;
+            padding: 1rem 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 8px 48px rgba(0,0,0,0.25), 0 0 60px rgba(212,175,55,0.12), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .nav-logo img {
+            height: 60px;
+            filter: drop-shadow(0 2px 8px rgba(212,175,55,0.4));
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.65rem 1.1rem;
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15));
+            border-color: rgba(212,175,55,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+            color: #FFD700;
+        }
+        
+        .hero-menu {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #2B1F15 0%, #3D3226 50%, #5D4E37 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-menu::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('images/restoran zlatar.jpg') center/cover;
+            opacity: 0.15;
+            filter: blur(2px);
+        }
+        
+        .hero-menu-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumbs a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumbs a:hover {
+            color: #D4AF37;
+        }
+        
+        .breadcrumbs .separator {
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .breadcrumbs .current {
+            color: #D4AF37;
+            font-weight: 500;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .page-title .text-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212,175,55,0.6);
+        }
+        
+        .menu-section {
+            background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 4rem 0;
+        }
+        
+        .menu-categories {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+        
+        .category-btn {
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border: 2px solid #e5e5e5;
+            color: #666;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(184,134,11,0.05));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .category-btn:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(212,175,55,0.25);
+        }
+        
+        .category-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #D4AF37 100%);
+            border-color: #D4AF37;
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(212,175,55,0.4), inset 0 1px 2px rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .category-btn.active::before {
+            opacity: 0;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .category-section {
+            display: none;
+            margin-bottom: 13.5rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(250, 250, 250, 0.5) 0%, rgba(245, 245, 245, 0.8) 100%);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+        }
+        
+        .category-section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 248, 245, 0.8) 100%);
+        }
+        
+        .category-section.active {
+            display: block;
+        }
+        
+        .category-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1a1410 0%, #8B4513 50%, #1a1410 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .category-title::before,
+        .category-title::after {
+            content: '◆';
+            position: absolute;
+            color: #D4AF37;
+            font-size: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-text-fill-color: #D4AF37;
+        }
+        
+        .category-title::before {
+            left: 0;
+        }
+        
+        .category-title::after {
+            right: 0;
+        }
+        
+        .category-title .highlight {
+            color: #D4AF37;
+        }
+        
+        .menu-item {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid rgba(212,175,55,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 25%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 75%, transparent 100%);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .menu-item:nth-child(3n+1) {
+            background: linear-gradient(145deg, #fffef9 0%, #fafaf5 100%);
+        }
+        
+        .menu-item:nth-child(3n+2)::after {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(212,175,55,0.06), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(212,175,55,0.2), 0 6px 15px rgba(0,0,0,0.1);
+            border-color: rgba(212,175,55,0.4);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .item-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a1410;
+            line-height: 1.4;
+            letter-spacing: -0.2px;
+            transition: color 0.3s;
+        }
+        
+        .menu-item:hover .item-name {
+            color: #8B4513;
+        }
+        
+        .item-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            position: relative;
+        }
+        
+        .item-price::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 60%;
+            background: linear-gradient(180deg, transparent, #D4AF37, transparent);
+        }
+        
+        .item-price .currency {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: #999;
+            margin-bottom: -0.2rem;
+            -webkit-text-fill-color: #999;
+        }
+        
+        .item-description {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.6;
+            font-style: italic;
+            font-weight: 400;
+        }
+        
+        .footer {
+            background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%);
+            border-top: 2px solid transparent;
+            border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1;
+            padding: 4rem 0 2rem 0;
+            color: #fff;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo img {
+            height: 75px;
+            filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));
+            margin-bottom: 1rem;
+        }
+        
+        .footer h4 {
+            color: #D4AF37;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+            transform: translateX(4px);
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-bottom img:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .footer-links-bottom {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-links-bottom a {
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links-bottom a:hover {
+            color: #D4AF37;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-logo img {
+                height: 50px;
+            }
+            
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.9rem;
+            }
+            
+            .hero-menu {
+                min-height: 40vh;
+                padding: 6rem 1rem 2rem 1rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-btn {
+                font-size: 0.8rem;
+                padding: 0.6rem 1.2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    <style>
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" style="display: flex; align-items: center; background: linear-gradient(180deg, rgba(20,15,8,0.97) 0%, rgba(35,26,15,0.95) 50%, rgba(25,18,10,0.93) 100%); backdrop-filter: blur(30px) saturate(180%); border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.4) 30%, rgba(255,215,0,0.3) 50%, rgba(212,175,55,0.4) 70%, transparent 100%) 1; box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(212,175,55,0.1); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); justify-content: center;">
+        <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; max-width: 1400px; width: 100%; padding: 0.5rem 1.5rem;">
+            <a href="index.html" class="nav-logo" style="display: flex; align-items: center; transition: transform 0.3s; margin-right: auto; padding-right: 3rem;">
+                <img src="images/znak-restoran-zlatar-vektorski_clipped_rev_1.png" alt="Ресторан Златар" class="logo-img" style="height: 68px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));">
+            </a>
+            
+            <ul class="nav-menu" id="navMenu" style="display: flex; align-items: center; gap: 1.4rem;">
+                <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Почетна</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link" data-i18n="nav.about" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">О нама</a></li>
+                <li class="nav-item"><a href="menu.html" class="nav-link active" data-i18n="nav.menu" style="color: #FFD700; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 100%); backdrop-filter: blur(12px) saturate(150%); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(212,175,55,0.25), inset 0 1px 0 rgba(255,255,255,0.1);">Јеловник</a></li>
+                <li class="nav-item"><a href="wine.html" class="nav-link" data-i18n="nav.wine" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Винска карта</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link" data-i18n="nav.gallery" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Галерија</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link" data-i18n="nav.contact" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Контакт</a></li>
+            </ul>
+            
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
+                <div class="language-switcher" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                    <button class="lang-btn active" data-lang="sr" style="background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Српски">RS</button>
+                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">GB</button>
+                    <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
+                </div>
+                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
+                    <span data-i18n="nav.reserve">Резервација</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" style="margin-left: 0.5rem;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-menu">
+        <div class="hero-menu-content">
+            <div class="breadcrumbs">
+                <a href="index.html"><i class="fas fa-home"></i> <span data-i18n="menu-page.breadcrumb.home">Почетна</span></a>
+                <span class="separator">/</span>
+                <span class="current" data-i18n="menu-page.breadcrumb.current">Јеловник</span>
+            </div>
+            <span class="page-badge" data-i18n="menu-page.badge">ЈЕЛОВНИК</span>
+            <h1 class="page-title"><span data-i18n="menu-page.title">Јеловник</span> <span class="text-gold" data-i18n="menu-page.title.zlatar">Златар</span></h1>
+            <p class="page-subtitle" data-i18n="menu-page.subtitle">Традиционална српска кухиња, домаћа печења и специјалитети</p>
+            <div style="margin-top: 2rem;">
+                <a href="jelovnik/jelovnik-nove-cene_novembar_2022.pdf" download class="btn-download">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="menu-page.download">Преузми јеловник (PDF)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="container">
+            <!-- Category Filter -->
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all"><i class="fas fa-utensils" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.all">Све</span></button>
+                <button class="category-btn" data-category="breakfast"><i class="fas fa-coffee" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.breakfast">Доручак</span></button>
+                <button class="category-btn" data-category="cold"><i class="fas fa-cheese" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.cold">Хладна предјела</span></button>
+                <button class="category-btn" data-category="hot"><i class="fas fa-fire" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.hot">Топла предјела</span></button>
+                <button class="category-btn" data-category="mixed"><i class="fas fa-layer-group" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.mixed">Комбинована</span></button>
+                <button class="category-btn" data-category="soups"><i class="fas fa-bowl-food" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.soups">Супе и чорбе</span></button>
+                <button class="category-btn" data-category="fish"><i class="fas fa-fish" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.fish">Риба</span></button>
+                <button class="category-btn" data-category="roast"><i class="fas fa-drumstick-bite" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.roast">Печење</span></button>
+                <button class="category-btn" data-category="special"><i class="fas fa-star" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.special">Специјалитети</span></button>
+                <button class="category-btn" data-category="grill"><i class="fas fa-fire-alt" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.grill">Роштиљ</span></button>
+                <button class="category-btn" data-category="carte"><i class="fas fa-concierge-bell" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.carte">По поруџбини</span></button>
+                <button class="category-btn" data-category="vegetables"><i class="fas fa-fire-burner" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.vegetables">Варива</span></button>
+                <button class="category-btn" data-category="salads"><i class="fas fa-leaf" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.salads">Салате</span></button>
+                <button class="category-btn" data-category="desserts"><i class="fas fa-birthday-cake" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.desserts">Посластице</span></button>
+                <button class="category-btn" data-category="rakije"><i class="fas fa-glass-whiskey" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.category.rakije">Ракије Златар</span></button>
+            </div>
+
+            <!-- All Items View -->
+            <div id="all-items">
+                
+                <!-- Доручак -->
+                <div class="category-section active" data-category="breakfast">
+                    <h2 class="category-title"><i class="fas fa-coffee" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.breakfast.title">Доручак</span> <span class="highlight" data-i18n="menu-page.breakfast.time">(до 12h)</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.komplet-lepinja">Комплет лепиња</span></div>
+                                <div class="item-price"><span class="currency">RSD</span>600</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.komplet-lepinja-desc">кајмак, јаја, претоп, кисело млеко</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.ustipci">Уштипци</span></div>
+                                <div class="item-price"><span class="currency">RSD</span>450</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.ustipci-desc">са сиром / џемом / нутелом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.punjene-przenice">Пуњене прженице</span></div>
+                                <div class="item-price">580</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.punjene-przenice-desc">тост, пршута, качкаваљ, јаје</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dorucak1">Доручак 1</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dorucak1-desc">јаја на око са кобасицом, урнебес, сомун</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dorucak2">Доручак 2</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dorucak2-desc">сланина са јајима, урнебес, сомун</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dorucak3">Доручак 3</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dorucak3-desc">проја, пршута, урнебес, кисело млеко</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dorucak4">Доручак 4</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dorucak4-desc">кувана јаја, сир, пршута, урнебес, сомун</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dorucak5">Доручак 5</span></div>
+                                <div class="item-price">600</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dorucak5-desc">пита од хељде, пршута, кисело млеко</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Хладна предјела -->
+                <div class="category-section active" data-category="cold">
+                    <h2 class="category-title"><i class="fas fa-cheese" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.cold-appetizers">Хладна предјела</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.zlatarska-prsuta">Златарска овчија пршута 100г</span></div>
+                                <div class="item-price">1.200</div>
+                            </div>
+                            <div class="item-description"></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.zlatiborska-prsuta">Златиборска говеђа пршута 100г</span></div>
+                                <div class="item-price">1.150</div>
+                            </div>
+                            <div class="item-description"></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.uzicka-pecenica">Ужичка свињска печеница 100г</span></div>
+                                <div class="item-price">1.100</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.uzicka-pecenica-desc">Dry cured pork tenderloin from Užice</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.njeguski-prsut">Његушки пршут 100г</span></div>
+                                <div class="item-price">1.350</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.njeguski-prsut-desc">Dry cured ham from Njeguši</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.zlatarski-sir">Златарски сир пуномасни 150г</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.zlatarski-sir-desc">Full-fat cheese from Zlatar</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.kozji-sir">Козји сир пуномасни 100г</span></div>
+                                <div class="item-price">770</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.kozji-sir-desc">Full-fat goat cheese</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.paprika-u-pavlaci">Паприка у павлаци 150г</span></div>
+                                <div class="item-price">580</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.paprika-u-pavlaci-desc">Pepper with cheese and sour cream</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.edamac-kackava">Едамац качкаваљ 100г</span></div>
+                                <div class="item-price">530</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.edamac-kackava-desc">Edam cheese</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pirotski-kackava">Пиротски качкаваљ 100г</span></div>
+                                <div class="item-price">750</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.pirotski-kackava-desc">Hard yellow cheese from Pirot</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.uzicki-kajmak-mladi">Ужички кајмак млади 100г</span></div>
+                                <div class="item-price">690</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.uzicki-kajmak-mladi-desc">Heavy cow's milk cream from Užice</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.ivanjicki-kajmak-stari">Ивањички кајмак стари 100г</span></div>
+                                <div class="item-price">690</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.ivanjicki-kajmak-stari-desc">Heavy cow's milk cream from Ivanjica</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.prebranac">Пребранац</span></div>
+                                <div class="item-price">680</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.prebranac-desc">Baked beans</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pihtije">Пихтије</span></div>
+                                <div class="item-price">600</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tatar-biftek">Татар бифтек 200г</span></div>
+                                <div class="item-price">3.600</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Топла предјела -->
+                <div class="category-section active" data-category="hot">
+                    <h2 class="category-title"><i class="fas fa-fire" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.hot-appetizers">Топла предјела</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pita-od-heljde">Пита од хељде 250г</span></div>
+                                <div class="item-price">540</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.proja-sa-sirom">Проја са сиром 200г</span></div>
+                                <div class="item-price">410</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.grilovani-kozji-sir">Грилловани козји сир 150г</span></div>
+                                <div class="item-price">1.150</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pecurke-na-zaru">Печурке на жару 250г</span></div>
+                                <div class="item-price">800</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pohovani-kackavalj">Поховани качкаваљ 150г</span></div>
+                                <div class="item-price">860</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pohovane-paprike">Поховане паприке пуњене сиром</span></div>
+                                <div class="item-price">830</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pohovane-pecurke">Поховане печурке 200г</span></div>
+                                <div class="item-price">780</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.prsuta-sa-jajima">Пршута са јајима</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.slanina-sa-jajima">Сланина са јајима</span></div>
+                                <div class="item-price">480</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.omlet">Омлет</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.omlet-desc">са сиром, кајмаком, печуркама или пршутом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.kajgana">Кајгана (3 јаја)</span></div>
+                                <div class="item-price">400</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.jaja-na-oko">Јаја на око (3 јаја)</span></div>
+                                <div class="item-price">400</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.palenta">Палента (за 2 особе)</span></div>
+                                <div class="item-price">600</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.ustipci-priganice">Уштипци - приганице</span></div>
+                                <div class="item-price">720</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.ustipci-priganice-desc">за 2 особе до 12h</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Комбинована предјела -->
+                <div class="category-section active" data-category="mixed">
+                    <h2 class="category-title"><i class="fas fa-layer-group" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.mixed-appetizers">Комбинована предјела</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.predjelo-zlatar">Предјело „Златар" (за 2 особе)</span></div>
+                                <div class="item-price">1.400</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.predjelo-zlatar-desc">говеђа пршута, свињска пршута, златарски сир, кајмак, проја, пита од хељде, пребранац</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tanjir-prsuta">Тањир пршута „Златар" (за 2 особе)</span></div>
+                                <div class="item-price">1.600</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.tanjir-prsuta-desc">говеђа, свињска, овчија пршута, његушки пршут</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tanjir-sireva">Тањир сирева „Златар" (за 2 особе)</span></div>
+                                <div class="item-price">1.100</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.tanjir-sireva-desc">златарски сир, козји сир, козји сир у маслиновом уљу, кајмак, качкаваљ, трапист</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tanjir-prsuta-sireva">Тањир пршута и сирева (за 2 особе)</span></div>
+                                <div class="item-price">1.400</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.tanjir-prsuta-sireva-desc">говеђа, свињска пршута, његушки пршут, златарски сир, козји сир, качкаваљ</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Супе и чорбе -->
+                <div class="category-section active" data-category="soups">
+                    <h2 class="category-title"><i class="fas fa-bowl-food" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.soups">Супе и чорбе</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.goveda-supa">Говеђа супа са резанцима</span></div>
+                                <div class="item-price">470</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.teleca-ragu">Телећа рагу чорба</span></div>
+                                <div class="item-price">560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.jagneca-corba">Јагњећа српска чорба</span></div>
+                                <div class="item-price">490</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.corba-od-pecuraka">Чорба од печурака</span></div>
+                                <div class="item-price">490</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.riblja-corba">Рибља чорба (у време поста)</span></div>
+                                <div class="item-price">490</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Риба -->
+                <div class="category-section active" data-category="fish">
+                    <h2 class="category-title"><i class="fas fa-fish" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.fish">Риба</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dimljena-pastrmka">Димљена пастрмка на жару 300г</span></div>
+                                <div class="item-price">1.600</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dimljena-pastrmka-desc">филети</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.smudj-na-zaru">Смуђ на жару 300г</span></div>
+                                <div class="item-price">2.200</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.dimljena-pastrmka-desc">филети</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.lignje-na-zaru">Лигње на жару 300г</span></div>
+                                <div class="item-price">1.750</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.lignje-pohovane">Лигње поховане 200г</span></div>
+                                <div class="item-price">1.850</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #777; font-size: 0.9rem; font-style: italic;"><span data-i18n="menu-page.side-dish.fish">Прилог: кромпир и блитва</span></p>
+                </div>
+
+                <!-- Печење -->
+                <div class="category-section active" data-category="roast">
+                    <h2 class="category-title"><i class="fas fa-drumstick-bite" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.roast">Печење</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.surena-jaretina">Шурена јаретина у млеку 250г</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.jagnetina-ispod-saca">Јагњетина испод сача 250г</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.teletina-ispod-saca">Телетина испод сача 250г</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.svinjske-kolenice">Свињске колен
+
+ице у купусу</span></div>
+                                <div class="item-price">1.100</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.svinjske-kolenice-desc">порција, сезонско</span></div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #777; font-size: 0.9rem; font-style: italic;"><span data-i18n="menu-page.side-dish.roast">Прилог: кромпир/кајмак</span></p>
+                </div>
+
+                <!-- Специјалитети Златар -->
+                <div class="category-section active" data-category="special" style="background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.03) 100%); border: 2px solid rgba(212,175,55,0.25); border-radius: 20px; padding: 3rem 2.5rem; margin-bottom: 3rem; box-shadow: 0 8px 32px rgba(212,175,55,0.15);">
+                    <h2 class="category-title" style="font-size: 2rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 2rem;"><i class="fas fa-star" style="margin-right: 0.75rem; color: #D4AF37; font-size: 1.8rem;"></i><span data-i18n="menu-page.category.specialties">Специјалитети „Златар"</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.zlatarska-trpeza">Златарска трпеза</span></div>
+                                <div class="item-price">1.980</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.zlatarska-trpeza-desc">ролована печурка, пуњено свињско, пилеће месо, пуњена плескавица</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.zlatarska-snicla">Златарска шницла</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.zlatarska-snicla-desc">свињски поховани филе пуњен кајмаком, пршутом, качкаваљом и печуркама</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.punjeni-pileci-raznjici">Пуњени роловани пилећи ражњићи</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.punjeni-pileci-raznjici-desc">кајмак, качкаваљ, пршута, сланина</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.punjeni-svinjski-raznjici">Пуњени свињски ражњићи</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.punjeni-svinjski-raznjici-desc">кајмак, качкаваљ, пршута</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.punjena-bela-vesalica">Пуњена бела вешалица у марамици</span></div>
+                                <div class="item-price">1.620</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.punjeni-file-sa-pecurkama">Пуњени филе са печуркама</span></div>
+                                <div class="item-price">1.740</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.punjeni-file-sa-pecurkama-desc">кајмак, качкаваљ, пршута, сос од печурака</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.brizle-na-zaru">Бризле на жару</span></div>
+                                <div class="item-price">1.740</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.mesani-rostilj-zlatar">Мешани роштиљ „Златар"</span></div>
+                                <div class="item-price">1.700</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.mesani-rostilj-zlatar-desc">пуњена вешалица, роловане печурке, пилећи ражњић са сувим шљивама, гурманска плескавица</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.rolovane-pecurke">Роловане печурке са пилетином и сланиницом</span></div>
+                                <div class="item-price">1.500</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-raznjici-sa-sljivama">Пилећи ражњићи са сувим шљивама</span></div>
+                                <div class="item-price">1.500</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.svinjska-rebarca">Свињска ребарца на кајмаку</span></div>
+                                <div class="item-price">1.740</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.jagneci-kotleti">Јагњећи котлети на жару</span></div>
+                                <div class="item-price">2.400</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #777; font-size: 0.9rem; font-style: italic;"><span data-i18n="menu-page.side-dish.special">Прилог: печени кромпир, вариво</span></p>
+                </div>
+
+                <!-- Роштиљ -->
+                <div class="category-section active" data-category="grill">
+                    <h2 class="category-title"><i class="fas fa-fire-alt" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.grill">Јела са роштиља на ћумур</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.biftek-na-zaru">Бифтек на жару</span></div>
+                                <div class="item-price">3.480</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.mesano-meso-2">Мешано месо за 2 особе</span></div>
+                                <div class="item-price">3.120</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.jagneca-dzigerica-zar">Јагњећа џигерица на жару</span></div>
+                                <div class="item-price">1.200</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.jagneca-dzigerica-maramica">Јагњећа џигерица у марамици</span></div>
+                                <div class="item-price">1.320</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.svinjski-file-zar">Свињски филе на жару</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.punjeni-svinjski-file">Пуњени свињски филе</span></div>
+                                <div class="item-price">1.740</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.svinjski-medaljoni">Свињски медаљони на жару</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.bela-vesalica">Бела вешалица (лакс каре)</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.dimljena-vesalica">Димљена вешалица</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.svinjski-raznjici">Свињски ражњићи</span></div>
+                                <div class="item-price">1.380</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.cevapcici-sa-lukom">Ћевапчићи са луком</span></div>
+                                <div class="item-price">1.080</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pljeskavica-sa-lukom">Плескавица са луком</span></div>
+                                <div class="item-price">1.080</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.cevapcici-na-kajmaku">Ћевапчићи или плескавица на кајмаку</span></div>
+                                <div class="item-price">1.320</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.leskovacki-cevapi">Лесковачки ћевапи</span></div>
+                                <div class="item-price">1.380</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.leskovacki-ustipci">Лесковачки уштипци</span></div>
+                                <div class="item-price">1.380</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.leskovacki-ustipci-desc">сланина, качкаваљ, бели лук, љута паприка</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.gurmanska-pljeskavica">Гурманска плескавица</span></div>
+                                <div class="item-price">1.380</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.gurmanska-pljeskavica-desc">љута по жељи</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.domace-kobasice">Домаће димљене кобасице</span></div>
+                                <div class="item-price">1.260</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.mesani-rostilj">Мешани роштиљ</span></div>
+                                <div class="item-price">1.320</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.mesani-rostilj-desc">бела вешалица, пилеће бело, плескавица</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pilece-belo">Пилеће бело на жару</span></div>
+                                <div class="item-price">1.260</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-raznjici-u-slanici">Пилећи ражњићи у сланиници</span></div>
+                                <div class="item-price">1.320</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-batak">Пилећи батак на жару</span></div>
+                                <div class="item-price">1.320</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileca-dzigerica">Пилећа џигерица ролована у сланиници</span></div>
+                                <div class="item-price">1.260</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #777; font-size: 0.9rem; font-style: italic;"><span data-i18n="menu-page.side-dish.grill">Прилог: печени кромпир или помфрит, лук</span></p>
+                </div>
+
+                <!-- По поруџбини -->
+                <div class="category-section active" data-category="carte">
+                    <h2 class="category-title"><i class="fas fa-concierge-bell" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.a-la-carte">Јела по поруџбини</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.biftek-sos-biber">Бифтек у сосу од бибера</span></div>
+                                <div class="item-price">3.720</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.medaljoni-na-puteru">Медаљони на путеру</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.medaljoni-sa-pecurkama">Медаљони са печуркама</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.medaljoni-sa-kajmakom">Медаљони са кајмаком</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.uzicki-file">Ужички филе</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.uzicki-file-desc">бели лук и стари кајмак</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.snicla">Натур / Париска / Бечка шницла</span></div>
+                                <div class="item-price">1.380</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.karadjordeva-snicla">Карађорђева шницла</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.karadjordeva-snicla-desc">свињски филе са кајмаком</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.leskovacka-muckalica">Лесковачка мућкалица</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pohovana-piletina">Похована пилетина „паризијен"</span></div>
+                                <div class="item-price">1.440</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-stapici">Пилећи штапићи у сусаму</span></div>
+                                <div class="item-price">1.560</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-medaljoni-narandza">Пилећи медаљони у сосу од наранџе</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-medaljoni-nana">Пилећи медаљони у сосу од нане</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pileci-medaljoni-kajmak">Пилећи медаљони са кајмаком</span></div>
+                                <div class="item-price">1.680</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: #777; font-size: 0.9rem; font-style: italic;"><span data-i18n="menu-page.side-dish.carte">Прилог: печени кромпир, вариво</span></p>
+                </div>
+
+                <!-- Варива -->
+                <div class="category-section active" data-category="vegetables">
+                    <h2 class="category-title"><i class="fas fa-fire-burner" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.vegetables">Варива и кувана јела</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.grilovano-povrce">Грилловано поврће</span></div>
+                                <div class="item-price">720</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.bareno-povrce">Барено поврће</span></div>
+                                <div class="item-price">620</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.peceni-krompir">Печени кромпир</span></div>
+                                <div class="item-price">480</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.peceni-krompir-kajmak">Печени кромпир са кајмаком</span></div>
+                                <div class="item-price">720</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pomfrit">Помфрит</span></div>
+                                <div class="item-price">480</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.krompir-i-blitva">Кромпир и блитва</span></div>
+                                <div class="item-price">620</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.podvarak">Подварак (сезонски)</span></div>
+                                <div class="item-price">480</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.prebranac-varivo">Пребранац вариво</span></div>
+                                <div class="item-price">670</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.sarme">Сарме, сармице (сезонске)</span></div>
+                                <div class="item-price">920</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.skembici">Шкембићи у сафту</span></div>
+                                <div class="item-price">870</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.prebranac-sa-kobasicom">Пребранац са кобасицом</span></div>
+                                <div class="item-price">870</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.prebranac-sa-mesom">Пребранац са месом</span></div>
+                                <div class="item-price">990</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.govedi-gulas">Говеђи гулаш</span></div>
+                                <div class="item-price">990</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.ribic-u-kajmaku">Рибић у кајмаку</span></div>
+                                <div class="item-price">990</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.corbast-pasulj">Чорбаст пасуљ са месом</span></div>
+                                <div class="item-price">920</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.kuvano-dnevno">Кувано дневно јело</span></div>
+                                <div class="item-price">920</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Салате -->
+                <div class="category-section active" data-category="salads">
+                    <h2 class="category-title"><i class="fas fa-leaf" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.salads">Салате</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.srpska-salata">Српска салата</span></div>
+                                <div class="item-price">430</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.srpska-salata-desc">лук, парадајз, краставац</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.sopska-salata">Шопска салата</span></div>
+                                <div class="item-price">490</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.sopska-salata-desc">лук, парадајз, краставац, златарски сир</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.moravska-salata">Моравска салата</span></div>
+                                <div class="item-price">430</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.moravska-salata-desc">печена паприка, парадајз, црни и бели лук</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tarator-salata">Таратор салата</span></div>
+                                <div class="item-price">490</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.tarator-salata-desc">краставац, павлака, бели лук</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.grcka-salata">Грчка салата</span></div>
+                                <div class="item-price">610</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.grcka-salata-desc">лук, парадајз, паприка, краставац, козји сир</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.celer-salata">Целер салата</span></div>
+                                <div class="item-price">610</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.celer-salata-desc">целер, јабука, орах, павлака</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.basta-salata">„Башта" салата</span></div>
+                                <div class="item-price">550</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.basta-salata-desc">парадајз, паприка, купус, краставац</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.vitaminska-salata">Витаминска салата</span></div>
+                                <div class="item-price">430</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.vitaminska-salata-desc">шаргарепа, купус, целер, зелена салата</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.prolecna-salata">Пролећна салата</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.prolecna-salata-desc">купус, зелена салата, ротквице, млади лук</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.ajvar-domaci">Ајвар домаћи</span></div>
+                                <div class="item-price">430</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.urnebes-salata">Урнебес салата</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.urnebes-salata-desc">домаћи ајвар и златарски сир</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.paradajz-sa-sirom">Парадајз са сиром</span></div>
+                                <div class="item-price">490</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.mesana-salata">Мешана салата</span></div>
+                                <div class="item-price">380</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.mesana-salata-desc">3 врсте сезонске салате</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pecena-paprika">Печена паприка</span></div>
+                                <div class="item-price">460</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.paradajz">Парадајз</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.krastavac">Краставац</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.zelena-salata">Зелена салата</span></div>
+                                <div class="item-price">320</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.sladak-kupус">Сладак купус</span></div>
+                                <div class="item-price">270</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.rotkvice">Ротквице</span></div>
+                                <div class="item-price">290</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.mladi-luk">Млади лук (веза)</span></div>
+                                <div class="item-price">270</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.cvekla">Цвекла</span></div>
+                                <div class="item-price">290</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.kiseli-kupus">Кисели купус</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.kiseli-krastavac">Кисели краставац</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tursija">Туршија</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Посластице -->
+                <div class="category-section active" data-category="desserts">
+                    <h2 class="category-title"><i class="fas fa-birthday-cake" style="margin-right: 0.5rem; color: #D4AF37;"></i><span data-i18n="menu-page.category.desserts">Посластице</span></h2>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pita-sa-sljivama">Пита са сувим шљивама „Златар"</span></div>
+                                <div class="item-price">540</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.suva-pita-orasi">Сува пита са орасима</span></div>
+                                <div class="item-price">540</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pita-sa-jabukama">Пита са јабукама</span></div>
+                                <div class="item-price">520</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.pita-sa-visnjama">Пита са вишњама</span></div>
+                                <div class="item-price">520</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.tuhafija">Тухафија</span></div>
+                                <div class="item-price">540</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.orasnica">Орасница</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.palacinke-sa-orasima">Палачинке са орасима</span></div>
+                                <div class="item-price">540</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.palacinke-sa-nutelom">Палачинке са „нутелом"</span></div>
+                                <div class="item-price">540</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.palacinke-sa-dzemom">Палачинке са домаћим џемом</span></div>
+                                <div class="item-price">480</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.item.palacinke-sa-dzemom-desc">од кајсија или шљива</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.item.sladoled-porcija">Сладолед порција (4 кугле)</span></div>
+                                <div class="item-price">600</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ракије Златар -->
+                <div class="category-section active" data-category="rakije" style="background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.03) 100%); border: 2px solid rgba(212,175,55,0.25); border-radius: 20px; padding: 3rem 2.5rem; margin-bottom: 3rem; box-shadow: 0 8px 32px rgba(212,175,55,0.15);">
+                    <h2 class="category-title" style="font-size: 2rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 1.5rem;"><i class="fas fa-glass-whiskey" style="margin-right: 0.75rem; color: #D4AF37; font-size: 1.8rem;"></i><span data-i18n="menu-page.rakije.title">Воћне ракије „Златар"</span></h2>
+                    <p style="margin-bottom: 2rem; color: #777; font-size: 0.95rem; font-style: italic;"><span data-i18n="menu-page.rakije.subtitle">Све наше ракије су природне од 100% наведеног воћа, без додатка боја и вештачких арома (сопствена производња)</span></p>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.sljiva-pozegaca-10">Шљива пожегача 10 год (45%, 0,03l)</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.divlja-kruska">Дивља крушка (44%, 0,03l)</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.kajsija">Кајсија (43%, 0,03l)</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.dunja">Дуња (43%, 0,03l)</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.jabuka">Јабука (42%, 0,03l)</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.divlja-jabuka">Дивља јабука (45%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.visnja">Вишња (42%, 0,03l)</span></div>
+                                <div class="item-price">320</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.tresnja">Трешња (42%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.drenjina">Дрењина (43%, 0,03l)</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.borovnica">Боровница (43%, 0,03l)</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.jagoda">Јагода (42%, 0,03l)</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.malina">Малина (38%, 0,03l)</span></div>
+                                <div class="item-price">600</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.kupina">Купина (42%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.dinja">Диња (42%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.loza-tamjanika">Лоза Тамјаника (45%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.banana">Банана (42%, 0,03l)</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1410; margin: 3rem 0 1.5rem 0; padding-bottom: 1rem; border-bottom: 2px solid rgba(212,175,55,0.3);">
+                        <span data-i18n="menu-page.rakije.barrique-title">Ракије „Златар" barrique</span>
+                    </h3>
+                    <p style="margin-bottom: 2rem; color: #777; font-size: 0.9rem; font-style: italic;"><span data-i18n="menu-page.rakije.barrique-subtitle">Одлежале у храстовом бурету</span></p>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.sljiva-barrique-15">Шљива пожегача barrique 15 год (45%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.kajsija-barrique">Кајсија barrique (43%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.divlja-kruska-barrique">Дивља крушка barrique (43%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.dunja-barrique">Дуња barrique (43%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.divlja-jabuka-barrique">Дивља јабука barrique (45%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #1a1410; margin: 3rem 0 1.5rem 0; padding-bottom: 1rem; border-bottom: 2px solid rgba(212,175,55,0.3);">
+                        <span data-i18n="menu-page.rakije.special-title">Специјалне ракије „Златар"</span>
+                    </h3>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.medovaca">Медовача (40%, 0,33l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.medovaca-desc">Ракија од меда</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.medovina">Медовина (38%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.medovina-desc">Ракија од дуње са медом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.orahovaca">Ораховача (38%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.orahovaca-desc">Ракија од кајсије са зеленим орахом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.kantarionka">Кантарионка (42%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.kantarionka-desc">Шљивовица са кантарионом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.klekovaca">Клековача (43%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.klekovaca-desc">Шљива пожегача са клеком</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.potencijal">ПоТенцијал (40%, 0,03l)</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.potencijal-desc">Лоза Тамјаника са лековитим биљем</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.lincura">Линцура (50%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.lincura-desc">Шљива Пожегача са линцуром</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.nanovaca">Нановача (42%, 0,03l)</span></div>
+                                <div class="item-price">360</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.nanovaca-desc">Јабуковача са наном</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.aronija">Аронија (42%, 0,03l)</span></div>
+                                <div class="item-price">500</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.aronija-desc">Дивља јабука са Аронијом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.suva-sljiva">Сува Шљива (40%, 0,03l)</span></div>
+                                <div class="item-price">420</div>
+                            </div>
+                            <div class="item-description"><span data-i18n="menu-page.rakije.suva-sljiva-desc">Шљива пожегача са сувом шљивом</span></div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-header">
+                                <div class="item-name"><span data-i18n="menu-page.rakije.liker-suve-sljive">Ликер од суве шљиве (25%, 0,03l)</span></div>
+                                <div class="item-price">300</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.04)); border-left: 4px solid #D4AF37; padding: 2rem; margin: 3rem 0; border-radius: 12px;">
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: #D4AF37; margin-bottom: 1rem;">
+                            <i class="fas fa-glass-cheers" style="margin-right: 0.5rem;"></i>
+                            <span data-i18n="menu-page.rakije.tasting.title">Дегустација ракија</span>
+                        </h3>
+                        <p style="font-size: 1.05rem; color: #555; margin-bottom: 0.5rem;">
+                            <span data-i18n="menu-page.rakije.tasting.subtitle">Пробајте и уживајте у укусима Ракија Златар</span>
+                        </p>
+                        <p style="font-size: 1.2rem; font-weight: 600; color: #1a1410;" data-i18n="menu-page.rakije.tasting.description">
+                            Шест врста ракија по 10ml за само <span style="color: #D4AF37;">1.400 динара</span> по особи
+                        </p>
+                        <p style="font-size: 0.9rem; color: #777; margin-top: 0.5rem; font-style: italic;"><span data-i18n="menu-page.rakije.tasting.note">Мезе је гратис</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 5fr 3.5fr 2.5fr 3fr; gap: 9rem; margin-bottom: 5rem;">
+                <div class="footer-col">
+                    <div class="footer-logo" style="margin-bottom: 1.5rem;">
+                        <img src="images/znak-restoran-zlatar-vektorski_clipped_rev_1.png" alt="Ресторан Златар" style="height: 85px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));">
+                    </div>
+                    <p class="footer-desc" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 2rem; max-width: 380px;">
+                        <span data-i18n="footer.description">Етно ресторан у срцу Београда. 40 година традиције, аутентични укуси и незаборавна атмосфера.</span>
+                    </p>
+                    <div class="footer-contact-info" style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem;">
+                            <i class="fas fa-phone" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                            <a href="tel:+381112444421" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; text-decoration: none; transition: all 0.3s;">+381 11 2444 421</a>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem;">
+                            <i class="fas fa-envelope" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                            <a href="mailto:info@restoranzlatar.com" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; text-decoration: none; transition: all 0.3s;">info@restoranzlatar.com</a>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #D4AF37; font-size: 1.125rem; margin-top: 0.125rem;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6;" data-i18n="footer.address">Прерадовићева 9а<br>Београд, Србија</span>
+                        </div>
+                    </div>
+                    <div class="footer-socials" style="display: flex; gap: 0.75rem;">
+                        <a href="https://www.facebook.com/Etno-restoran-Zlatar-1569616319928297/" target="_blank" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: rgba(255,255,255,0.7); font-size: 1.125rem; transition: all 0.3s; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/etno_restoran_zlatar/" target="_blank" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: rgba(255,255,255,0.7); font-size: 1.125rem; transition: all 0.3s; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;"><span data-i18n="footer.working-hours">Радно време</span></h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.875rem;">
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; white-space: nowrap;">
+                            <span style="white-space: nowrap;" data-i18n="footer.mon-fri">Пон-Пет</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem; white-space: nowrap; margin-left: 0.5rem;">09:00 - 00:00</span>
+                        </li>
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span data-i18n="footer.saturday">Субота</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">10:00 - 01:00</span>
+                        </li>
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span data-i18n="footer.sunday">Недеља</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">10:00 - 00:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;"><span data-i18n="footer.navigation">Навигација</span></h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-info-circle" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.about">О нама</span></a></li>
+                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-utensils" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.menu">Јеловник</span></a></li>
+                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-wine-glass-alt" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.wine">Винска карта</span></a></li>
+                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-images" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.gallery">Галерија</span></a></li>
+                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-phone" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.contact">Контакт</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;"><span data-i18n="footer.newsletter">Newsletter</span></h4>
+                    <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9375rem; margin-bottom: 1.25rem;"><span data-i18n="footer.newsletter-text">Пријавите се за специјалне понуде</span></p>
+                    <div class="newsletter-form" style="display: flex; gap: 0.5rem;">
+                        <input type="email" data-i18n-placeholder="footer.newsletter-placeholder" placeholder="Ваш email" class="newsletter-input" style="font-family: 'Montserrat', sans-serif; flex: 1; padding: 0.875rem 1.25rem; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.9375rem; outline: none; transition: all 0.3s;">
+                        <button class="newsletter-btn" style="width: 48px; height: 48px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 12px; color: #fff; font-size: 1rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(212,175,55,0.3);">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.06) 100%); backdrop-filter: blur(12px); border-left: 4px solid #D4AF37; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);">
+                        <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0; line-height: 1.7; display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-info-circle" style="color: #D4AF37; font-size: 1.1rem; flex-shrink: 0;"></i>
+                            <span data-i18n="footer.info-groups">За групе веће од 10 особа обавезна резервација</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links Bar -->
+            <div style="padding: 3rem 0; margin-bottom: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-award" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;"><span data-i18n="footer.badge1.title">40 година традиције</span></div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;"><span data-i18n="footer.badge1.subtitle">Од 1985. године</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-utensils" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;"><span data-i18n="footer.badge2.title">Аутентична кухиња</span></div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;"><span data-i18n="footer.badge2.subtitle">Домаћи рецепти</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-wine-bottle" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;"><span data-i18n="footer.badge3.title">31 врста ракије</span></div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;"><span data-i18n="footer.badge3.subtitle">Домаће производње</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-music" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;"><span data-i18n="footer.badge4.title">Жива музика</span></div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;"><span data-i18n="footer.badge4.subtitle">Петком и суботом</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-parking" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;"><span data-i18n="footer.badge5.title">Бесплатан паркинг</span></div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;"><span data-i18n="footer.badge5.subtitle">За госте ресторана</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+                <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.9375rem; margin: 0;" data-i18n="footer.bottom.copyright">&copy; <span id="currentYear"></span> Ресторан Златар. Сва права задржана.</p>
+                
+                <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                    <a href="terms.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="footer.bottom.terms">Услови коришћења</span></a>
+                    <a href="privacy.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="footer.bottom.privacy">Политика приватности</span></a>
+                    <a href="sitemap.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="footer.bottom.sitemap">Мапа сајта</span></a>
+                    <span style="color: rgba(255,255,255,0.2); font-size: 0.875rem;">|</span>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem;" data-i18n="footer.bottom.design">Дизајн и израда</span>
+                        <a href="https://pansoft.rs" target="_blank" style="display: inline-block; transition: all 0.3s;">
+                            <img src="Pansoft/pansoft logo bela slova-01.png" alt="Pansoft" style="height: 32px; width: auto; opacity: 0.7; transition: all 0.3s;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        .footer-socials a:hover {
+            background: rgba(212,175,55,0.15);
+            border-color: rgba(212,175,55,0.3);
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+            transform: translateX(4px);
+        }
+        
+        .newsletter-input:focus {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,175,55,0.3);
+        }
+        
+        .newsletter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+        }
+        
+        .footer-bottom a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom img:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .footer-links-bottom a:hover {
+            color: #D4AF37;
+        }
+    </style>
+
+        <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+<!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-content">
+            <div class="cookie-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="cookie-text">
+                <h4>Колачићи (Cookies)</h4>
+                <p>Користимо колачиће да бисмо побољшали ваше искуство на нашем сајту. Настављањем коришћења сајта, слажете се са нашом <a href="privacy.html">Политиком приватности</a>.</p>
+            </div>
+            <div class="cookie-actions">
+                <button class="btn-cookie-accept" id="acceptCookies">
+                    <i class="fas fa-check"></i>
+                    Прихватам
+                </button>
+                <button class="btn-cookie-decline" id="declineCookies">
+                    Одбиј
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .cookie-consent {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(150%);
+            max-width: 900px;
+            width: calc(100% - 2rem);
+            background: linear-gradient(145deg, rgba(26, 20, 16, 0.98) 0%, rgba(43, 33, 15, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 8px 20px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            z-index: 10000;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .cookie-consent.show {
+            transform: translateX(-50%) translateY(0);
+            }
+
+        .cookie-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: #1a1410;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cookie-text h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .cookie-text p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        .cookie-text a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .cookie-text a:hover {
+            color: #D4AF37;
+            border-bottom-color: #D4AF37;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .btn-cookie-accept,
+        .btn-cookie-decline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-cookie-accept {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #1a1410;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-cookie-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-cookie-decline {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-cookie-decline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-consent {
+                bottom: 1rem;
+                width: calc(100% - 1rem);
+                padding: 1.5rem;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .btn-cookie-accept,
+            .btn-cookie-decline {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cookie-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .cookie-text h4 {
+                font-size: 1.125rem;
+            }
+
+            .cookie-text p {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Format all prices with thousand separator and RSD currency
+        document.addEventListener('DOMContentLoaded', function() {
+            const prices = document.querySelectorAll('.item-price');
+            prices.forEach(price => {
+                const amount = price.textContent.trim();
+                const numericAmount = amount.replace(/[^\d]/g, '');
+                const formattedAmount = new Intl.NumberFormat('sr-RS').format(numericAmount);
+                price.innerHTML = `<span class="currency">RSD</span>${formattedAmount}`;
+            });
+            
+            // Cookie Consent Logic
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const declineBtn = document.getElementById('declineCookies');
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            if (!cookieChoice) {
+                setTimeout(() => { cookieConsent.classList.add('show'); }, 1000);
+            }
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.classList.remove('show');
+            });
+            declineBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'declined');
+                cookieConsent.classList.remove('show');
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const categorySections = document.querySelectorAll('.category-section');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show/hide sections
+                if (category === 'all') {
+                    categorySections.forEach(section => section.classList.add('active'));
+                } else {
+                    categorySections.forEach(section => {
+                        if (section.dataset.category === category) {
+                            section.classList.add('active');
+                        } else {
+                            section.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Scroll to menu section
+                document.querySelector('.menu-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const body = document.body;
+        
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            
+            // Dodaj language switcher u meni ako već ne postoji
+            if (navMenu.classList.contains('active') && !navMenu.querySelector('.mobile-lang-switcher')) {
+                const langSwitcher = document.createElement('div');
+                langSwitcher.className = 'mobile-lang-switcher';
+                langSwitcher.style.cssText = 'display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255,255,255,0.08); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); margin-top: 2rem;';
+                
+                const btnSR = document.querySelector('.lang-btn[data-lang="sr"]').cloneNode(true);
+                const btnEN = document.querySelector('.lang-btn[data-lang="en"]').cloneNode(true);
+                const btnRU = document.querySelector('.lang-btn[data-lang="ru"]').cloneNode(true);
+                
+                // Dodaj event listenere na klonirane buttone
+                btnSR.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setLanguage('sr');
+                });
+                btnEN.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setLanguage('en');
+                });
+                btnRU.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    setLanguage('ru');
+                });
+                
+                langSwitcher.appendChild(btnSR);
+                langSwitcher.appendChild(btnEN);
+                langSwitcher.appendChild(btnRU);
+                navMenu.appendChild(langSwitcher);
+            }
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            });
+        });
+    </script>
+    
+    <style>
+        @media (max-width: 1281px) {
+            .nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 44px;
+                height: 44px;
+                background: rgba(255,255,255,0.08) !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255,255,255,0.2) !important;
+                border-radius: 12px !important;
+                padding: 10px !important;
+                cursor: pointer;
+                z-index: 1001;
+                position: fixed;
+                right: 1.5rem;
+                top: 1.75rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            .nav-toggle span {
+                width: 24px;
+                height: 2px;
+                background: #D4AF37;
+                border-radius: 2px;
+                transition: all 0.3s;
+                display: block;
+            }
+            .nav-actions {
+                gap: 0 !important;
+                padding-left: 0 !important;
+            }
+            .btn-reserve {
+                position: fixed !important;
+                right: 5.5rem !important;
+                top: 1.5rem !important;
+                z-index: 1001 !important;
+                margin-left: 0 !important;
+            }
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            .nav-menu .nav-link {
+                color: rgba(255,255,255,0.9) !important;
+                background: rgba(255,255,255,0.06) !important;
+                border: 1px solid rgba(255,255,255,0.1) !important;
+                padding: 1rem 1.5rem !important;
+                border-radius: 12px !important;
+                font-size: 1rem !important;
+                font-weight: 500 !important;
+                text-decoration: none !important;
+                display: block !important;
+                transition: all 0.3s ease !important;
+                width: 100% !important;
+            }
+            .nav-menu .nav-link.active,
+            .nav-menu .nav-link:hover {
+                background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)) !important;
+                border-color: rgba(212,175,55,0.4) !important;
+                color: #FFD700 !important;
+            }
+            .nav-menu {
+                position: fixed !important;
+                display: flex !important;
+                top: 0 !important;
+                left: -320px !important;
+                width: 320px !important;
+                height: 100vh !important;
+                background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
+                backdrop-filter: blur(40px) !important;
+                padding: 6rem 2rem 2rem 2rem !important;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                transition: left 0.4s ease-in-out, top 0.4s ease-in-out !important;
+                z-index: 1000 !important;
+                overflow-y: auto !important;
+                box-shadow: 8px 0 32px rgba(0,0,0,0.5) !important;
+            }
+            .nav-menu.active {
+                left: 0 !important;
+                top: 130px !important;
+                height: calc(100vh - 130px) !important;
+            }
+            .nav-menu .nav-item {
+                width: 100%;
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            .nav-menu.active .nav-item {
+                animation: slideInLeft 0.4s ease-out forwards;
+            }
+            .nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+            .nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
+            .nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
+            .nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
+            .nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.3s; }
+            .nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.35s; }
+            @keyframes slideInLeft {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            .nav-link {
+                width: 100%;
+                text-align: left;
+                padding: 1rem 1.5rem !important;
+                font-size: 1.05rem !important;
+            }
+            body.menu-open {
+                overflow: hidden;
+            }
+            body.menu-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(4px);
+                z-index: 999;
+                animation: fadeIn 0.3s;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .language-switcher {
+                display: none !important;
+            }
+            .btn-reserve {
+                font-size: 0 !important;
+                padding: 0 !important;
+                width: 48px;
+                height: 48px;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .btn-reserve i {
+                margin-right: 0 !important;
+                font-size: 1.1rem !important;
+            }
+            .btn-reserve span {
+                display: none !important;
+            }
+        }
+        @media (min-width: 1025px) {
+            .nav-toggle {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <!-- Reservation Modal -->
+    <div class="modal" id="reservationModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Резервација стола</h2>
+                <p>Попуните формулар и потврдићемо вашу резервацију</p>
+            </div>
+            
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="resName" class="form-input" placeholder=" " required>
+                        <label for="resName" class="form-label">Име и презиме</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="resPhone" class="form-input" placeholder=" " required>
+                        <label for="resPhone" class="form-label">Телефон</label>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="date" id="resDate" class="form-input" placeholder=" " required>
+                        <label for="resDate" class="form-label">Датум</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="time" id="resTime" class="form-input" placeholder=" " required>
+                        <label for="resTime" class="form-label">Време</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <select id="resGuests" class="form-input" required>
+                        <option value="">Број особа</option>
+                        <option value="1">1 особа</option>
+                        <option value="2">2 особе</option>
+                        <option value="3">3 особе</option>
+                        <option value="4">4 особе</option>
+                        <option value="5">5 особа</option>
+                        <option value="6">6 особа</option>
+                        <option value="7">7 особа</option>
+                        <option value="8">8 особа</option>
+                        <option value="more">Више од 8</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="resNote" class="form-input" rows="3" placeholder=" "></textarea>
+                    <label for="resNote" class="form-label">Напомена (опционално)</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span>Пошаљите резервацију</span>
+                    <i class="fas fa-check"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(180deg, rgba(40, 30, 20, 0.98) 0%, rgba(30, 22, 15, 0.98) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            color: #D4AF37;
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-header i {
+            font-size: 3rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-header h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .modal-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        
+        .reservation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-input:not(:placeholder-shown) ~ .form-label,
+        .form-input:focus ~ .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #D4AF37;
+            background: rgba(30, 22, 15, 0.95);
+            padding: 0 0.5rem;
+        }
+        
+        /* Labels za date i time polja uvek gore */
+        .form-input[type="date"] ~ .form-label,
+        .form-input[type="time"] ~ .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #D4AF37;
+            background: rgba(30, 22, 15, 0.95);
+            padding: 0 0.5rem;
+        }
+
+        
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+        .form-input[type="date"],
+        .form-input[type="time"] {
+            color-scheme: dark;
+        }
+        
+        .form-input[type="date"]::-webkit-calendar-picker-indicator,
+        .form-input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.7) sepia(1) saturate(5) hue-rotate(10deg);
+            cursor: pointer;
+        }
+        
+        select.form-input {
+            cursor: pointer;
+        }
+        
+        select.form-input option {
+            background: #1a1410;
+            color: #fff;
+        }
+        
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-full {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-full:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 2rem 1.5rem;
+                width: 95%;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+/* Mobile Navigation and Footer Styles */
+@media (max-width: 1024px) {
+                .nav-toggle {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 6px !important;
+                background: rgba(255,255,255,0.08) !important;
+                border: 1px solid rgba(255,255,255,0.12) !important;
+                border-radius: 12px !important;
+                padding: 10px !important;
+                cursor: pointer;
+                z-index: 1001;
+                position: fixed;
+                right: 1.5rem;
+                top: 1.75rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            .nav-toggle span {
+                width: 24px;
+                height: 2px;
+                background: #D4AF37;
+                border-radius: 2px;
+                transition: all 0.3s;
+                display: block;
+            }
+            .nav-actions {
+                gap: 0 !important;
+                padding-left: 0 !important;
+            }
+            .btn-reserve {
+                position: fixed !important;
+                right: 5.5rem !important;
+                top: 1.5rem !important;
+                z-index: 1001 !important;
+                margin-left: 0 !important;
+            }
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            .nav-menu .nav-link {
+                color: rgba(255,255,255,0.9) !important;
+                background: rgba(255,255,255,0.06) !important;
+                border: 1px solid rgba(255,255,255,0.1) !important;
+                padding: 1rem 1.5rem !important;
+                border-radius: 12px !important;
+                font-size: 1rem !important;
+                font-weight: 500 !important;
+                text-decoration: none !important;
+                display: block !important;
+                transition: all 0.3s ease !important;
+                width: 100% !important;
+            }
+            .nav-menu .nav-link.active,
+            .nav-menu .nav-link:hover {
+                background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)) !important;
+                border-color: rgba(212,175,55,0.4) !important;
+                color: #FFD700 !important;
+            }
+            .nav-menu {
+                position: fixed !important;
+                display: flex !important;
+                top: 0 !important;
+                left: -320px !important;
+                width: 320px !important;
+                height: 100vh !important;
+                background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
+                backdrop-filter: blur(40px) !important;
+                padding: 6rem 2rem 2rem 2rem !important;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                transition: left 0.4s ease-in-out, top 0.4s ease-in-out !important;
+                z-index: 1000 !important;
+                overflow-y: auto !important;
+                box-shadow: 8px 0 32px rgba(0,0,0,0.5) !important;
+            }
+            .nav-menu.active {
+                left: 0 !important;
+                top: 130px !important;
+                height: calc(100vh - 130px) !important;
+            }
+            .nav-menu .nav-item {
+                width: 100%;
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            .nav-menu.active .nav-item {
+                animation: slideInLeft 0.4s ease-out forwards;
+            }
+            .nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+            .nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
+            .nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
+            .nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
+            .nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.3s; }
+            .nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.35s; }
+            @keyframes slideInLeft {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            .nav-link {
+                width: 100%;
+                text-align: left;
+                padding: 1rem 1.5rem !important;
+                font-size: 1.05rem !important;
+            }
+            body.menu-open {
+                overflow: hidden;
+            }
+            body.menu-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(4px);
+                z-index: 999;
+                animation: fadeIn 0.3s;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .language-switcher {
+                display: none !important;
+            }
+            .btn-reserve {
+                font-size: 0 !important;
+                padding: 0 !important;
+                width: 48px;
+                height: 48px;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .btn-reserve i {
+                margin-left: 0 !important;
+                font-size: 1.1rem !important;
+            }
+            .btn-reserve span {
+                display: none !important;
+            }
+            
+            /* Footer mobilni */
+    .footer {
+        padding: 3rem 0 1.5rem 0 !important;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+    .footer-col {
+        text-align: left !important;
+    }
+    .footer-col h4 {
+        border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 50%, transparent 100%) 1 !important;
+        max-width: 200px !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        margin-bottom: 1.5rem !important;
+    }
+    .footer-desc {
+        max-width: 90% !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+        font-size: 0.9375rem !important;
+    }
+    .footer-contact-info {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+    .footer-socials {
+        justify-content: flex-start !important;
+        gap: 1rem !important;
+    }
+    .footer-links {
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+    .footer-links li {
+        justify-content: flex-start !important;
+    }
+    .newsletter-form {
+        max-width: 320px !important;
+        margin: 0 !important;
+    }
+    
+    /* Newsletter sekcija - više prostora */
+    .footer-col:last-child h4 {
+        margin-bottom: 1.25rem !important;
+    }
+    .footer-col:last-child p {
+        margin-bottom: 1.5rem !important;
+    }
+    .footer-col:last-child .newsletter-form {
+        margin-bottom: 0 !important;
+    }
+    .footer-col:last-child > div:last-child {
+        display: none !important;
+    }
+    
+    /* Footer features ikonice poravnanje */
+    .footer-col div[style*="display: flex"] {
+        align-items: flex-start !important;
+    }
+    .footer-col .fas {
+        margin-top: 2px !important;
+    }
+    
+    /* Footer quick links bar - u kolonu na mobilnom */
+    .footer > div > div[style*="padding: 3rem"] > div[style*="justify-content: space-between"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1.5rem !important;
+    }
+    
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.25rem !important;
+    }
+    .footer-links-bottom {
+        justify-content: center !important;
+    }
+}
+@media (min-width: 1025px) {
+    .nav-toggle {
+        display: none !important;
+    }
+}
+    </style>
+
+
+    <!-- i18n Script -->
+    <script src="i18n.js"></script>
+
+    <!-- Modal JavaScript -->
+    <script>
+        // Reservation Modal Functionality
+        const btnReserve = document.getElementById('btnReserve');
+        const reservationModal = document.getElementById('reservationModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const reservationForm = document.getElementById('reservationForm');
+        
+        // Open modal
+        if (btnReserve) {
+            btnReserve.addEventListener('click', () => {
+                reservationModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Update translations when modal opens
+                if (typeof setLanguage === 'function' && typeof currentLang !== 'undefined') {
+                    setLanguage(currentLang);
+                }
+            });
+        }
+        
+        // Close modal functions
+        function closeModal() {
+            reservationModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+        
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', closeModal);
+        }
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && reservationModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Handle form submission
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('resName').value,
+                    phone: document.getElementById('resPhone').value,
+                    date: document.getElementById('resDate').value,
+                    time: document.getElementById('resTime').value,
+                    guests: document.getElementById('resGuests').value,
+                    note: document.getElementById('resNote').value
+                };
+                
+                // Here you would typically send data to server
+                console.log('Reservation data:', formData);
+                
+                // Show success message
+                alert('Хвала! Ваша резервација је послата. Контактираћемо вас ускоро за потврду.');
+                
+                // Close modal and reset form
+                closeModal();
+                reservationForm.reset();
+            });
+        }
+        
+        // Set minimum date to today
+        const resDate = document.getElementById('resDate');
+        if (resDate) {
+            const today = new Date().toISOString().split('T')[0];
+            resDate.setAttribute('min', today);
+        }
+    </script>
+
+    <script>
+        // Back to Top Button Functionality
+        (function() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            if (backToTopButton) {
+                // Show/hide button on scroll
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                });
+                
+                // Scroll to top on click
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        })();
+    </script>
+
+<script>
+    // Mobile Menu JavaScript
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('navMenu');
+    const body = document.body;
+    
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        // Direktno manipulišemo stilovima na mobilnom
+        if (window.innerWidth <= 1024) {
+            if (navMenu.style.right === '0px') {
+                navMenu.style.right = '-320px';
+            } else {
+                // Dodaj language switcher u meni ako već ne postoji
+                if (!navMenu.querySelector('.mobile-lang-switcher')) {
+                    const langSwitcher = document.createElement('div');
+                    langSwitcher.className = 'mobile-lang-switcher';
+                    langSwitcher.style.cssText = 'display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255,255,255,0.08); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); margin-top: 2rem;';
+                    
+                    const btnSR = document.querySelector('.lang-btn[data-lang="sr"]').cloneNode(true);
+                    const btnEN = document.querySelector('.lang-btn[data-lang="en"]').cloneNode(true);
+                    const btnRU = document.querySelector('.lang-btn[data-lang="ru"]').cloneNode(true);
+                    
+                    // Dodaj event listenere na klonirana dugmad
+                    btnSR.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (typeof setLanguage === 'function') {
+                            setLanguage('sr');
+                        }
+                    });
+                    btnEN.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (typeof setLanguage === 'function') {
+                            setLanguage('en');
+                        }
+                    });
+                    btnRU.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (typeof setLanguage === 'function') {
+                            setLanguage('ru');
+                        }
+                    });
+                    
+                    langSwitcher.appendChild(btnSR);
+                    langSwitcher.appendChild(btnEN);
+                    langSwitcher.appendChild(btnRU);
+                    navMenu.appendChild(langSwitcher);
+                }
+                
+                navMenu.style.position = 'fixed';
+                navMenu.style.top = '200px';
+                navMenu.style.right = '0px';
+                navMenu.style.width = '320px';
+                navMenu.style.height = 'calc(100vh - 200px)';
+                navMenu.style.background = 'linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%)';
+                navMenu.style.backdropFilter = 'blur(40px)';
+                navMenu.style.padding = '2rem';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.gap = '0.5rem';
+                navMenu.style.transition = 'right 0.4s ease-in-out';
+                navMenu.style.zIndex = '1000';
+                navMenu.style.overflowY = 'auto';
+                navMenu.style.boxShadow = '-8px 0 32px rgba(0,0,0,0.5)';
+                navMenu.style.display = 'flex';
+            }
+        }
+    });
+    
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            body.classList.remove('menu-open');
+            if (window.innerWidth <= 1024) {
+                navMenu.style.right = '-320px';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

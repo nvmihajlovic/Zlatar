@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресторан Златар | Етно ресторан Београд - 40 година традиције</title>
+    <meta name="description" content="Етно ресторан Златар - 40 година традиције од 1985. Аутентична домаћа кухиња, жива музика, 31 врста ракије. Резервишите ваш сто!">
+    <meta name="theme-color" content="#D4AF37">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="new-style.css">
+    
+    <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        
+        :root {
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --gold-primary: #D4AF37;
+            --gold-light: #FFD700;
+            --gold-dark: #B8860B;
+            --brown-dark: #1a1410;
+            --brown-medium: #2B210F;
+        }
+        
+        html {
+            font-size: 90%;
+        }
+        
+        * {
+            font-feature-settings: 'kern' 1, 'liga' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.7;
+            letter-spacing: -0.01em;
+            color: #2d2d2d;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; }
+        h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 700; }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
+        h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 600; }
+        
+        p {
+            margin: 0 0 1.5rem 0;
+            max-width: 68ch;
+        }
+        
+        .lead {
+            font-family: var(--font-body);
+            font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+            line-height: 1.65;
+            letter-spacing: -0.01em;
+            font-weight: 400;
+        }
+        
+        /* Page Transition */
+        .page-transition {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.95) 100%);
+            z-index: 9999;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .page-transition.active { opacity: 1; pointer-events: all; }
+        
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            display: inline-block;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, rgba(212,175,55,0.18), rgba(212,175,55,0.1));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212,175,55,0.35);
+            padding: 0.625rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.15), 0 2px 8px rgba(212,175,55,0.12), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        
+        .section-title {
+            margin-bottom: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .text-shadow-luxury {
+            text-shadow: 
+                0 1px 2px rgba(0,0,0,0.1),
+                0 4px 8px rgba(0,0,0,0.08),
+                0 8px 16px rgba(0,0,0,0.06);
+        }
+        
+        .shadow-soft {
+            box-shadow: 
+                0 2px 8px rgba(0,0,0,0.04),
+                0 4px 16px rgba(0,0,0,0.06);
+        }
+        
+        .shadow-medium {
+            box-shadow: 
+                0 4px 12px rgba(0,0,0,0.08),
+                0 8px 24px rgba(0,0,0,0.1),
+                0 16px 32px rgba(0,0,0,0.08);
+        }
+        
+        .shadow-strong {
+            box-shadow: 
+                0 8px 16px rgba(0,0,0,0.12),
+                0 16px 32px rgba(0,0,0,0.14),
+                0 24px 48px rgba(0,0,0,0.12);
+        }
+        
+        .shadow-gold {
+            box-shadow: 
+                0 4px 16px rgba(212,175,55,0.25),
+                0 8px 32px rgba(212,175,55,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        
+        section {
+            padding: clamp(5rem, 12vh, 9rem) 0;
+        }
+        
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 3rem);
+        }
+        
+        /* Saznaj Više Button Hover Effect */
+        .btn-saznaj-vise::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-saznaj-vise:hover {
+            background: rgba(212, 175, 55, 0.15) !important;
+            border-color: rgba(212, 175, 55, 0.8) !important;
+            color: #D4AF37 !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4), 
+                        0 6px 16px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                        0 0 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-saznaj-vise:hover::before {
+            left: 100%;
+        }
+        
+        .btn-saznaj-vise:hover i {
+            transform: translateY(3px) !important;
+            color: #FFD700;
+        }
+        
+        .btn-saznaj-vise:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" style="display: flex; align-items: center; background: linear-gradient(180deg, rgba(20,15,8,0.97) 0%, rgba(35,26,15,0.95) 50%, rgba(25,18,10,0.93) 100%); backdrop-filter: blur(30px) saturate(180%); border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.4) 30%, rgba(255,215,0,0.3) 50%, rgba(212,175,55,0.4) 70%, transparent 100%) 1; box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(212,175,55,0.1); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); justify-content: center;">
+        <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; max-width: 1400px; width: 100%; padding: 0.5rem 1.5rem;">
+            <a href="#hero" class="nav-logo" style="display: flex; align-items: center; transition: transform 0.3s; margin-right: auto; padding-right: 3rem;">
+                <img src="images/znak-restoran-zlatar-vektorski_clipped_rev_1.png" alt="Ресторан Златар" class="logo-img" style="height: 68px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));">
+            </a>
+            
+            <ul class="nav-menu" id="navMenu" style="display: flex; align-items: center; gap: 1.4rem;">
+                <li class="nav-item"><a href="#hero" class="nav-link active" style="color: #FFD700; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 100%); backdrop-filter: blur(12px) saturate(150%); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(212,175,55,0.25), inset 0 1px 0 rgba(255,255,255,0.1);"><span data-i18n="nav.home">Почетна</span></a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.about">О нама</span></a></li>
+                <li class="nav-item"><a href="menu.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.menu">Јеловник</span></a></li>
+                <li class="nav-item"><a href="wine.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.wine">Винска карта</span></a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.gallery">Галерија</span></a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.contact">Контакт</span></a></li>
+            </ul>
+            
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
+                <div class="language-switcher" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                    <button class="lang-btn active" data-lang="sr" style="background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Српски">RS</button>
+                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">GB</button>
+                    <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
+                </div>
+                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
+                    <span data-i18n="nav.reserve">Резервација</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" style="margin-left: 0.5rem;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" style="min-height: 100vh; position: relative; overflow: hidden; padding-top: 0;">
+        <div class="hero-bg-slider" style="position: absolute; inset: 0; z-index: 1;">
+            <div class="hero-slide active" style="background-image: url('images/restoran zlatar.jpg'); background-size: cover; background-position: center; filter: brightness(0.85) saturate(1.2); width: 100%; height: 100%; position: absolute;"></div>
+            <div class="hero-slide" style="background-image: url('images/restoran-zlatar-sala.jpg'); background-size: cover; background-position: center; filter: brightness(0.85) saturate(1.2); width: 100%; height: 100%; position: absolute;"></div>
+            <div class="hero-slide" style="background-image: url('images/restoran_zlatar_sto.jpg'); background-size: cover; background-position: center; filter: brightness(0.85) saturate(1.2); width: 100%; height: 100%; position: absolute;"></div>
+        </div>
+        <div class="hero-overlay" style="position: absolute; inset: 0; z-index: 2; background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(93,78,55,0.5) 50%, rgba(40,30,20,0.7) 100%);"></div>
+        <div style="position: absolute; inset: 0; z-index: 3; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);"></div>
+        
+        <div class="hero-content" style="position: relative; z-index: 4; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10rem 2rem 2rem 2rem; text-align: center;">
+            
+            <div data-aos="fade-down" data-aos-delay="200" style="background: rgba(212,175,55,0.1); backdrop-filter: blur(12px) saturate(180%); padding: 0.625rem 1.75rem; border-radius: 50px; border: 1px solid rgba(212,175,55,0.3); margin-bottom: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.2), 0 2px 8px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                <span data-i18n="hero.badge" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.12em; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0,0,0,0.25);">⦿ 40 Година Традиције Од 1985 ⦿</span>
+            </div>
+
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400" style="font-family: 'Montserrat', sans-serif; font-size: clamp(3.5rem, 8.5vw, 6.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 2.5rem; letter-spacing: -0.02em; white-space: nowrap;">
+                <span data-i18n="hero.title.restaurant" style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1);">Ресторан </span><span data-i18n="hero.title.zlatar" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2)) drop-shadow(0 4px 8px rgba(0,0,0,0.15));">Златар</span>
+            </h1>
+            
+            <div data-aos="fade-up" data-aos-delay="600" style="padding: 1.5rem 2rem; margin-bottom: 2.5rem; max-width: 740px;">
+                <p data-i18n="hero.subtitle" style="font-family: 'Montserrat', sans-serif; color: #fff; font-size: 1.375rem; font-weight: 500; line-height: 1.5; margin-bottom: 1rem; text-shadow: 0 2px 8px rgba(0,0,0,0.4); letter-spacing: -0.01em;">
+                    Етно ресторан у срцу Београда
+                </p>
+                <p data-i18n="hero.description" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7; text-shadow: 0 1px 4px rgba(0,0,0,0.3); letter-spacing: 0;">
+                    Аутентични укуси златарског краја • Породична атмосфера<br>Незаборавна искуства • Жива музика сваке вечери
+                </p>
+            </div>
+            <div class="hero-actions" data-aos="fade-up" data-aos-delay="800" style="display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center; margin-bottom: 4rem;">
+                <button class="btn btn-primary btn-lg" onclick="document.getElementById('btnReserve').click()" style="font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; color: #fff; padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; border-radius: 50px; box-shadow: 0 8px 24px rgba(212,175,55,0.45), 0 4px 12px rgba(212,175,55,0.3), inset 0 1px 0 rgba(255,255,255,0.35); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; display: inline-flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0.625rem;"></i> <span data-i18n="hero.btn.reserve">Резервација</span>
+                </button>
+                <a href="#about" class="btn btn-outline btn-lg btn-saznaj-vise" style="font-family: 'Montserrat', sans-serif; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px); border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 1rem 2.5rem; font-size: 1rem; font-weight: 500; letter-spacing: 0.02em; border-radius: 50px; box-shadow: 0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <i class="fas fa-arrow-down" style="margin-right: 0.625rem; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);"></i> <span data-i18n="hero.btn.learn">Сазнај више</span>
+                </a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000" style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 0;">
+                <div class="stat" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(20px) saturate(150%); padding: 1.75rem 2.25rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1); min-width: 140px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <span class="stat-number" style="font-family: 'Montserrat', sans-serif; display: block; font-size: 3rem; font-weight: 700; line-height: 1; color: #D4AF37; margin-bottom: 0.5rem; text-shadow: 0 2px 8px rgba(212,175,55,0.5), 0 4px 16px rgba(212,175,55,0.3); letter-spacing: -0.02em;">95</span>
+                    <span class="stat-label" data-i18n="hero.stats.indoor" style="font-family: 'Montserrat', sans-serif; display: block; color: rgba(255,255,255,0.9); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">места у сали</span>
+                </div>
+                <div class="stat" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(20px) saturate(150%); padding: 1.75rem 2.25rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1); min-width: 140px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <span class="stat-number" style="font-family: 'Montserrat', sans-serif; display: block; font-size: 3rem; font-weight: 700; line-height: 1; color: #D4AF37; margin-bottom: 0.5rem; text-shadow: 0 2px 8px rgba(212,175,55,0.5), 0 4px 16px rgba(212,175,55,0.3); letter-spacing: -0.02em;">80</span>
+                    <span class="stat-label" data-i18n="hero.stats.garden" style="font-family: 'Montserrat', sans-serif; display: block; color: rgba(255,255,255,0.9); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">места у башти</span>
+                </div>
+                <div class="stat" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(20px) saturate(150%); padding: 1.75rem 2.25rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1); min-width: 140px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <span class="stat-number" style="font-family: 'Montserrat', sans-serif; display: block; font-size: 3rem; font-weight: 700; line-height: 1; color: #D4AF37; margin-bottom: 0.5rem; text-shadow: 0 2px 8px rgba(212,175,55,0.5), 0 4px 16px rgba(212,175,55,0.3); letter-spacing: -0.02em;">31</span>
+                    <span class="stat-label" data-i18n="hero.stats.rakija" style="font-family: 'Montserrat', sans-serif; display: block; color: rgba(255,255,255,0.9); font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">врста ракије</span>
+                </div>
+            </div>
+            <div class="scroll-down" data-aos="fade-up" data-aos-delay="1200" style="position: absolute; bottom: -2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; cursor: pointer; width: fit-content; z-index: 10;" onclick="document.querySelector('#about').scrollIntoView({behavior: 'smooth'});">
+                <div style="width: 30px; height: 50px; border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; position: relative; margin: 0 auto;">
+                    <div style="width: 6px; height: 10px; background: #D4AF37; border-radius: 3px; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); animation: scroll 2s infinite;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes scroll {
+            0%, 100% { top: 8px; opacity: 1; }
+            50% { top: 24px; opacity: 0.3; }
+        }
+        
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        @keyframes starPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .hero-slide {
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 2s ease-in-out;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(135deg, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.15) 100%) !important;
+            border-color: rgba(212,175,55,0.45) !important;
+            color: #FFD700 !important;
+            box-shadow: 0 8px 24px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.05) !important;
+        }
+        
+        .lang-btn:hover {
+            filter: grayscale(0) !important;
+            opacity: 1 !important;
+            transform: scale(1.2);
+        }
+        
+        .lang-btn.active {
+            filter: grayscale(0) !important;
+            opacity: 1 !important;
+            box-shadow: 0 0 20px rgba(212,175,55,0.5);
+        }
+        
+        .btn-reserve:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.6), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%) !important;
+        }
+    </style>
+
+    <!-- About Section -->
+    <section class="about" id="about" style="background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%); padding: 8rem 0;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images" data-aos="fade-right">
+                    <div class="about-img-main">
+                        <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/01/2-scaled.jpg" alt="Ресторан Златар интеријер">
+                        <div class="img-badge">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <strong>Од 1985</strong>
+                                <span>Милешева - Београд</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-img-grid">
+                        <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/01/3-scaled.jpg" alt="Традиционална храна">
+                        <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/01/1-1-scaled.jpg" alt="Златарски специјалитети">
+                    </div>
+                </div>
+                
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-label" data-i18n="about.label">О нама</span>
+                    <h2 class="section-title" data-i18n="about.title">Наша прича<br>od 1985.<span class="text-gold" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">1985. године</span></h2>
+                    
+                    <div class="about-story">
+                        <p data-i18n="about.text1" style="font-size: 1rem; line-height: 1.7; color: #555; margin-bottom: 1.5rem;">
+                            Давно беше та 1985. Некоме је била најбоља година. Неко је једва чекао да се заврши. За породицу Поповић – најважнија.
+                        </p>
+                        <p data-i18n="about.text2" style="font-size: 1rem; line-height: 1.7; color: #555; margin-bottom: 1.5rem;">
+                            Отворили су ресторан Златар. Да преци буду поносни. Да људи са свих меридијана уживају као никада пре.
+                        </p>
+                    </div>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-i18n="about.feature1.title">40 година традиције</h4>
+                                <p data-i18n="about.feature1.text">Искуство које се преноси генерацијама</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-i18n="about.feature2.title">Породична атмосфера</h4>
+                                <p data-i18n="about.feature2.text">Топлина дома и гостољубивост</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-i18n="about.feature3.title">Аутентични састојци</h4>
+                                <p data-i18n="about.feature3.text">Свакодневно допремани из златарског краја</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="about.html" class="btn btn-primary">
+                        <span data-i18n="about.btn">Сазнајте више</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section class="specialties" id="specialties" style="background: linear-gradient(180deg, #f8f8f8 0%, #f3f3f3 100%); padding: 8rem 0;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label" data-i18n="specialties.label">Специјалитети</span>
+                <h2 class="section-title" data-i18n="specialties.title">Кулинарски <span class="text-gold" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">специјалитети</span></h2>
+                <p class="section-description" data-i18n="specialties.description">
+                    Специјалитет до специјалитета - гастрономска перфекција из најлепших снова
+                </p>
+            </div>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialty-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <h3 data-i18n="specialties.card1.title">Рустичне посластице</h3>
+                    <p data-i18n="specialties.card1.text">Слане и слатке посластице по традиционалним рецептима</p>
+                    <div class="specialty-hover-line"></div>
+                </div>
+                
+                <div class="specialty-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialty-icon">
+                        <i class="fas fa-bowl-food"></i>
+                    </div>
+                    <h3 data-i18n="specialties.card2.title">Фантастична предјела</h3>
+                    <p data-i18n="specialties.card2.text">Богат избор предјела и чорби који ће вас одушевити</p>
+                    <div class="specialty-hover-line"></div>
+                </div>
+                
+                <div class="specialty-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="specialty-icon">
+                        <i class="fas fa-fire-burner"></i>
+                    </div>
+                    <h3 data-i18n="specialties.card3.title">Роштиљ на ћумур</h3>
+                    <p data-i18n="specialties.card3.text">Месо печено на традиционалан начин на отвореној ватри</p>
+                    <div class="specialty-hover-line"></div>
+                </div>
+                
+                <div class="specialty-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="specialty-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 data-i18n="specialties.card4.title">Јела по поруџбини</h3>
+                    <p data-i18n="specialties.card4.text">Кувана јела и печење припремљено специјално за вас</p>
+                    <div class="specialty-hover-line"></div>
+                </div>
+            </div>
+            
+            <div class="cta-banner" data-aos="fade-up" data-aos-delay="500">
+                <div class="cta-content">
+                    <i class="fas fa-sparkles"></i>
+                    <div class="cta-text">
+                        <h3 data-i18n="specialties.cta.title">Намирнице се свакодневно допремају из златарског краја</h3>
+                        <p data-i18n="specialties.cta.subtitle">Једноставно - гастрономска перфекција!</p>
+                    </div>
+                </div>
+                <button class="btn btn-light" onclick="window.location.href='menu.html'">
+                    <span data-i18n="specialties.cta.btn">Погледајте мени</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rakije Section -->
+    <section class="rakije" id="rakije" style="padding: 8rem 0; background: linear-gradient(135deg, #2B1F15 0%, #3D3226 50%, #5D4E37 100%); position: relative; overflow: hidden;">
+        <div class="rakije-bg" style="position: absolute; inset: 0; opacity: 0.1; background: url('images/restoran zlatar.jpg') center/cover; filter: blur(8px);"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="rakije-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="rakije-content" data-aos="fade-right" style="padding: 2rem 0;">
+                    <span class="section-label light" data-i18n="rakija.label" style="background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08)); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.3); color: #D4AF37; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; display: inline-block; margin-bottom: 1.5rem; padding: 0.625rem 1.5rem; border-radius: 50px; box-shadow: 0 4px 16px rgba(212,175,55,0.15);">РАКИЈЕ ЗЛАТАР</span>
+                    <h2 class="section-title light" data-i18n="rakija.title" style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; color: #fff;">
+                        31 врста<br><span class="text-gold" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">домаће ракије</span>
+                    </h2>
+                    <p class="lead-text" data-i18n="rakija.text" style="font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 2.5rem;">
+                        Домаћa српска ракија Златар од 100% воћa у тачно 31 издању.<br>Говори све језике. На први гутљај.
+                    </p>
+                    
+                    <ul class="rakije-features" style="list-style: none; padding: 0; margin-bottom: 2.5rem;">
+                        <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-check-circle" style="color: #D4AF37; font-size: 1.25rem;"></i>
+                            <span data-i18n="rakija.feature1" style="color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 500;">Од 100% природног воћa</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-check-circle" style="color: #D4AF37; font-size: 1.25rem;"></i>
+                            <span data-i18n="rakija.feature2" style="color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 500;">Традиционални рецепти</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-check-circle" style="color: #D4AF37; font-size: 1.25rem;"></i>
+                            <span data-i18n="rakija.feature3" style="color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 500;">Дегустациона сала</span>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 1rem; padding: 1rem 0;">
+                            <i class="fas fa-check-circle" style="color: #D4AF37; font-size: 1.25rem;"></i>
+                            <span data-i18n="rakija.feature4" style="color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 500;">Продајни простор</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="rakije-actions" style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://rakijazlatar.com/" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; padding: 1rem 2rem; font-size: 1rem; font-weight: 700; border-radius: 50px; color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; box-shadow: 0 8px 24px rgba(212,175,55,0.4);">
+                            <span data-i18n="rakija.btn.visit">Посетите Rakija Zlatar</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <button class="btn btn-outline-light" id="btnPromo" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 1rem 2rem; font-size: 1rem; font-weight: 700; border-radius: 50px; display: inline-flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+                            <span data-i18n="rakija.btn.promo">Промоција</span>
+                            <i class="fas fa-gift"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="rakije-visual" data-aos="fade-left" style="position: relative; display: flex; align-items: center; justify-content: center; min-height: 500px;">
+                    <div class="rakije-bottles" style="position: relative; display: flex; align-items: flex-end; justify-content: center; width: 100%; height: 570px;">
+                        <div class="bottle-slide" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: flex-end; justify-content: center; opacity: 1; transition: opacity 1s ease-in-out;">
+                            <img src="images/maska-vocna.png" alt="Ракија Златар" style="height: 570px; width: auto; filter: drop-shadow(0 12px 40px rgba(212,175,55,0.6));">
+                        </div>
+                        <div class="bottle-slide" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: flex-end; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out;">
+                            <img src="images/maska-vocna-B.png" alt="Ракија Златар" style="height: 570px; width: auto; filter: drop-shadow(0 12px 40px rgba(212,175,55,0.6));">
+                        </div>
+                        <div class="bottle-slide" style="position: absolute; width: 100%; height: 100%; display: flex; align-items: flex-end; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out;">
+                            <img src="maska-vocna-S.png" alt="Ракија Златар" style="height: 570px; width: auto; filter: drop-shadow(0 12px 40px rgba(212,175,55,0.6));">
+                        </div>
+                        <!-- Badge -->
+                        <div class="custom-badge" style="position: absolute; right: 3%; top: 15%; z-index: 10;">
+                            <div style="
+                                width: 160px;
+                                height: 160px;
+                                border-radius: 50%;
+                                background: linear-gradient(145deg, rgba(212,175,55,0.92) 0%, rgba(184,134,11,0.95) 50%, rgba(139,102,8,0.9) 100%);
+                                backdrop-filter: blur(15px) saturate(120%);
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                box-shadow: 
+                                    0 12px 40px rgba(0,0,0,0.5),
+                                    0 6px 20px rgba(212,175,55,0.4),
+                                    0 0 30px rgba(212,175,55,0.5),
+                                    0 0 50px rgba(255,215,0,0.3),
+                                    inset 0 3px 15px rgba(255,255,255,0.25),
+                                    inset 0 -3px 15px rgba(0,0,0,0.2);
+                                border: 3px solid rgba(255,255,255,0.4);
+                                animation: badgeFloat 3s ease-in-out infinite;
+                                position: relative;
+                                filter: drop-shadow(0 0 20px rgba(212,175,55,0.6));
+                            ">
+                                <div style="
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 50%;
+                                    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 60%);
+                                    pointer-events: none;
+                                "></div>
+                                <i class="fas fa-star" style="
+                                    font-size: 1.6rem;
+                                    color: #fff;
+                                    margin-bottom: 0.6rem;
+                                    text-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.6), 0 0 30px rgba(212,175,55,0.4);
+                                    animation: starPulse 2s ease-in-out infinite;
+                                    filter: drop-shadow(0 0 8px rgba(255,215,0,0.8));
+                                "></i>
+                                <span style="
+                                    font-family: 'Cinzel', serif;
+                                    font-size: 1rem;
+                                    font-weight: 700;
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 1.4;
+                                    text-shadow: 0 3px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.8), 0 0 15px rgba(255,215,0,0.5);
+                                    letter-spacing: 1px;
+                                    text-transform: uppercase;
+                                    filter: drop-shadow(0 0 6px rgba(255,215,0,0.6));
+                                " data-i18n="rakija.badge">Сопствена<br>Производња</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Rakije bottles slider
+        (function() {
+            const slides = document.querySelectorAll('.bottle-slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.style.opacity = i === index ? '1' : '0';
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto rotate every 3 seconds
+            setInterval(nextSlide, 3000);
+        })();
+    </script>
+
+    <!-- Music Section -->
+    <section class="music" id="music" style="background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%); padding: 8rem 0;">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label" data-i18n="music.label">Музика</span>
+                <h2 class="section-title" data-i18n="music.title">Жива музика<br><span class="text-gold" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">сваке вечери</span></h2>
+                <p class="section-description" data-i18n="music.time">Музичке групе од 19:00 часова</p>
+            </div>
+            
+            <div class="music-schedule">
+                <div class="schedule-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="schedule-day" data-i18n="music.day.tuesday">Уторак</div>
+                    <div class="schedule-band" data-i18n="music.band.bg_express">BG Express</div>
+                    <div class="schedule-time"><i class="fas fa-clock"></i> 19:00h</div>
+                </div>
+                <div class="schedule-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="schedule-day" data-i18n="music.day.wednesday">Среда</div>
+                    <div class="schedule-band" data-i18n="music.band.narakord">Наракорд</div>
+                    <div class="schedule-time"><i class="fas fa-clock"></i> 19:00h</div>
+                </div>
+                <div class="schedule-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="schedule-day" data-i18n="music.day.thursday">Четвртак</div>
+                    <div class="schedule-band" data-i18n="music.band.truba">Труба бенд</div>
+                    <div class="schedule-time"><i class="fas fa-clock"></i> 19:00h</div>
+                </div>
+                <div class="schedule-item" data-aos="fade-up" data-aos-delay="250">
+                    <div class="schedule-day" data-i18n="music.day.friday">Петак</div>
+                    <div class="schedule-band" data-i18n="music.band.nota">Нота бенд</div>
+                    <div class="schedule-time"><i class="fas fa-clock"></i> 19:00h</div>
+                </div>
+                <div class="schedule-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="schedule-day" data-i18n="music.day.saturday">Субота</div>
+                    <div class="schedule-band" data-i18n="music.band.stari_fijacer">Стари фијакер</div>
+                    <div class="schedule-time"><i class="fas fa-clock"></i> 19:00h</div>
+                </div>
+                <div class="schedule-item" data-aos="fade-up" data-aos-delay="350">
+                    <div class="schedule-day" data-i18n="music.day.sun_mon">Недеља / Понедељак</div>
+                    <div class="schedule-band" data-i18n="music.genre">По потреби</div>
+                    <div class="schedule-time"><i class="fas fa-phone"></i> <span data-i18n="contact.title">Контакт</span></div>
+                </div>
+            </div>
+            
+            <div class="working-hours" data-aos="fade-up" data-aos-delay="400">
+                <h3><i class="fas fa-clock"></i> <span data-i18n="music.hours.title">Радно време</span></h3>
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <span class="hours-day" data-i18n="music.hours.tue_thu">Уторак - Четвртак</span>
+                        <span class="hours-time">09:00 - 23:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day" data-i18n="music.hours.fri_sat">Петак - Субота</span>
+                        <span class="hours-time">09:00 - 24:00</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day" data-i18n="music.hours.sun_mon">Недеља - Понедељак</span>
+                        <span class="hours-time">11:00 - 19:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery" style="background: linear-gradient(180deg, #f8f8f8 0%, #f3f3f3 100%); padding: 8rem 0;">
+        <div class="container-full">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label" data-i18n="gallery.label">Галерија</span>
+                <h2 class="section-title" data-i18n="gallery.title">Хедонизам<br><span class="text-gold" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">за сва чула</span></h2>
+                <p class="section-description" data-i18n="gallery.subtitle">Савршени спој домаћих укуса</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/03/img-71edaeea36f3b089187271a6f021c1c1-v.jpg" alt="Традиционална храна">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/03/img-b484bf32b4cc8e36af557de038283997-v.jpg" alt="Специјалитети">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/03/img-d9cf14b4eea04d52526d0bc8d792a836-v.jpg" alt="Роштиљ">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
+                    <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/03/img-da99f9fabb0f918b15accba619a1d555-v.jpg" alt="Домаћа кухиња">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/01/2-scaled.jpg" alt="Интеријер">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350">
+                    <img src="https://www.restoranzlatar.com/wp-content/uploads/2020/01/3-scaled.jpg" alt="Јела">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" style="background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%); padding: 8rem 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 30%, rgba(212,175,55,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(212,175,55,0.06) 0%, transparent 50%); pointer-events: none;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+                <div class="contact-info" data-aos="fade-right">
+                    <span class="section-label" data-i18n="contact.label" style="display: inline-block; padding: 0.5rem 1.5rem; background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.08)); border-radius: 8px; color: #B8860B; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(212,175,55,0.15);">Контакт</span>
+                    <h2 class="section-title" data-i18n="contact.title">Посетите <span class="text-gold" style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent;">нас</span></h2>
+                    <p class="section-description" data-i18n="contact.subtitle">Не чекајте посебан повод и позивницу</p>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.3rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border-radius: 16px; margin-bottom: 1rem; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s;">
+                            <div class="contact-icon" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border-radius: 14px; color: #fff; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(212,175,55,0.35); flex-shrink: 0;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.info.address" style="font-family: 'Montserrat', sans-serif; color: #3d3226; font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Адреса</h4>
+                                <p style="font-family: 'Montserrat', sans-serif; color: #6b5a4a; font-size: 1rem; line-height: 1.6; margin: 0;">Preradovićeva 9a</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.3rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border-radius: 16px; margin-bottom: 1rem; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s;">
+                            <div class="contact-icon" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border-radius: 14px; color: #fff; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(212,175,55,0.35); flex-shrink: 0;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.info.phone" style="font-family: 'Montserrat', sans-serif; color: #3d3226; font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Телефон</h4>
+                                <p style="font-family: 'Montserrat', sans-serif; margin: 0;"><a href="tel:+381641234567" style="color: #D4AF37; font-size: 1rem; text-decoration: none; font-weight: 500; transition: all 0.3s;">+381 64 123 4567</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.3rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border-radius: 16px; margin-bottom: 0; border: 1px solid rgba(212,175,55,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s;">
+                            <div class="contact-icon" style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border-radius: 14px; color: #fff; font-size: 1.5rem; box-shadow: 0 6px 20px rgba(212,175,55,0.35); flex-shrink: 0;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-i18n="contact.info.hours" style="font-family: 'Montserrat', sans-serif; color: #3d3226; font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Радно време</h4>
+                                <p data-i18n="contact.hours.week" style="font-family: 'Montserrat', sans-serif; color: #6b5a4a; font-size: 1rem; line-height: 1.6; margin: 0;">Уторак-Четвртак: 09-23h<br>Петак-Субота: 09-24h</p>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper" data-aos="fade-left" style="background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); padding: 3rem; border-radius: 24px; box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 2px 16px rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.15);">
+                    <form class="contact-form" id="contactForm">
+                        <h3 data-i18n="contact.form.title" style="font-family: 'Montserrat', sans-serif; color: #3d3226; font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1;">Пошаљите нам поруку</h3>
+                        <div class="form-group" style="position: relative; margin-bottom: 1.75rem;">
+                            <input type="text" id="name" class="form-input" placeholder=" " required style="width: 100%; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.9); border: 1.5px solid rgba(212,175,55,0.25); border-radius: 14px; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #3d3226; outline: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                            <label for="name" class="form-label" data-i18n="contact.form.name" style="position: absolute; left: 1.5rem; top: 1.25rem; font-family: 'Montserrat', sans-serif; color: #8b7355; font-size: 1rem; transition: all 0.3s; pointer-events: none; background: rgba(255,255,255,0.9); padding: 0 0.5rem;">Име и презиме</label>
+                        </div>
+                        
+                        <div class="form-group" style="position: relative; margin-bottom: 1.75rem;">
+                            <input type="email" id="email" class="form-input" placeholder=" " required style="width: 100%; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.9); border: 1.5px solid rgba(212,175,55,0.25); border-radius: 14px; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #3d3226; outline: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                            <label for="email" class="form-label" data-i18n="contact.form.email" style="position: absolute; left: 1.5rem; top: 1.25rem; font-family: 'Montserrat', sans-serif; color: #8b7355; font-size: 1rem; transition: all 0.3s; pointer-events: none; background: rgba(255,255,255,0.9); padding: 0 0.5rem;">Е-mail адреса</label>
+                        </div>
+                        
+                        <div class="form-group" style="position: relative; margin-bottom: 1.75rem;">
+                            <input type="tel" id="phone" class="form-input" placeholder=" " style="width: 100%; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.9); border: 1.5px solid rgba(212,175,55,0.25); border-radius: 14px; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #3d3226; outline: none; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                            <label for="phone" class="form-label" data-i18n="contact.form.phone" style="position: absolute; left: 1.5rem; top: 1.25rem; font-family: 'Montserrat', sans-serif; color: #8b7355; font-size: 1rem; transition: all 0.3s; pointer-events: none; background: rgba(255,255,255,0.9); padding: 0 0.5rem;">Телефон</label>
+                        </div>
+                        
+                        <div class="form-group" style="position: relative; margin-bottom: 2rem;">
+                            <textarea id="message" class="form-input" rows="4" placeholder=" " required style="width: 100%; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.9); border: 1.5px solid rgba(212,175,55,0.25); border-radius: 14px; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #3d3226; outline: none; transition: all 0.3s; resize: vertical; min-height: 120px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);"></textarea>
+                            <label for="message" class="form-label" data-i18n="contact.form.message" style="position: absolute; left: 1.5rem; top: 1.25rem; font-family: 'Montserrat', sans-serif; color: #8b7355; font-size: 1rem; transition: all 0.3s; pointer-events: none; background: rgba(255,255,255,0.9); padding: 0 0.5rem;">Ваша порука</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full" style="width: 100%; padding: 1.25rem 2rem; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 14px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1.125rem; font-weight: 600; cursor: pointer; transition: all 0.4s; display: flex; align-items: center; justify-content: center; gap: 0.75rem; box-shadow: 0 6px 24px rgba(212,175,55,0.4); letter-spacing: 0.02em;">
+                            <span data-i18n="contact.form.submit">Пошаљите поруку</span>
+                            <i class="fas fa-paper-plane" style="font-size: 1rem;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 5fr 3.5fr 2.5fr 3fr; gap: 9rem; margin-bottom: 5rem;">
+                <div class="footer-col">
+                    <div class="footer-logo" style="margin-bottom: 1.5rem;">
+                        <img src="images/znak-restoran-zlatar-vektorski_clipped_rev_1.png" alt="Ресторан Златар" style="height: 85px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));">
+                    </div>
+                    <p class="footer-desc" data-i18n="footer.about.text" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 2rem; max-width: 380px;">
+                        Етно ресторан у срцу Београда. 40 година традиције, аутентични укуси и незаборавна атмосфера.
+                    </p>
+                    <div class="footer-contact-info" style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem;">
+                            <i class="fas fa-phone" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                            <a href="tel:+381112444421" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; text-decoration: none; transition: all 0.3s;">+381 11 2444 421</a>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem;">
+                            <i class="fas fa-envelope" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                            <a href="mailto:info@restoranzlatar.com" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; text-decoration: none; transition: all 0.3s;">info@restoranzlatar.com</a>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #D4AF37; font-size: 1.125rem; margin-top: 0.125rem;"></i>
+                            <span data-i18n-html="footer.address" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6;">Прерадовићева 9а<br>Београд, Србија</span>
+                        </div>
+                    </div>
+                    <div class="footer-socials" style="display: flex; gap: 0.75rem;">
+                        <a href="https://www.facebook.com/Etno-restoran-Zlatar-1569616319928297/" target="_blank" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: rgba(255,255,255,0.7); font-size: 1.125rem; transition: all 0.3s; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/etno_restoran_zlatar/" target="_blank" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: rgba(255,255,255,0.7); font-size: 1.125rem; transition: all 0.3s; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 data-i18n="footer.hours.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;">Радно време</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.875rem;">
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; white-space: nowrap;">
+                            <span data-i18n="footer.hours.mon_fri" style="white-space: nowrap;">Пон-Пет</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem; white-space: nowrap; margin-left: 0.5rem;">09:00 - 00:00</span>
+                        </li>
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span data-i18n="footer.hours.saturday">Субота</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">10:00 - 01:00</span>
+                        </li>
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span data-i18n="footer.hours.sunday">Недеља</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">10:00 - 00:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 data-i18n="footer.links.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;">Навигација</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-info-circle" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.about">О нама</span></a></li>
+                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-utensils" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.menu">Јеловник</span></a></li>
+                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-wine-glass-alt" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.wine">Винска карта</span></a></li>
+                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-images" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.gallery">Галерија</span></a></li>
+                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 0.75rem;"><i class="fas fa-phone" style="color: #D4AF37; font-size: 0.95rem;"></i><span data-i18n="nav.contact">Контакт</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 data-i18n="footer.newsletter.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;">Newsletter</h4>
+                    <p data-i18n="footer.newsletter.text" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9375rem; margin-bottom: 1.25rem;">Пријавите се за специјалне понуде</p>
+                    <div class="newsletter-form" style="display: flex; gap: 0.5rem;">
+                        <input type="email" data-i18n-placeholder="footer.newsletter.placeholder" placeholder="Ваш email" class="newsletter-input" style="font-family: 'Montserrat', sans-serif; flex: 1; padding: 0.875rem 1.25rem; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.9375rem; outline: none; transition: all 0.3s;">
+                        <button class="newsletter-btn" style="width: 48px; height: 48px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 12px; color: #fff; font-size: 1rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(212,175,55,0.3);">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.06) 100%); backdrop-filter: blur(12px); border-left: 4px solid #D4AF37; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);">
+                        <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0; line-height: 1.7; display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-info-circle" style="color: #D4AF37; font-size: 1.1rem; flex-shrink: 0;"></i>
+                            <span data-i18n="footer.newsletter.note">За групе веће од 10 особа обавезна резервација</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links Bar -->
+            <div style="padding: 3rem 0; margin-bottom: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-award" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div data-i18n="footer.badge1.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;">40 година традиције</div>
+                            <div data-i18n="footer.badge1.subtitle" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;">Од 1985. године</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-utensils" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div data-i18n="footer.badge2.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;">Аутентична кухиња</div>
+                            <div data-i18n="footer.badge2.subtitle" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;">Домаћи рецепти</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-wine-bottle" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div data-i18n="footer.badge3.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;">31 врста ракије</div>
+                            <div data-i18n="footer.badge3.subtitle" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;">Домаће производње</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-music" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div data-i18n="footer.badge4.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;">Жива музика</div>
+                            <div data-i18n="footer.badge4.subtitle" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;">Петком и суботом</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-parking" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div data-i18n="footer.badge5.title" style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;">Бесплатан паркинг</div>
+                            <div data-i18n="footer.badge5.subtitle" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;">За госте ресторана</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+                <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.9375rem; margin: 0;"><span data-i18n="footer.bottom.copyright">&copy; <span id="currentYear"></span> Ресторан Златар. Сва права задржана.</span></p>
+                
+                <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                    <a href="terms.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="footer.bottom.terms">Услови коришћења</span></a>
+                    <a href="privacy.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="footer.bottom.privacy">Политика приватности</span></a>
+                    <a href="sitemap.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="footer.bottom.sitemap">Мапа сајта</span></a>
+                    <span style="color: rgba(255,255,255,0.2); font-size: 0.875rem;">|</span>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span data-i18n="footer.bottom.design" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem;">Дизајн и израда</span>
+                        <a href="https://pansoft.rs" target="_blank" style="display: inline-block; transition: all 0.3s;">
+                            <img src="Pansoft/pansoft logo bela slova-01.png" alt="Pansoft" style="height: 32px; width: auto; opacity: 0.7; transition: all 0.3s;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        .footer-socials a:hover {
+            background: rgba(212,175,55,0.15);
+            border-color: rgba(212,175,55,0.3);
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+            transform: translateX(4px);
+        }
+        
+        .newsletter-input:focus {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,175,55,0.3);
+        }
+        
+        .newsletter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+        }
+        
+        .footer-bottom a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom img:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .footer-links-bottom a:hover {
+            color: #D4AF37;
+        }
+    </style>
+
+    <!-- Reservation Modal -->
+    <div class="modal" id="reservationModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <i class="fas fa-calendar-check"></i>
+                <h2 data-i18n="modal.reservation.title">Резервација стола</h2>
+                <p data-i18n="modal.reservation.subtitle">Попуните формулар и потврдићемо вашу резервацију</p>
+            </div>
+            
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="resName" class="form-input" placeholder=" " required>
+                        <label for="resName" class="form-label" data-i18n="modal.reservation.name">Име и презиме</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="resPhone" class="form-input" placeholder=" " required>
+                        <label for="resPhone" class="form-label" data-i18n="modal.reservation.phone">Телефон</label>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="date" id="resDate" class="form-input" placeholder=" " required>
+                        <label for="resDate" class="form-label" data-i18n="modal.reservation.date">Датум</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="time" id="resTime" class="form-input" placeholder=" " required>
+                        <label for="resTime" class="form-label" data-i18n="modal.reservation.time">Време</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <select id="resGuests" class="form-input" required>
+                        <option value="" data-i18n="modal.reservation.guests-placeholder">Број особа</option>
+                        <option value="1" data-i18n="modal.reservation.guests-1">1 особа</option>
+                        <option value="2" data-i18n="modal.reservation.guests-2">2 особе</option>
+                        <option value="3" data-i18n="modal.reservation.guests-3">3 особе</option>
+                        <option value="4" data-i18n="modal.reservation.guests-4">4 особе</option>
+                        <option value="5" data-i18n="modal.reservation.guests-5">5 особа</option>
+                        <option value="6" data-i18n="modal.reservation.guests-6">6 особа</option>
+                        <option value="7" data-i18n="modal.reservation.guests-7">7 особа</option>
+                        <option value="8" data-i18n="modal.reservation.guests-8">8 особа</option>
+                        <option value="more" data-i18n="modal.reservation.guests-more">Више од 8</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="resNote" class="form-input" rows="3" placeholder=" "></textarea>
+                    <label for="resNote" class="form-label" data-i18n="modal.reservation.note">Напомена (опционално)</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span data-i18n="modal.reservation.submit">Пошаљите резервацију</span>
+                    <i class="fas fa-check"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .modal-content {
+            position: relative;
+            background: linear-gradient(180deg, rgba(40, 30, 20, 0.98) 0%, rgba(30, 22, 15, 0.98) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            color: #D4AF37;
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-header i {
+            font-size: 3rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-header h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .modal-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        
+        .reservation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-input:not(:placeholder-shown) ~ .form-label,
+        .form-input:focus ~ .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #D4AF37;
+            background: rgba(30, 22, 15, 0.95);
+            padding: 0 0.5rem;
+        }
+        
+        /* Labels za date i time polja uvek gore */
+        .form-input[type="date"] ~ .form-label,
+        .form-input[type="time"] ~ .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #D4AF37;
+            background: rgba(30, 22, 15, 0.95);
+            padding: 0 0.5rem;
+        }
+
+        
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+        .form-input[type="date"],
+        .form-input[type="time"] {
+            color-scheme: dark;
+        }
+        
+        .form-input[type="date"]::-webkit-calendar-picker-indicator,
+        .form-input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.7) sepia(1) saturate(5) hue-rotate(10deg);
+            cursor: pointer;
+        }
+        
+        select.form-input {
+            cursor: pointer;
+        }
+        
+        select.form-input option {
+            background: #1a1410;
+            color: #fff;
+        }
+        
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-full {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-full:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 2rem 1.5rem;
+                width: 95%;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+    <!-- i18n Internationalization -->
+    <script src="i18n.js"></script>
+
+    <!-- Modal JavaScript -->
+    <script>
+        // Reservation Modal Functionality
+        const btnReserve = document.getElementById('btnReserve');
+        const reservationModal = document.getElementById('reservationModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const reservationForm = document.getElementById('reservationForm');
+        
+        // Open modal
+        if (btnReserve) {
+            btnReserve.addEventListener('click', () => {
+                reservationModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Update translations when modal opens
+                if (typeof setLanguage === 'function' && typeof currentLang !== 'undefined') {
+                    setLanguage(currentLang);
+                }
+            });
+        }
+        
+        // Close modal functions
+        function closeModal() {
+            reservationModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+        
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', closeModal);
+        }
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && reservationModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Handle form submission
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('resName').value,
+                    phone: document.getElementById('resPhone').value,
+                    date: document.getElementById('resDate').value,
+                    time: document.getElementById('resTime').value,
+                    guests: document.getElementById('resGuests').value,
+                    note: document.getElementById('resNote').value
+                };
+                
+                // Here you would typically send data to server
+                console.log('Reservation data:', formData);
+                
+                // Show success message
+                alert('Хвала! Ваша резервација је послата. Контактираћемо вас ускоро за потврду.');
+                
+                // Close modal and reset form
+                closeModal();
+                reservationForm.reset();
+            });
+        }
+        
+        // Set minimum date to today
+        const resDate = document.getElementById('resDate');
+        if (resDate) {
+            const today = new Date().toISOString().split('T')[0];
+            resDate.setAttribute('min', today);
+        }
+    </script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-header" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="cookie-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: #1a1410; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3); flex-shrink: 0;">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div>
+                <h4 data-i18n="cookie.title" style="font-family: 'Montserrat', sans-serif; font-size: 1.35rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">Подешавање колачића</h4>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin: 0;">
+                    <span data-i18n="cookie.description">Изаберите које врсте колачића желите да прихватите.</span> <a href="privacy.html" style="color: #FFD700; text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: all 0.3s;"><span data-i18n="cookie.learn_more">Сазнајте више</span></a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="cookie-categories" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+            <!-- Neophodni kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-shield-alt" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.essential.title">Неопходни колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.essential.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Омогућавају основне функције сајта (навигација, безбедност)</p>
+                </div>
+                <div style="margin-left: 1rem;">
+                    <span data-i18n="cookie.essential.always" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.05em;">Увек укључени</span>
+                </div>
+            </div>
+            
+            <!-- Analiticki kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-chart-line" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.analytics.title">Аналитички колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.analytics.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Помажу нам да разумемо како користите сајт (Google Analytics)</p>
+                </div>
+                <label class="cookie-switch" style="margin-left: 1rem;">
+                    <input type="checkbox" id="analyticsConsent" checked>
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+            
+            <!-- Funkcionalni kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-cog" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.functional.title">Функционални колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.functional.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Памте ваше преференције (језик, тема, локација)</p>
+                </div>
+                <label class="cookie-switch" style="margin-left: 1rem;">
+                    <input type="checkbox" id="functionalConsent" checked>
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+            
+            <!-- Marketing kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-bullhorn" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.marketing.title">Маркетиншки колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.marketing.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Прате вас преко сајтова за персонализоване огласе</p>
+                </div>
+                <label class="cookie-switch" style="margin-left: 1rem;">
+                    <input type="checkbox" id="marketingConsent">
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="cookie-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button class="btn-cookie-accept-all" id="acceptAllCookies" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 0.875rem 1.75rem; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #1a1410; box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3); flex: 1;">
+                <i class="fas fa-check-double"></i>
+                <span data-i18n="cookie.accept_all">Прихвати све</span>
+            </button>
+            <button class="btn-cookie-save" id="saveCookiePreferences" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 0.875rem 1.75rem; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; background: rgba(212, 175, 55, 0.1); color: #D4AF37; flex: 1;">
+                <i class="fas fa-save"></i>
+                <span data-i18n="cookie.save_preferences">Сачувај избор</span>
+            </button>
+            <button class="btn-cookie-decline-all" id="declineAllCookies" style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 0.875rem 1.5rem; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.7);">
+                <span data-i18n="cookie.decline_all">Само неопходни</span>
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .cookie-consent {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(150%);
+            max-width: 700px;
+            width: calc(100% - 2rem);
+            background: linear-gradient(145deg, rgba(26, 20, 16, 0.98) 0%, rgba(43, 33, 15, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 8px 20px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            z-index: 10000;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .cookie-consent.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        /* Toggle Switch */
+        .cookie-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+        
+        .cookie-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .cookie-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+        
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .cookie-switch input:checked + .cookie-slider {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            border-color: #D4AF37;
+        }
+        
+        .cookie-switch input:checked + .cookie-slider:before {
+            transform: translateX(24px);
+            background-color: #1a1410;
+        }
+        
+        /* Button Hovers */
+        .btn-cookie-accept-all:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-cookie-save:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.6);
+        }
+        
+        .btn-cookie-decline-all:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cookie-text h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .cookie-text p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        .cookie-text a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .cookie-text a:hover {
+            color: #D4AF37;
+            border-bottom-color: #D4AF37;
+        }
+
+        .cookie-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .btn-cookie-accept,
+        .btn-cookie-decline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-cookie-accept {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #1a1410;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-cookie-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-cookie-decline {
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-cookie-decline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-consent {
+                bottom: 1rem;
+                width: calc(100% - 1rem);
+                padding: 1.5rem;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .btn-cookie-accept,
+            .btn-cookie-decline {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cookie-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .cookie-text h4 {
+                font-size: 1.125rem;
+            }
+
+            .cookie-text p {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="new-script.js"></script>
+    
+    <script>
+        // Cookie Consent Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptAllBtn = document.getElementById('acceptAllCookies');
+            const saveBtn = document.getElementById('saveCookiePreferences');
+            const declineAllBtn = document.getElementById('declineAllCookies');
+            
+            const analyticsCheckbox = document.getElementById('analyticsConsent');
+            const functionalCheckbox = document.getElementById('functionalConsent');
+            const marketingCheckbox = document.getElementById('marketingConsent');
+
+            // Check if user has already made a choice
+            const cookiePreferences = localStorage.getItem('cookiePreferences');
+            
+            if (!cookiePreferences) {
+                // Show banner after 1 second
+                setTimeout(() => {
+                    cookieConsent.classList.add('show');
+                }, 1000);
+            } else {
+                // Load saved preferences
+                const prefs = JSON.parse(cookiePreferences);
+                analyticsCheckbox.checked = prefs.analytics;
+                functionalCheckbox.checked = prefs.functional;
+                marketingCheckbox.checked = prefs.marketing;
+            }
+
+            // Accept all cookies
+            acceptAllBtn.addEventListener('click', function() {
+                const preferences = {
+                    necessary: true,
+                    analytics: true,
+                    functional: true,
+                    marketing: true
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                cookieConsent.classList.remove('show');
+                initializeScripts(preferences);
+                console.log('All cookies accepted');
+            });
+
+            // Save custom preferences
+            saveBtn.addEventListener('click', function() {
+                const preferences = {
+                    necessary: true,
+                    analytics: analyticsCheckbox.checked,
+                    functional: functionalCheckbox.checked,
+                    marketing: marketingCheckbox.checked
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                cookieConsent.classList.remove('show');
+                initializeScripts(preferences);
+                console.log('Cookie preferences saved:', preferences);
+            });
+
+            // Decline all (only necessary)
+            declineAllBtn.addEventListener('click', function() {
+                const preferences = {
+                    necessary: true,
+                    analytics: false,
+                    functional: false,
+                    marketing: false
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                cookieConsent.classList.remove('show');
+                console.log('Only necessary cookies accepted');
+            });
+            
+            // Initialize scripts based on preferences
+            function initializeScripts(prefs) {
+                if (prefs.analytics) {
+                    // Initialize Google Analytics or other analytics
+                    console.log('Analytics initialized');
+                }
+                if (prefs.marketing) {
+                    // Initialize marketing/advertising scripts
+                    console.log('Marketing scripts initialized');
+                }
+            }
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const body = document.body;
+        
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            
+            // Direktno manipulišemo stilovima na mobilnom
+            if (window.innerWidth <= 1281) {
+                if (navMenu.style.right === '0px') {
+                    navMenu.style.right = '-320px';
+                } else {
+                    // Dodaj language switcher u meni ako već ne postoji
+                    if (!navMenu.querySelector('.mobile-lang-switcher')) {
+                        const langSwitcher = document.createElement('div');
+                        langSwitcher.className = 'mobile-lang-switcher';
+                        langSwitcher.style.cssText = 'display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255,255,255,0.08); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); margin-top: 2rem;';
+                        
+                        const btnSR = document.querySelector('.lang-btn[data-lang="sr"]').cloneNode(true);
+                        const btnEN = document.querySelector('.lang-btn[data-lang="en"]').cloneNode(true);
+                        const btnRU = document.querySelector('.lang-btn[data-lang="ru"]').cloneNode(true);
+                        
+                        // Dodaj event listenere na klonirana dugmad
+                        btnSR.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (typeof setLanguage === 'function') {
+                                setLanguage('sr');
+                            }
+                        });
+                        btnEN.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (typeof setLanguage === 'function') {
+                                setLanguage('en');
+                            }
+                        });
+                        btnRU.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (typeof setLanguage === 'function') {
+                                setLanguage('ru');
+                            }
+                        });
+                        
+                        langSwitcher.appendChild(btnSR);
+                        langSwitcher.appendChild(btnEN);
+                        langSwitcher.appendChild(btnRU);
+                        navMenu.appendChild(langSwitcher);
+                    }
+                    
+                    navMenu.style.position = 'fixed';
+                    navMenu.style.top = '200px';
+                    navMenu.style.right = '0px';
+                    navMenu.style.width = '320px';
+                    navMenu.style.height = 'calc(100vh - 200px)';
+                    navMenu.style.background = 'linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%)';
+                    navMenu.style.backdropFilter = 'blur(40px)';
+                    navMenu.style.padding = '2rem';
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.gap = '0.5rem';
+                    navMenu.style.transition = 'right 0.4s ease-in-out';
+                    navMenu.style.zIndex = '1000';
+                    navMenu.style.overflowY = 'auto';
+                    navMenu.style.boxShadow = '-8px 0 32px rgba(0,0,0,0.5)';
+                    navMenu.style.display = 'flex';
+                }
+            }
+        });
+        
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                body.classList.remove('menu-open');
+                if (window.innerWidth <= 1281) {
+                    navMenu.style.right = '-320px';
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        @media (max-width: 1281px) {
+            .nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 44px;
+                height: 44px;
+                background: rgba(255,255,255,0.08) !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255,255,255,0.2) !important;
+                border-radius: 12px !important;
+                padding: 10px !important;
+                cursor: pointer;
+                z-index: 1001;
+                position: fixed;
+                right: 1.5rem;
+                top: 1.75rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            .nav-toggle span {
+                width: 24px;
+                height: 2px;
+                background: #D4AF37;
+                border-radius: 2px;
+                transition: all 0.3s;
+                display: block;
+            }
+            .nav-actions {
+                gap: 0 !important;
+                padding-left: 0 !important;
+            }
+            .btn-reserve {
+                position: fixed !important;
+                right: 5.5rem !important;
+                top: 1.5rem !important;
+                z-index: 1001 !important;
+                margin-left: 0 !important;
+            }
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            .nav-menu .nav-link {
+                color: rgba(255,255,255,0.9) !important;
+                background: rgba(255,255,255,0.06) !important;
+                border: 1px solid rgba(255,255,255,0.1) !important;
+                padding: 1rem 1.5rem !important;
+                border-radius: 12px !important;
+                font-size: 1rem !important;
+                font-weight: 500 !important;
+                text-decoration: none !important;
+                display: block !important;
+                transition: all 0.3s ease !important;
+                width: 100% !important;
+            }
+            .nav-menu .nav-link.active,
+            .nav-menu .nav-link:hover {
+                background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)) !important;
+                border-color: rgba(212,175,55,0.4) !important;
+                color: #FFD700 !important;
+            }
+            .nav-menu {
+                position: fixed !important;
+                display: flex !important;
+                top: 0 !important;
+                right: -320px !important;
+                width: 320px !important;
+                height: 100vh !important;
+                background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
+                backdrop-filter: blur(40px) !important;
+                padding: 6rem 2rem 2rem 2rem !important;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                transition: right 0.4s ease-in-out, top 0.4s ease-in-out !important;
+                z-index: 1000 !important;
+                overflow-y: auto !important;
+                box-shadow: -8px 0 32px rgba(0,0,0,0.5) !important;
+            }
+            .nav-menu.active {
+                right: 0 !important;
+                top: 130px !important;
+                height: calc(100vh - 130px) !important;
+            }
+            .nav-menu .nav-item {
+                width: 100%;
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            .nav-menu.active .nav-item {
+                animation: slideInRight 0.4s ease-out forwards;
+            }
+            .nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+            .nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
+            .nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
+            .nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
+            .nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.3s; }
+            .nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.35s; }
+            .nav-menu.active .nav-item:nth-child(7) { animation-delay: 0.4s; }
+            @keyframes slideInRight {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            .nav-link {
+                width: 100%;
+                text-align: left;
+                padding: 1rem 1.5rem !important;
+                font-size: 1.05rem !important;
+            }
+            body.menu-open {
+                overflow: hidden;
+            }
+            body.menu-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(4px);
+                z-index: 999;
+                animation: fadeIn 0.3s;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .nav-actions .language-switcher {
+                display: none !important;
+            }
+            .btn-reserve {
+                font-size: 0 !important;
+                padding: 0 !important;
+                width: 48px;
+                height: 48px;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .btn-reserve i {
+                margin-right: 0 !important;
+                font-size: 1.1rem !important;
+            }
+            .btn-reserve span {
+                display: none !important;
+            }
+            
+            /* Hero Section Mobile */
+            .hero {
+                min-height: 100vh !important;
+                padding-top: 0 !important;
+            }
+            .hero-content {
+                padding: 6rem 1.5rem 2rem 1.5rem !important;
+            }
+            .hero-content > div:first-child {
+                margin-top: 80px !important;
+            }
+            .hero-title {
+                font-size: clamp(3rem, 12vw, 4.8rem) !important;
+                white-space: normal !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .hero-title span {
+                display: block !important;
+            }
+            .hero-actions {
+                flex-direction: column !important;
+                gap: 2.25rem !important;
+                width: 100% !important;
+                max-width: 300px !important;
+            }
+            .hero-actions .btn {
+                width: 100% !important;
+                padding: 0.875rem 2rem !important;
+                font-size: 0.9375rem !important;
+            }
+            .hero-actions .btn-primary {
+                background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%) !important;
+                box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5), 0 3px 10px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+                border: none !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.03em !important;
+                padding: 1rem 2.5rem !important;
+                font-size: 1.0625rem !important;
+            }
+            .hero-stats {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                width: 100% !important;
+                max-width: 280px !important;
+            }
+            .hero-stats .stat {
+                width: 100% !important;
+                padding: 1.25rem 1.5rem !important;
+                min-width: auto !important;
+            }
+            .stat-number {
+                font-size: 2.25rem !important;
+            }
+            .stat-label {
+                font-size: 0.75rem !important;
+            }
+            
+            /* Sakrij scroll down na mobilnom */
+            .scroll-down {
+                display: none !important;
+            }
+            
+            /* Sakrij samo flaše, badge ostaje vidljiv */
+            .rakije-bottles {
+                display: none !important;
+            }
+            .rakije-visual {
+                min-height: auto !important;
+                padding: 2rem 0 !important;
+                display: flex !important;
+                justify-content: center !important;
+            }
+            .custom-badge {
+                position: static !important;
+                margin: 0 !important;
+            }
+            
+            /* Kontakt sekcija - forma ispod informacija */
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            .contact-info {
+                order: 1 !important;
+            }
+            .contact-form-wrapper {
+                order: 2 !important;
+                margin-top: 20px !important;
+            }
+            
+            /* Footer mobilni */
+            .footer {
+                padding: 3rem 0 1.5rem 0 !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+                margin-bottom: 3rem !important;
+            }
+            .footer-col {
+                text-align: left !important;
+            }
+            .footer-col h4 {
+                border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 50%, transparent 100%) 1 !important;
+                max-width: 200px !important;
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .footer-desc {
+                max-width: 90% !important;
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                font-size: 0.9375rem !important;
+            }
+            .footer-contact-info {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.75rem !important;
+            }
+            .footer-socials {
+                justify-content: flex-start !important;
+                gap: 1rem !important;
+            }
+            .footer-links {
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+            .footer-links li {
+                justify-content: flex-start !important;
+            }
+            .newsletter-form {
+                max-width: 320px !important;
+                margin: 0 !important;
+            }
+            
+            /* Newsletter sekcija - više prostora */
+            .footer-col:last-child h4 {
+                margin-bottom: 1.25rem !important;
+            }
+            .footer-col:last-child p {
+                margin-bottom: 1.5rem !important;
+            }
+            .footer-col:last-child .newsletter-form {
+                margin-bottom: 0 !important;
+            }
+            .footer-col:last-child > div:last-child {
+                display: none !important;
+            }
+            
+            /* Footer features ikonice poravnanje */
+            .footer-col div[style*="display: flex"] {
+                align-items: flex-start !important;
+            }
+            .footer-col .fas {
+                margin-top: 2px !important;
+            }
+            
+            /* Footer quick links bar - u kolonu na mobilnom */
+            .footer > div > div[style*="padding: 3rem"] > div[style*="justify-content: space-between"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 1.5rem !important;
+            }
+            
+            .footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 1.25rem !important;
+            }
+            .footer-links-bottom {
+                justify-content: center !important;
+            }
+        }
+        @media (min-width: 1282px) {
+            .nav-toggle {
+                display: none !important;
+            }
+        }
+    </style>
+    
+    <!-- Page Transition Script -->
+    <script>
+        // Page transition on load
+        window.addEventListener('load', function() {
+            document.getElementById('pageTransition').classList.remove('active');
+        });
+        
+        // Smooth page transitions on navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageTransition = document.getElementById('pageTransition');
+            const links = document.querySelectorAll('a[href]:not([href^="#"]):not([target="_blank"])');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's a javascript: link or current page
+                    if (href.startsWith('javascript:') || href === window.location.pathname) {
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    pageTransition.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
