@@ -102,7 +102,8 @@
     }
     
     .nav-menu .nav-link {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 100%;
         padding: 1rem 1.5rem;
         color: rgba(255,255,255,0.9);
@@ -115,10 +116,24 @@
         transition: all 0.3s ease;
     }
     
+    .nav-menu .nav-link i {
+        color: #D4AF37;
+        font-size: 1rem;
+        margin-right: 0.75rem;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+    }
+    
     .nav-menu .nav-link.active,
     .nav-menu .nav-link:hover {
         background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15));
         border-color: rgba(212,175,55,0.4);
+        color: #FFD700;
+    }
+    
+    .nav-menu .nav-link.active i,
+    .nav-menu .nav-link:hover i {
         color: #FFD700;
     }
     
