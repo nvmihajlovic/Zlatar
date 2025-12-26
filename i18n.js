@@ -6,9 +6,15 @@ const translations = {
         'nav.about': 'О нама',
         'nav.menu': 'Јеловник',
         'nav.wine': 'Винска карта',
+        'nav.blog': 'Блог',
         'nav.gallery': 'Галерија',
         'nav.contact': 'Контакт',
         'nav.reserve': 'Резервација',
+        
+        // Blog
+        'blog.hero.title.our': 'Наш',
+        'blog.hero.title.blog': 'Блог',
+        'blog.hero.subtitle': 'Откријте тајне наше кухиње, упознајте нашу причу и будите део породице Златар',
         
         // Hero Section
         'hero.badge': '⦿ 40 Година Традиције Од 1985 ⦿',
@@ -521,9 +527,15 @@ const translations = {
         'nav.about': 'About Us',
         'nav.menu': 'Menu',
         'nav.wine': 'Wine List',
+        'nav.blog': 'Blog',
         'nav.gallery': 'Gallery',
         'nav.contact': 'Contact',
         'nav.reserve': 'Reservation',
+        
+        // Blog
+        'blog.hero.title.our': 'Our',
+        'blog.hero.title.blog': 'Blog',
+        'blog.hero.subtitle': 'Discover the secrets of our kitchen, learn our story and become part of the Zlatar family',
         
         // Hero Section
         'hero.badge': '⦿ 40 Years of Tradition Since 1985 ⦿',
@@ -1298,9 +1310,15 @@ const translations = {
         'nav.about': 'О нас',
         'nav.menu': 'Меню',
         'nav.wine': 'Винная карта',
+        'nav.blog': 'Блог',
         'nav.gallery': 'Галерея',
         'nav.contact': 'Контакты',
         'nav.reserve': 'Бронирование',
+        
+        // Blog
+        'blog.hero.title.our': 'Наш',
+        'blog.hero.title.blog': 'Блог',
+        'blog.hero.subtitle': 'Откройте для себя секреты нашей кухни, узнайте нашу историю и станьте частью семьи Златар',
         
         // Hero Section
         'hero.badge': '⦿ 40 Лет Традиций С 1985 ⦿',
@@ -2128,6 +2146,18 @@ function setLanguage(lang) {
             btn.style.borderColor = 'rgba(255,255,255,0.12)';
             btn.style.color = 'rgba(255,255,255,0.6)';
             btn.style.fontWeight = '500';
+        }
+    });
+    
+    // Hide/show blog links based on language (blog is Serbian-only)
+    const blogLinks = document.querySelectorAll('a[href*="blog.html"], a[href*="blog-post-"]');
+    blogLinks.forEach(link => {
+        if (lang === 'en' || lang === 'ru') {
+            // Hide blog links for English and Russian
+            link.style.display = 'none';
+        } else {
+            // Show blog links for Serbian
+            link.style.display = '';
         }
     });
 }

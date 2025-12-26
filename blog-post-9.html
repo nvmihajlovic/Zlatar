@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Упознајте људе који раде да свака ваша посета буде незаборавна. Приче наших колега који чине Златар посебним местом.">
+    <meta name="keywords" content="restoran zlatar, tradicija, srpska kuhinja, etno restoran">
+    <title>Наш тим - срце Златара - Restoran Zlatar</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="new-style.css">
+    <link rel="stylesheet" href="mobile-nav.css">
+    
+    <style>
+        html {
+            font-size: 90%;
+            overflow-x: clip;
+        }
+        
+        body {
+            overflow-x: clip;
+            max-width: 100%;
+        }
+        
+        :root {
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --gold-primary: #D4AF37;
+            --gold-light: #FFD700;
+            --gold-dark: #B8860B;
+            --brown-dark: #1a1410;
+            --brown-medium: #2B210F;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: #0A0A0A;
+            color: #fff;
+        }
+
+        /* Hero Section matching Gallery style */
+        .hero-blog {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2B1F15 0%, #3D3226 50%, #5D4E37 100%);
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero-blog::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('images/restoran zlatar.jpg') center/cover;
+            opacity: 0.15;
+            filter: blur(2px);
+        }
+        
+        .hero-blog-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .breadcrumbs {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumbs a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumbs a:hover {
+            color: #D4AF37;
+        }
+        
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Responsive Blog Post Layout */
+        @media (max-width: 1024px) {
+            #tocSidebar {
+                display: none !important;
+            }
+            
+            .blog-section .container > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            
+            article {
+                max-width: 100% !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-blog {
+                padding: 6rem 1rem 3rem 1rem !important;
+            }
+            
+            .hero-blog-content {
+                max-width: 100% !important;
+            }
+            
+            .breadcrumbs {
+                padding: 0.75rem 1rem !important;
+                font-size: 0.85rem !important;
+            }
+            
+            .page-title {
+                font-size: 2rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            article {
+                padding: 1.5rem !important;
+                border-radius: 12px !important;
+            }
+            
+            .back-to-blog-btn {
+                width: 100% !important;
+                padding: 0.875rem 1.5rem !important;
+                font-size: 0.95rem !important;
+                margin-bottom: 2.5rem !important;
+            }
+            
+            article img {
+                height: 250px !important;
+                border-radius: 12px !important;
+            }
+            
+            .blog-section .container {
+                padding: 0 1rem !important;
+            }
+            
+            h2[id] {
+                font-size: 1.5rem !important;
+            }
+            
+            article p, article div {
+                font-size: 1rem !important;
+                line-height: 1.7 !important;
+            }
+        }
+        
+        .text-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        /* Blog Container */
+        .blog-section {
+            padding: 4rem 0 3rem 0;
+            background: #0A0A0A;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        
+        /* Blog Grid - 3 columns */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        @media (max-width: 1200px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .hero-blog {
+                padding: 6rem 2rem 3rem 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                padding: 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-blog {
+                padding: 5rem 1.5rem 2.5rem 1.5rem;
+                min-height: 50vh;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .blog-section {
+                padding: 3rem 0;
+            }
+            
+            .blog-card {
+                border-radius: 16px;
+            }
+            
+            .blog-card__content {
+                padding: 1.5rem;
+            }
+            
+            .blog-card__title {
+                font-size: 1.25rem;
+            }
+            
+            /* Mobile Navigation */
+            .nav-menu .nav-link {
+                color: rgba(255,255,255,0.9) !important;
+                background: rgba(255,255,255,0.06) !important;
+                border: 1px solid rgba(255,255,255,0.1) !important;
+                padding: 1rem 1.5rem !important;
+                border-radius: 12px !important;
+                font-size: 1rem !important;
+                font-weight: 500 !important;
+                text-decoration: none !important;
+                display: block !important;
+                transition: all 0.3s ease !important;
+                width: 100% !important;
+            }
+
+            .nav-menu .nav-link.active,
+            .nav-menu .nav-link:hover {
+                background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)) !important;
+                border-color: rgba(212,175,55,0.4) !important;
+                color: #FFD700 !important;
+            }
+
+            .nav-menu {
+                position: fixed !important;
+                display: flex !important;
+                top: 0 !important;
+                right: -320px !important;
+                width: 320px !important;
+                height: 100vh !important;
+                background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
+                backdrop-filter: blur(40px) !important;
+                padding: 6rem 2rem 2rem 2rem !important;
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                transition: right 0.4s ease-in-out, top 0.4s ease-in-out !important;
+                z-index: 1000 !important;
+                overflow-y: auto !important;
+                box-shadow: -8px 0 32px rgba(0,0,0,0.5) !important;
+            }
+
+            .nav-menu.active {
+                right: 0 !important;
+                top: 130px !important;
+                height: calc(100vh - 130px) !important;
+            }
+
+            .nav-menu .nav-item {
+                width: 100%;
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            .nav-menu.active .nav-item {
+                animation: slideInRight 0.4s ease-out forwards;
+            }
+
+            .nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+            .nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
+            .nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
+            .nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
+            .nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.3s; }
+            .nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.35s; }
+            .nav-menu.active .nav-item:nth-child(7) { animation-delay: 0.4s; }
+
+            @keyframes slideInRight {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            /* Footer mobilni */
+            .footer {
+                padding: 3rem 0 1.5rem 0 !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+                margin-bottom: 3rem !important;
+            }
+            .footer-col {
+                text-align: left !important;
+            }
+            .footer-col h4 {
+                border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 50%, transparent 100%) 1 !important;
+                max-width: 200px !important;
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .footer-desc {
+                max-width: 90% !important;
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                font-size: 0.9375rem !important;
+            }
+            .footer-contact-info {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.75rem !important;
+            }
+            .footer-socials {
+                justify-content: flex-start !important;
+                gap: 1rem !important;
+            }
+            .footer-links {
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+            .footer-links li {
+                justify-content: flex-start !important;
+            }
+            .newsletter-form {
+                max-width: 320px !important;
+                margin: 0 !important;
+            }
+        }
+        
+        /* Blog Card */
+        .blog-card {
+            background: linear-gradient(145deg, rgba(25,18,10,0.95) 0%, rgba(20,15,8,0.98) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(212,175,55,0.15);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,0.4);
+            box-shadow: 0 16px 48px rgba(212,175,55,0.25);
+        }
+        
+        .blog-card__image {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .blog-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .blog-card:hover .blog-card__image img {
+            transform: scale(1.08);
+        }
+        
+        .blog-card__category {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            background: linear-gradient(135deg, rgba(212,175,55,0.95), rgba(184,134,11,0.95));
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-radius: 50px;
+            z-index: 1;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+        }
+        
+        .blog-card__content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card__meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+        
+        .blog-card__meta-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .blog-card__meta-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .blog-card__stat {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .blog-card__stat.like-btn {
+            position: relative;
+        }
+        
+        .blog-card__stat.like-btn.liked {
+            color: #ff4757;
+        }
+        
+        .blog-card__stat.like-btn.liked i {
+            animation: heartBeat 0.3s ease;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+        
+        .blog-card__stat.like-btn:hover {
+            color: #ff4757;
+            transform: translateY(-2px);
+        }
+        
+        .blog-card__stat.like-btn:active {
+            transform: translateY(0);
+        }
+        
+        .blog-card__stat:hover {
+            color: #D4AF37;
+        }
+        
+        .blog-card__stat i {
+            font-size: 0.95rem;
+        }
+        
+        .blog-card__meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .blog-card__meta-item i {
+            color: #D4AF37;
+        }
+        
+        .blog-card__title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        .blog-card__title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .blog-card__title a:hover {
+            color: #D4AF37;
+        }
+        
+        .blog-card__excerpt {
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .blog-card__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212,175,55,0.15);
+        }
+        
+        .blog-card__author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .blog-card__author-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+        }
+        
+        .blog-card__author-name {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+        
+        .blog-card__read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #D4AF37;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .blog-card__read-more:hover {
+            gap: 0.75rem;
+            color: #FFD700;
+        }
+        
+        /* Pagination */
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 4rem;
+        }
+        
+        .blog-pagination__btn,
+        .blog-pagination__page {
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212,175,55,0.3);
+            background: linear-gradient(145deg, rgba(25,18,10,0.95) 0%, rgba(20,15,8,0.98) 100%);
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        
+        .blog-pagination__btn:hover:not(:disabled),
+        .blog-pagination__page:hover {
+            border-color: #D4AF37;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.1));
+            color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212,175,55,0.3);
+        }
+        
+        .blog-pagination__page.active {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #fff;
+            border-color: #D4AF37;
+            box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+        }
+        
+        .blog-pagination__btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .blog-pagination__btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Loading & Empty states */
+        .blog-loading {
+            display: none;
+            text-align: center;
+            padding: 4rem;
+        }
+        
+        .blog-loading.active {
+            display: block;
+        }
+        
+        .blog-loading__spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(212,175,55,0.2);
+            border-top-color: #D4AF37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .blog-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .blog-empty__icon {
+            font-size: 4rem;
+            color: rgba(212,175,55,0.3);
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-empty__title {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-empty__text {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+        
+        .footer-socials a:hover {
+            background: rgba(212,175,55,0.15);
+            border-color: rgba(212,175,55,0.3);
+            color: #D4AF37;
+            transform: translateY(-2px);
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+            transform: translateX(4px);
+        }
+        
+        .newsletter-input:focus {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,175,55,0.3);
+        }
+        
+        .newsletter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+        }
+        
+        .footer-bottom a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            animation: fadeInModal 0.3s ease-out;
+        }
+        
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .modal-content {
+            position: relative;
+            background: linear-gradient(180deg, rgba(40, 30, 20, 0.98) 0%, rgba(30, 22, 15, 0.98) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            color: #D4AF37;
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-header i {
+            font-size: 3rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-header h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .modal-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        
+        .reservation-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-input:not(:placeholder-shown) ~ .form-label,
+        .form-input:focus ~ .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #D4AF37;
+            background: rgba(30, 22, 15, 0.95);
+            padding: 0 0.5rem;
+        }
+        
+        .form-input[type="date"] ~ .form-label,
+        .form-input[type="time"] ~ .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            color: #D4AF37;
+            background: rgba(30, 22, 15, 0.95);
+            padding: 0 0.5rem;
+        }
+        
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+        .form-input[type="date"],
+        .form-input[type="time"] {
+            color-scheme: dark;
+        }
+        
+        .form-input[type="date"]::-webkit-calendar-picker-indicator,
+        .form-input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.7) sepia(1) saturate(5) hue-rotate(10deg);
+            cursor: pointer;
+        }
+        
+        select.form-input {
+            cursor: pointer;
+        }
+        
+        select.form-input option {
+            background: #1a1410;
+            color: #fff;
+        }
+        
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-full {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-full:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 2rem 1.5rem;
+                width: 95%;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 1281px) {
+            .nav-item .nav-link {
+                display: block !important;
+                width: 100% !important;
+                padding: 1rem 1.5rem !important;
+                font-size: 1.05rem !important;
+            }
+
+            .nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 44px;
+                height: 44px;
+                background: rgba(255,255,255,0.08) !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255,255,255,0.2) !important;
+                border-radius: 12px !important;
+                padding: 10px !important;
+                cursor: pointer;
+                z-index: 1001;
+                position: fixed;
+                right: 1.5rem;
+                top: 1.75rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+
+            .nav-toggle span {
+                width: 24px;
+                height: 2px;
+                background: #D4AF37;
+                border-radius: 2px;
+                transition: all 0.3s;
+                display: block;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .nav-actions {
+                gap: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            .btn-reserve {
+                position: fixed !important;
+                right: 5.5rem !important;
+                top: 1.5rem !important;
+                z-index: 1001 !important;
+                margin-left: 0 !important;
+                font-size: 0 !important;
+                padding: 0 !important;
+                width: 48px !important;
+                height: 48px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .btn-reserve i {
+                margin-right: 0 !important;
+                font-size: 1.1rem !important;
+            }
+
+            .btn-reserve span {
+                display: none !important;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+            }
+            
+            body.menu-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(4px);
+                z-index: 999;
+                animation: fadeIn 0.3s;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            .nav-actions .language-switcher {
+                display: none !important;
+            }
+        }
+        
+        @media (min-width: 1282px) {
+            .nav-toggle {
+                display: none !important;
+            }
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(135deg, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.15) 100%) !important;
+            border-color: rgba(212,175,55,0.45) !important;
+            color: #FFD700 !important;
+            box-shadow: 0 8px 24px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.05) !important;
+        }
+        
+        .lang-btn:hover {
+            filter: grayscale(0) !important;
+            opacity: 1 !important;
+            transform: scale(1.2);
+        }
+        
+        .lang-btn.active {
+            filter: grayscale(0) !important;
+            opacity: 1 !important;
+            box-shadow: 0 0 20px rgba(212,175,55,0.5);
+        }
+        
+        .btn-reserve:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.6), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="pageTransition"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" style="display: flex; align-items: center; background: linear-gradient(180deg, rgba(20,15,8,0.97) 0%, rgba(35,26,15,0.95) 50%, rgba(25,18,10,0.93) 100%); backdrop-filter: blur(30px) saturate(180%); border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.4) 30%, rgba(255,215,0,0.3) 50%, rgba(212,175,55,0.4) 70%, transparent 100%) 1; box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(212,175,55,0.1); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); justify-content: center;">
+        <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; max-width: 1400px; width: 100%; padding: 0.5rem 1.5rem;">
+            <a href="index.html" class="nav-logo" style="display: flex; align-items: center; transition: transform 0.3s; margin-right: auto; padding-right: 3rem;">
+                <img src="images/znak-restoran-zlatar-vektorski_clipped_rev_1.png" alt="Ресторан Златар" class="logo-img" style="height: 68px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));">
+            </a>
+            
+            <ul class="nav-menu" id="navMenu" style="display: flex; align-items: center; gap: 1.4rem;">
+                <li class="nav-item"><a href="index.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.home">Почетна</span></a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.about">О нама</span></a></li>
+                <li class="nav-item"><a href="menu.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.menu">Јеловник</span></a></li>
+                <li class="nav-item"><a href="wine.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.wine">Винска карта</span></a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link active" style="color: #FFD700; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 100%); backdrop-filter: blur(12px) saturate(150%); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(212,175,55,0.25), inset 0 1px 0 rgba(255,255,255,0.1);"><span data-i18n="nav.blog">Блог</span></a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.gallery">Галерија</span></a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.contact">Контакт</span></a></li>
+            </ul>
+            
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
+                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
+                    <span data-i18n="nav.reserve">Резервација</span>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" style="margin-left: 0.5rem;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-blog" style="padding: 10rem 2rem 6rem 2rem; margin-top: 80px;">
+        <div class="hero-blog-content" style="max-width: 900px; margin: 0 auto;">
+            <nav class="breadcrumbs" style="margin-bottom: 2.5rem; padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); display: inline-block;">
+                <a href="index.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s;">
+                    <i class="fas fa-home" style="margin-right: 0.5rem;"></i><span data-i18n="nav.home">Почетна</span>
+                </a>
+                <span style="color: rgba(255, 255, 255, 0.3); margin: 0 0.75rem;">/</span>
+                <a href="blog.html" style="color: rgba(255, 255, 255, 0.85); text-decoration: none; transition: color 0.3s;">
+                    <span data-i18n="nav.blog">Блог</span>
+                </a>
+                <span style="color: rgba(255, 255, 255, 0.3); margin: 0 0.75rem;">/</span>
+                <span style="color: #FFD700; font-weight: 500;">Наш тим - срце Златара</span>
+            </nav>
+
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <div style="display: inline-block; padding: 0.65rem 1.75rem; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); border-radius: 50px; box-shadow: 0 4px 15px rgba(212,175,55,0.2);">
+                    <span style="color: #FFD700; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; text-shadow: 0 2px 8px rgba(212,175,55,0.3);">Приче</span>
+                </div>
+            </div>
+
+            <h1 class="page-title" style="margin-bottom: 2rem; font-size: 3.5rem; line-height: 1.2; font-weight: 800; color: #FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.5); text-align: center;">
+                Наш тим - срце Златара
+            </h1>
+            <p class="page-subtitle" style="max-width: 750px; margin: 0 auto 3rem auto; font-size: 1.25rem; line-height: 1.7; color: rgba(255,255,255,0.9); font-weight: 400;">
+                Упознајте људе који раде да свака ваша посета буде незаборавна. Приче наших колега који чине Златар посебним местом.
+            </p>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; padding: 1.5rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08);">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-user" style="color: #FFD700; font-size: 1.1rem;"></i>
+                    <span style="color: rgba(255,255,255,0.95); font-weight: 500; font-size: 1.05rem;">Ivana Popović</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-calendar" style="color: #FFD700; font-size: 1.1rem;"></i>
+                    <span style="color: rgba(255,255,255,0.95); font-weight: 500; font-size: 1.05rem;">26. Децембар 2025</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="fas fa-clock" style="color: #FFD700; font-size: 1.1rem;"></i>
+                    <span style="color: rgba(255,255,255,0.95); font-weight: 500; font-size: 1.05rem;">8 мин читања</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div id="progressBar" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%); z-index: 9999; transition: width 0.1s ease;"></div>
+
+    <!-- Blog Post Content -->
+    <section class="blog-section" style="padding: 4rem 0; overflow: visible;">
+        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; overflow: visible;">
+            <div style="display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; overflow: visible;">
+                
+                <!-- Sticky TOC -->
+                <aside id="tocSidebar" style="position: -webkit-sticky; position: sticky; top: 120px; align-self: start; background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); backdrop-filter: blur(20px); border: 1px solid rgba(212,175,55,0.2); border-radius: 16px; padding: 2rem; max-height: calc(100vh - 140px); overflow-y: auto; z-index: 10;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #D4AF37; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-list"></i>
+                        Садржај
+                    </h3>
+                    <ul id="tocList" style="list-style: none; padding: 0; margin: 0;">
+                        <!-- TOC will be generated dynamically -->
+                    </ul>
+                </aside>
+
+                <!-- Article Content -->
+                <article style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 3rem;">
+                    
+                    <a href="blog.html" class="back-to-blog-btn" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; color: rgba(255,255,255,0.9); text-decoration: none; padding: 1rem 2rem; background: linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.08) 100%); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; transition: all 0.3s; font-weight: 500; font-size: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); width: auto; font-family: 'Montserrat', sans-serif;">
+                        <i class="fas fa-arrow-left" style="color: #FFD700;"></i>
+                        Назад на блог
+                    </a>
+
+                    <img src="images/restoran zlatar.jpg" alt="Наш тим - срце Златара" style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; margin-top: 3rem; margin-bottom: 3rem;">
+
+                    <div style="font-family: 'Montserrat', sans-serif; font-size: 1.125rem; line-height: 1.8; color: rgba(255,255,255,0.9);">
+                        
+                        <p style="margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">
+                            Када корачате кроз врата ресторана Златар, улазите у причу која траје више од четири деценије. 
+                            Од 1985. године, када је наш ресторан први пут отворио своја врата, посветили смо се очувању 
+                            и неговању аутентичне српске гастрономске традиције.
+                        </p>
+                        <h2 id="filozofija" style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #D4AF37; margin: 3rem 0 1.5rem 0; font-weight: 700;">Наша филозофија</h2>
+                        <p style="margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">
+                            Ресторан Златар није само место, то је породица. Наш тим чине људи који воле оно што раде, који деле исту страст према традицији, квалитету и гостопримству. Многи од њих са нама су више од две деценије, што говори о снази нашег заједништва.
+                        </p>
+
+                        <h2 id="kuhinja" style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #D4AF37; margin: 3rem 0 1.5rem 0; font-weight: 700;">Тим у кухињи</h2>
+                        <p style="margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">
+                            Наша кухиња је предвођена шеф-кувар са преко 30 година искуства. Његов тим чине искусни кувари, помоћни кувари и ученици који уче занат. Свако у кухињи зна своје место и задатак, а резултат њиховог рада су јела која памте генерације.
+                        </p>
+
+                        <h2 id="rostilj" style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #D4AF37; margin: 3rem 0 1.5rem 0; font-weight: 700;">Мајстори роштиља</h2>
+                        <p style="margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">
+                            Роштиљање је уметност која захтева године учења. Наши мајстори роштиља знају тачно колико треба да се пече свако месо, како контролисати температуру, када окренути, како постићи савршену кору. Њихово искуство и вештина чине разлику коју осетите у сваком залогају.
+                        </p>
+
+                        <h2 id="sala" style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #D4AF37; margin: 3rem 0 1.5rem 0; font-weight: 700;">Тим у сали</h2>
+                        <p style="margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">
+                            Конобари, баристе, сомелијери - наш тим у сали брине да се осећате као код куће. Они познају мени, умеју препоручити јело или пиће према вашим жељама, пружају услугу са осмехом. Многи гости долазе управо због топлине и пажње коју добијају од нашег особља.
+                        </p>
+
+                        <h2 id="porodica" style="font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #D4AF37; margin: 3rem 0 1.5rem 0; font-weight: 700;">Златар породица</h2>
+                        <p style="margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif;">
+                            Радимо као тим, али смо више од тога - ми смо породица. Славимо заједно успехе, подржавамо се у тешким тренуцима, бринемо једни о другима. Та посвећеност и љубав према послу преноси се на наше госте, који осећају да су део нечег посебног.
+                        </p>
+<div style="background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%); border-left: 4px solid #D4AF37; padding: 2rem; border-radius: 12px; margin: 3rem 0;">
+                            <p style="font-size: 1.25rem; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">
+                                "У ресторану Златар, свако јело је прича, свако искуство је успомена која остаје. 
+                                Радујемо се што можемо делити нашу страст према традицији са вама већ четири деценије."
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Engagement Bar -->
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <button id="likeBtn" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: rgba(255,255,255,0.8); cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                            <i class="far fa-heart"></i>
+                            <span id="likeCount">312</span>
+                        </button>
+                        <button id="shareBtn" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: rgba(255,255,255,0.8); cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-size: 1rem;">
+                            <i class="fas fa-share-alt"></i>
+                            Подели
+                        </button>
+                    </div>
+
+                    <!-- Author Bio -->
+                    <div style="display: flex; align-items: center; gap: 2rem; padding: 2rem; margin-top: 3rem; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.2); border-radius: 16px;">
+                        <img src="https://ui-avatars.com/api/?name=Ivana+Popovic&background=D4AF37&color=1a1410&size=80&rounded=true&bold=true" alt="Ivana Popović" style="width: 80px; height: 80px; border-radius: 50%;">
+                        <div>
+                            <h4 style="font-size: 1.25rem; color: #D4AF37; margin-bottom: 0.5rem;">Ivana Popović</h4>
+                            <p style="color: rgba(255,255,255,0.7); margin: 0;">
+                                Ауторка са великим искуством у писању о традиционалној српској кухињи и културном наслеђу. 
+                                Посвећена промоцији српске гастрономије и традиције кроз аутентичне приче и рецепте.
+                            </p>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- Related Posts -->
+            <div style="margin-top: 5rem;">
+                <h2 style="font-size: 2.5rem; color: #D4AF37; margin-bottom: 3rem; text-align: center;">Слични Чланци</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    
+                    <!-- Related Post 1 -->
+                    <a href="blog-post-1.html" style="text-decoration: none; color: inherit; display: block; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                        <img src="images/pljeskavica-srpska.jpg" alt="Pljeskavica" style="width: 100%; height: 200px; object-fit: cover;" onerror="this.src='images/restoran zlatar.jpg'">
+                        <div style="padding: 1.5rem;">
+                            <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); border-radius: 50px; color: #D4AF37; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;">Рецепти</span>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; color: #fff; margin-bottom: 0.75rem; font-weight: 600;">Тајна савршене пљескавице</h3>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1rem;">Откријте како припремамо нашу легендарну пљескавицу...</p>
+                            <div style="display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                                <span><i class="fas fa-eye"></i> 2.8K</span>
+                                <span><i class="fas fa-heart"></i> 324</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Related Post 2 -->
+                    <a href="#" style="text-decoration: none; color: inherit; display: block; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                        <img src="images/stara-slika-restorana.jpg" alt="Restoran" style="width: 100%; height: 200px; object-fit: cover;" onerror="this.src='images/restoran zlatar.jpg'">
+                        <div style="padding: 1.5rem;">
+                            <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); border-radius: 50px; color: #D4AF37; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;">Приче</span>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; color: #fff; margin-bottom: 0.75rem; font-weight: 600;">Како је почела наша прича</h3>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1rem;">Пре четири деценије, у малом локалу у центру Београда...</p>
+                            <div style="display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                                <span><i class="fas fa-eye"></i> 1.9K</span>
+                                <span><i class="fas fa-heart"></i> 287</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Related Post 3 -->
+                    <a href="#" style="text-decoration: none; color: inherit; display: block; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; transition: all 0.3s;">
+                        <img src="images/ajvar-domaci.jpg" alt="Ajvar" style="width: 100%; height: 200px; object-fit: cover;" onerror="this.src='images/restoran zlatar.jpg'">
+                        <div style="padding: 1.5rem;">
+                            <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); border-radius: 50px; color: #D4AF37; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;">Рецепти</span>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; color: #fff; margin-bottom: 0.75rem; font-weight: 600;">Ајвар - злато српске кухиње</h3>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1rem;">Домаћи ајвар по старом рецепту који се преноси генерацијама...</p>
+                            <div style="display: flex; align-items: center; gap: 1rem; color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+                                <span><i class="fas fa-eye"></i> 1.8K</span>
+                                <span><i class="fas fa-heart"></i> 312</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Share Modal -->
+    <div id="shareModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: linear-gradient(135deg, rgba(30,22,15,0.98) 0%, rgba(40,30,20,0.98) 100%); padding: 2.5rem; border-radius: 20px; max-width: 500px; width: 90%; position: relative; border: 1px solid rgba(212,175,55,0.2);">
+            <button id="closeShareModal" style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; transition: all 0.3s;">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h3 style="font-size: 1.75rem; color: #D4AF37; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                <i class="fas fa-share-alt"></i>
+                Подели чланак
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                <button onclick="shareToFacebook()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #1877F2; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+                </button>
+                <button onclick="shareToTwitter()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #1DA1F2; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-twitter"></i>
+                    Twitter
+                </button>
+                <button onclick="shareToLinkedIn()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #0A66C2; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-linkedin-in"></i>
+                    LinkedIn
+                </button>
+                <button onclick="shareToWhatsApp()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #25D366; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </button>
+            </div>
+            
+            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; gap: 1rem;">
+                <input type="text" id="shareLink" value="" readonly style="flex: 1; background: transparent; border: none; color: rgba(255,255,255,0.7); font-family: 'Montserrat', sans-serif; outline: none;">
+                <button onclick="copyLink()" style="padding: 0.5rem 1rem; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 8px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter CTA Section -->
+    <section style="background: linear-gradient(135deg, rgba(43,31,21,0.6) 0%, rgba(61,50,38,0.5) 50%, rgba(93,78,55,0.6) 100%); padding: 5rem 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background: url('images/restoran zlatar.jpg') center/cover; opacity: 0.08; filter: blur(2px);"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.3); border-radius: 50px; margin-bottom: 2rem;">
+                    <i class="fas fa-pen-fancy" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                    <span style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-weight: 600; font-size: 0.9375rem; letter-spacing: 0.05em; text-transform: uppercase;">Останите у току</span>
+                </div>
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; margin-bottom: 1.5rem; line-height: 1.2;">
+                    Пратите наше <span style="background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">приче</span>
+                </h2>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1.125rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 2.5rem;">
+                    Пријавите се на наш newsletter и будите први који ће сазнати за нове рецепте, догађаје и специјалне понуде
+                </p>
+                <div style="display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+                    <input type="email" placeholder="Ваша email адреса" style="flex: 1; min-width: 250px; padding: 1rem 1.5rem; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1rem; outline: none; transition: all 0.3s;">
+                    <button style="padding: 1rem 2.5rem; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 12px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(212,175,55,0.3); display: inline-flex; align-items: center; gap: 0.75rem;">
+                        <span>Пријави се</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-top: 1.5rem;">
+                    <i class="fas fa-shield-alt" style="margin-right: 0.5rem;"></i>
+                    Ваши подаци су сигурни. Никада их не делимо са трећим лицима.
+                </p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
+        <div class="container">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 5fr 3.5fr 2.5fr 3fr; gap: 9rem; margin-bottom: 5rem;">
+                <div class="footer-col">
+                    <div class="footer-logo" style="margin-bottom: 1.5rem;">
+                        <img src="images/znak-restoran-zlatar-vektorski_clipped_rev_1.png" alt="Ресторан Златар" style="height: 85px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.3));">
+                    </div>
+                    <p class="footer-desc" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 2rem; max-width: 380px;" data-i18n="footer.description">
+                        Етно ресторан у срцу Београда. 40 година традиције, аутентични укуси и незаборавна атмосфера.
+                    </p>
+                    <div class="footer-contact-info" style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem;">
+                            <i class="fas fa-phone" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                            <a href="tel:+381112444421" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; text-decoration: none; transition: all 0.3s;">+381 11 2444 421</a>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem;">
+                            <i class="fas fa-envelope" style="color: #D4AF37; font-size: 1.125rem;"></i>
+                            <a href="mailto:info@restoranzlatar.com" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; text-decoration: none; transition: all 0.3s;">info@restoranzlatar.com</a>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                            <i class="fas fa-map-marker-alt" style="color: #D4AF37; font-size: 1.125rem; margin-top: 0.125rem;"></i>
+                            <span style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6;" data-i18n-html="footer.address">Прерадовићева 9а<br>Београд, Србија</span>
+                        </div>
+                    </div>
+                    <div class="footer-socials" style="display: flex; gap: 0.75rem;">
+                        <a href="https://www.facebook.com/Etno-restoran-Zlatar-1569616319928297/" target="_blank" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: rgba(255,255,255,0.7); font-size: 1.125rem; transition: all 0.3s; text-decoration: none;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/etno_restoran_zlatar/" target="_blank" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: rgba(255,255,255,0.7); font-size: 1.125rem; transition: all 0.3s; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;" data-i18n="footer.working-hours.title">Радно време</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.875rem;">
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; white-space: nowrap;">
+                            <span style="white-space: nowrap;" data-i18n="footer.working-hours.weekdays">Пон-Пет</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem; white-space: nowrap; margin-left: 0.5rem;">09:00 - 00:00</span>
+                        </li>
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span data-i18n="footer.working-hours.saturday">Субота</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">10:00 - 01:00</span>
+                        </li>
+                        <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span data-i18n="footer.working-hours.sunday">Недеља</span>
+                            <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">10:00 - 00:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;" data-i18n="footer.navigation.title">Навигација</h4>
+                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.about">О нама</span></a></li>
+                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.menu">Јеловник</span></a></li>
+                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.wine">Винска карта</span></a></li>
+                        <li><a href="blog.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.blog">Блог</span></a></li>
+                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.gallery">Галерија</span></a></li>
+                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.contact">Контакт</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;" data-i18n="footer.newsletter.title">Newsletter</h4>
+                    <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9375rem; margin-bottom: 1.25rem;" data-i18n="footer.newsletter.description">Пријавите се за специјалне понуде</p>
+                    <div class="newsletter-form" style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Ваш email" data-i18n-placeholder="footer.newsletter.email-placeholder" class="newsletter-input" style="font-family: 'Montserrat', sans-serif; flex: 1; padding: 0.875rem 1.25rem; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.9375rem; outline: none; transition: all 0.3s;">
+                        <button class="newsletter-btn" style="width: 48px; height: 48px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 12px; color: #fff; font-size: 1rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(212,175,55,0.3);">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.06) 100%); backdrop-filter: blur(12px); border-left: 4px solid #D4AF37; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);">
+                        <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0; line-height: 1.7; display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-info-circle" style="color: #D4AF37; font-size: 1.1rem; flex-shrink: 0;"></i>
+                            <span data-i18n="footer.newsletter.reservation-note">За групе веће од 10 особа обавезна резервација</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Links Bar -->
+            <div style="padding: 3rem 0; margin-bottom: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-award" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;" data-i18n="footer.features.tradition.title">40 година традиције</div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;" data-i18n="footer.features.tradition.subtitle">Од 1985. године</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-utensils" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;" data-i18n="footer.features.cuisine.title">Аутентична кухиња</div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;" data-i18n="footer.features.cuisine.subtitle">Домаћи рецепти</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-wine-bottle" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;" data-i18n="footer.features.rakija.title">31 врста ракије</div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;" data-i18n="footer.features.rakija.subtitle">Домаће производње</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-music" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;" data-i18n="footer.features.music.title">Жива музика</div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;" data-i18n="footer.features.music.subtitle">Петком и суботом</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="fas fa-parking" style="color: #D4AF37; font-size: 1.5rem;"></i>
+                        <div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.125rem;" data-i18n="footer.features.parking.title">Бесплатан паркинг</div>
+                            <div style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.8rem;" data-i18n="footer.features.parking.subtitle">За госте ресторана</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+                <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.5); font-size: 0.9375rem; margin: 0;">&copy; <span id="currentYear"></span> <span data-i18n="footer.copyright">Ресторан Златар. Сва права задржана.</span></p>
+                
+                <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+                    <a href="terms.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;" data-i18n="footer.links.terms">Услови коришћења</a>
+                    <a href="privacy.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;" data-i18n="footer.links.privacy">Политика приватности</a>
+                    <a href="sitemap.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; transition: all 0.3s;" data-i18n="footer.links.sitemap">Мапа сајта</a>
+                    <span style="color: rgba(255,255,255,0.2); font-size: 0.875rem;">|</span>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.4); font-size: 0.875rem;" data-i18n="footer.designed-by">Дизајн и израда</span>
+                        <a href="https://pansoft.rs" target="_blank" style="display: inline-block; transition: all 0.3s;">
+                            <img src="Pansoft/pansoft logo bela slova-01.png" alt="Pansoft" style="height: 32px; width: auto; opacity: 0.7; transition: all 0.3s;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="i18n.js"></script>
+    <script src="new-script.js"></script>
+    
+        <!-- Blog Post Scripts -->
+    <script>
+        // Generate dynamic Table of Contents
+        function generateTOC() {
+            const article = document.querySelector('article');
+            const headings = article.querySelectorAll('h2[id]');
+            const tocList = document.getElementById('tocList');
+            
+            headings.forEach((heading, index) => {
+                const li = document.createElement('li');
+                li.style.cssText = 'margin-bottom: 0.75rem;';
+                
+                const a = document.createElement('a');
+                a.href = `#${heading.id}`;
+                a.textContent = heading.textContent;
+                a.className = 'toc-link';
+                a.style.cssText = 'display: block; padding: 0.75rem 1rem; color: rgba(255,255,255,0.7); text-decoration: none; border-radius: 8px; transition: all 0.3s; font-size: 0.95rem; border-left: 3px solid transparent;';
+                
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                
+                li.appendChild(a);
+                tocList.appendChild(li);
+            });
+        }
+
+        // Update active TOC link on scroll
+        function updateActiveTOC() {
+            const headings = document.querySelectorAll('h2[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            
+            headings.forEach(heading => {
+                const sectionTop = heading.offsetTop;
+                const scrollPosition = window.scrollY + 150;
+                
+                if (scrollPosition >= sectionTop) {
+                    current = heading.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.style.color = 'rgba(255,255,255,0.7)';
+                link.style.background = 'transparent';
+                link.style.borderLeftColor = 'transparent';
+                
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#D4AF37';
+                    link.style.background = 'rgba(212,175,55,0.1)';
+                    link.style.borderLeftColor = '#D4AF37';
+                }
+            });
+        }
+
+        // Update progress bar on scroll
+        function updateProgressBar() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Like functionality
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+        const postId = 'blog-post-9';
+        
+        // Check if already liked
+        if (localStorage.getItem(`blog_like_${postId}`)) {
+            likeBtn.classList.add('liked');
+            likeBtn.querySelector('i').classList.remove('far');
+            likeBtn.querySelector('i').classList.add('fas');
+            likeBtn.style.background = 'rgba(212,175,55,0.2)';
+            likeBtn.style.borderColor = 'rgba(212,175,55,0.4)';
+            likeBtn.style.color = '#D4AF37';
+        }
+        
+        likeBtn.addEventListener('click', function() {
+            let count = parseInt(likeCount.textContent);
+            const icon = this.querySelector('i');
+            
+            if (this.classList.contains('liked')) {
+                this.classList.remove('liked');
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                this.style.background = 'rgba(255,255,255,0.05)';
+                this.style.borderColor = 'rgba(255,255,255,0.1)';
+                this.style.color = 'rgba(255,255,255,0.8)';
+                count--;
+                localStorage.removeItem(`blog_like_${postId}`);
+            } else {
+                this.classList.add('liked');
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                this.style.background = 'rgba(212,175,55,0.2)';
+                this.style.borderColor = 'rgba(212,175,55,0.4)';
+                this.style.color = '#D4AF37';
+                count++;
+                localStorage.setItem(`blog_like_${postId}`, 'true');
+            }
+            
+            likeCount.textContent = count;
+        });
+
+        // Share modal functionality
+        const shareBtn = document.getElementById('shareBtn');
+        const shareModal = document.getElementById('shareModal');
+        const closeShareModal = document.getElementById('closeShareModal');
+        const shareLink = document.getElementById('shareLink');
+        
+        shareLink.value = window.location.href;
+        
+        shareBtn.addEventListener('click', () => {
+            shareModal.style.display = 'flex';
+        });
+        
+        closeShareModal.addEventListener('click', () => {
+            shareModal.style.display = 'none';
+        });
+        
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) {
+                shareModal.style.display = 'none';
+            }
+        });
+
+        // Share functions
+        function shareToFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+        }
+
+        function shareToTwitter() {
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=40 Година Традиције - Restoran Zlatar`, '_blank');
+        }
+
+        function shareToLinkedIn() {
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+        }
+
+        function shareToWhatsApp() {
+            window.open(`https://wa.me/?text=${encodeURIComponent('40 Година Традиције - Restoran Zlatar ' + window.location.href)}`, '_blank');
+        }
+
+        function copyLink() {
+            shareLink.select();
+            document.execCommand('copy');
+            
+            const btn = event.target.closest('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+            }, 2000);
+        }
+
+        // Smooth scrolling for back to blog button
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            generateTOC();
+            updateProgressBar();
+            updateActiveTOC();
+        });
+
+        // Update on scroll
+        window.addEventListener('scroll', () => {
+            updateProgressBar();
+            updateActiveTOC();
+        });
+    </script>
+    <!-- Mobile Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const body = document.body;
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navToggle.classList.toggle('active');
+                    body.classList.toggle('menu-open');
+                    
+                    if (window.innerWidth <= 1281) {
+                        if (navToggle.classList.contains('active')) {
+                            navMenu.style.right = '0px';
+                        } else {
+                            navMenu.style.right = '-320px';
+                        }
+                        
+                        const langSwitcher = navMenu.querySelector('.language-switcher');
+                        if (!langSwitcher && navToggle.classList.contains('active')) {
+                            const desktopLangSwitcher = document.querySelector('.nav-actions .language-switcher');
+                            if (desktopLangSwitcher) {
+                                const langSwitcher = document.createElement('div');
+                                langSwitcher.className = 'language-switcher';
+                                langSwitcher.style.cssText = 'display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08); margin-top: 1rem; justify-content: center;';
+                                
+                                const btnSR = document.createElement('button');
+                                btnSR.className = 'lang-btn' + (document.documentElement.lang === 'sr' ? ' active' : '');
+                                btnSR.dataset.lang = 'sr';
+                                btnSR.textContent = 'RS';
+                                btnSR.style.cssText = document.documentElement.lang === 'sr' ? 
+                                    'background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: \'Montserrat\', sans-serif; letter-spacing: 0.5px;' :
+                                    'background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: \'Montserrat\', sans-serif; letter-spacing: 0.5px;';
+                                
+                                const btnEN = document.createElement('button');
+                                btnEN.className = 'lang-btn' + (document.documentElement.lang === 'en' ? ' active' : '');
+                                btnEN.dataset.lang = 'en';
+                                btnEN.textContent = 'GB';
+                                btnEN.style.cssText = document.documentElement.lang === 'en' ? 
+                                    'background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: \'Montserrat\', sans-serif; letter-spacing: 0.5px;' :
+                                    'background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: \'Montserrat\', sans-serif; letter-spacing: 0.5px;';
+                                
+                                const btnRU = document.createElement('button');
+                                btnRU.className = 'lang-btn' + (document.documentElement.lang === 'ru' ? ' active' : '');
+                                btnRU.dataset.lang = 'ru';
+                                btnRU.textContent = 'RU';
+                                btnRU.style.cssText = document.documentElement.lang === 'ru' ? 
+                                    'background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: \'Montserrat\', sans-serif; letter-spacing: 0.5px;' :
+                                    'background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: \'Montserrat\', sans-serif; letter-spacing: 0.5px;';
+                                
+                                btnSR.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    if (typeof setLanguage === 'function') {
+                                        setLanguage('sr');
+                                    }
+                                });
+                                btnEN.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    if (typeof setLanguage === 'function') {
+                                        setLanguage('en');
+                                    }
+                                });
+                                btnRU.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    if (typeof setLanguage === 'function') {
+                                        setLanguage('ru');
+                                    }
+                                });
+                                
+                                langSwitcher.appendChild(btnSR);
+                                langSwitcher.appendChild(btnEN);
+                                langSwitcher.appendChild(btnRU);
+                                navMenu.appendChild(langSwitcher);
+                            }
+                        }
+                        
+                        navMenu.style.position = 'fixed';
+                        navMenu.style.top = '200px';
+                        navMenu.style.right = '0px';
+                        navMenu.style.width = '320px';
+                        navMenu.style.height = 'calc(100vh - 200px)';
+                        navMenu.style.background = 'linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%)';
+                        navMenu.style.backdropFilter = 'blur(40px)';
+                        navMenu.style.padding = '2rem';
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.gap = '0.5rem';
+                        navMenu.style.transition = 'right 0.4s ease-in-out';
+                        navMenu.style.zIndex = '1000';
+                        navMenu.style.overflowY = 'auto';
+                        navMenu.style.boxShadow = '-8px 0 32px rgba(0,0,0,0.5)';
+                        navMenu.style.display = 'flex';
+                    }
+                }
+            });
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('active');
+                    body.classList.remove('menu-open');
+                    if (window.innerWidth <= 1281) {
+                        navMenu.style.right = '-320px';
+                    }
+                });
+            });
+        }
+        });
+
+        // Reservation Modal Functionality
+        const btnReserve = document.getElementById('btnReserve');
+        const reservationModal = document.getElementById('reservationModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const reservationForm = document.getElementById('reservationForm');
+        
+        // Open modal
+        if (btnReserve) {
+            btnReserve.addEventListener('click', () => {
+                reservationModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        // Close modal functions
+        function closeModal() {
+            reservationModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+        
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', closeModal);
+        }
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && reservationModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // Handle form submission
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('resName').value,
+                    phone: document.getElementById('resPhone').value,
+                    date: document.getElementById('resDate').value,
+                    time: document.getElementById('resTime').value,
+                    guests: document.getElementById('resGuests').value,
+                    note: document.getElementById('resNote').value
+                };
+                
+                console.log('Reservation data:', formData);
+                alert('Хвала! Ваша резервација је послата. Контактираћемо вас ускоро за потврду.');
+                
+                closeModal();
+                reservationForm.reset();
+            });
+        }
+        
+        // Set minimum date to today
+        const resDate = document.getElementById('resDate');
+        if (resDate) {
+            const today = new Date().toISOString().split('T')[0];
+            resDate.setAttribute('min', today);
+        }
+
+    </script>
+    <!-- Reservation Modal -->
+    <div class="modal" id="reservationModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Резервација стола</h2>
+                <p>Попуните формулар и потврдићемо вашу резервацију</p>
+            </div>
+            
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="resName" class="form-input" placeholder=" " required>
+                        <label for="resName" class="form-label">Име и презиме</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="resPhone" class="form-input" placeholder=" " required>
+                        <label for="resPhone" class="form-label">Телефон</label>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="date" id="resDate" class="form-input" placeholder=" " required>
+                        <label for="resDate" class="form-label">Датум</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="time" id="resTime" class="form-input" placeholder=" " required>
+                        <label for="resTime" class="form-label">Време</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <select id="resGuests" class="form-input" required>
+                        <option value="">Број особа</option>
+                        <option value="1">1 особа</option>
+                        <option value="2">2 особе</option>
+                        <option value="3">3 особе</option>
+                        <option value="4">4 особе</option>
+                        <option value="5">5 особа</option>
+                        <option value="6">6 особа</option>
+                        <option value="7">7 особа</option>
+                        <option value="8">8 особа</option>
+                        <option value="more">Више од 8</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="resNote" class="form-input" rows="3" placeholder=" "></textarea>
+                    <label for="resNote" class="form-label">Напомена (опционално)</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span>Пошаљите резервацију</span>
+                    <i class="fas fa-check"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
