@@ -1390,7 +1390,7 @@
 
     <!-- Share Modal -->
     <div id="shareModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
-        <div style="background: linear-gradient(135deg, rgba(30,22,15,0.98) 0%, rgba(40,30,20,0.98) 100%); padding: 2.5rem; border-radius: 20px; max-width: 500px; width: 90%; position: relative; border: 1px solid rgba(212,175,55,0.2);">
+        <div style="background: linear-gradient(135deg, rgba(30,22,15,0.98) 0%, rgba(40,30,20,0.98) 100%); padding: 2.5rem; border-radius: 20px; max-width: 650px; width: 90%; position: relative; border: 1px solid rgba(212,175,55,0.2);">
             <button id="closeShareModal" style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; transition: all 0.3s;">
                 <i class="fas fa-times"></i>
             </button>
@@ -1400,7 +1400,7 @@
                 Подели чланак
             </h3>
             
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
                 <button onclick="shareToFacebook()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #1877F2; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
                     <i class="fab fa-facebook-f"></i>
                     Facebook
@@ -1416,6 +1416,18 @@
                 <button onclick="shareToWhatsApp()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #25D366; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
                     <i class="fab fa-whatsapp"></i>
                     WhatsApp
+                </button>
+                <button onclick="shareToViber()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #7360F2; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-viber"></i>
+                    Viber
+                </button>
+                <button onclick="shareToInstagram()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%); border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </button>
+                <button onclick="shareToTikTok()" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem; background: #000000; border: none; border-radius: 12px; color: #fff; cursor: pointer; transition: all 0.3s; font-family: 'Montserrat', sans-serif; font-weight: 600;">
+                    <i class="fab fa-tiktok"></i>
+                    TikTok
                 </button>
             </div>
             
@@ -1767,6 +1779,22 @@
                 btn.innerHTML = originalHTML;
             }, 2000);
         }
+        function shareToViber() {
+            window.open(`viber://forward?text=${encodeURIComponent(document.title + ' ' + window.location.href)}`, '_blank');
+        }
+
+        function shareToInstagram() {
+            // Instagram ne podržava direktno deljenje linkova, pa otvaramo profil ili kopiramo link
+            copyLink();
+            alert('Link je kopiran! Možete ga podeliti na Instagram-u.');
+        }
+
+        function shareToTikTok() {
+            // TikTok ne podržava direktno deljenje linkova, pa otvaramo profil ili kopiramo link
+            copyLink();
+            alert('Link je kopiran! Možete ga podeliti na TikTok-u.');
+        }
+
 
         // Smooth scrolling for back to blog button
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
