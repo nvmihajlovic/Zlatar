@@ -15,21 +15,6 @@ const translations = {
         'blog.hero.title.our': 'Наш',
         'blog.hero.title.blog': 'Блог',
         'blog.hero.subtitle': 'Откријте тајне наше кухиње, упознајте нашу причу и будите део породице Златар',
-        'blog.featured.badge': 'Препоручујемо за читање',
-        'blog.featured.title': 'Истакнуте',
-        'blog.featured.title.stories': 'приче',
-        'blog.featured.subtitle': 'Наши најбољи чланци које не смете пропустити',
-        'blog.allPosts': 'Сви чланци',
-        'blog.readMore': 'Прочитај више',
-        'blog.category.tradition': 'Традиција',
-        'blog.category.wine': 'Вина',
-        'blog.category.recipes': 'Рецепти',
-        'blog.post1.title': 'Традиција која траје 40 година',
-        'blog.post1.excerpt': 'Откријте причу о томе како је Ресторан Златар постао симбол традиције и квалитета у Београду. Од 1985. године, породица Поповић негује аутентичне рецепте златарског краја, стварајући незаборавна искуства за сваког госта. Упознајте историју која је обликовала један од најпознатијих етно ресторана у престоници.',
-        'blog.post3.title': 'Винска карта коју морате пробати',
-        'blog.post3.excerpt': 'Селекција врхунских вина из свих крајева Србије и региона, пажљиво одабрана да допуни аутентичне укусе наше традиционалне кухиње.',
-        'blog.post5.title': 'Тајне наших специјалитета',
-        'blog.post5.excerpt': 'Откријте традиционалне рецепте и технике припреме које чине наша јела јединственим. Од печења на ћумуру до посластица по старим рецептима.',
         
         // Hero Section
         'hero.badge': '⦿ 40 Година Традиције Од 1985 ⦿',
@@ -551,21 +536,6 @@ const translations = {
         'blog.hero.title.our': 'Our',
         'blog.hero.title.blog': 'Blog',
         'blog.hero.subtitle': 'Discover the secrets of our kitchen, learn our story and become part of the Zlatar family',
-        'blog.featured.badge': 'Recommended Reading',
-        'blog.featured.title': 'Featured',
-        'blog.featured.title.stories': 'Stories',
-        'blog.featured.subtitle': 'Our best articles you shouldn\'t miss',
-        'blog.allPosts': 'All Articles',
-        'blog.readMore': 'Read More',
-        'blog.category.tradition': 'Tradition',
-        'blog.category.wine': 'Wine',
-        'blog.category.recipes': 'Recipes',
-        'blog.post1.title': 'A Tradition that Lasts 40 Years',
-        'blog.post1.excerpt': 'Discover the story of how Restaurant Zlatar became a symbol of tradition and quality in Belgrade. Since 1985, the Popovic family has nurtured authentic recipes from the Zlatar region, creating unforgettable experiences for every guest. Learn about the history that shaped one of the most renowned ethno restaurants in the capital.',
-        'blog.post3.title': 'Wine List You Must Try',
-        'blog.post3.excerpt': 'A selection of premium wines from all regions of Serbia and beyond, carefully chosen to complement the authentic flavors of our traditional cuisine.',
-        'blog.post5.title': 'Secrets of Our Specialties',
-        'blog.post5.excerpt': 'Discover the traditional recipes and preparation techniques that make our dishes unique. From charcoal grilling to delicacies made according to old recipes.',
         
         // Hero Section
         'hero.badge': '⦿ 40 Years of Tradition Since 1985 ⦿',
@@ -1349,21 +1319,6 @@ const translations = {
         'blog.hero.title.our': 'Наш',
         'blog.hero.title.blog': 'Блог',
         'blog.hero.subtitle': 'Откройте для себя секреты нашей кухни, узнайте нашу историю и станьте частью семьи Златар',
-        'blog.featured.badge': 'Рекомендуем к прочтению',
-        'blog.featured.title': 'Избранные',
-        'blog.featured.title.stories': 'Истории',
-        'blog.featured.subtitle': 'Наши лучшие статьи, которые нельзя пропустить',
-        'blog.allPosts': 'Все статьи',
-        'blog.readMore': 'Читать далее',
-        'blog.category.tradition': 'Традиция',
-        'blog.category.wine': 'Вина',
-        'blog.category.recipes': 'Рецепты',
-        'blog.post1.title': 'Традиция длиною в 40 лет',
-        'blog.post1.excerpt': 'Узнайте историю о том, как ресторан Златар стал символом традиции и качества в Белграде. С 1985 года семья Попович лелеет аутентичные рецепты Златарского края, создавая незабываемые впечатления для каждого гостя. Познакомьтесь с историей одного из самых известных этно-ресторанов столицы.',
-        'blog.post3.title': 'Винная карта, которую нужно попробовать',
-        'blog.post3.excerpt': 'Коллекция премиум вин из всех регионов Сербии и за ее пределами, тщательно подобранных для дополнения аутентичных вкусов нашей традиционной кухни.',
-        'blog.post5.title': 'Секреты наших фирменных блюд',
-        'blog.post5.excerpt': 'Откройте традиционные рецепты и методы приготовления, которые делают наши блюда уникальными. От жарки на углях до деликатесов по старым рецептам.',
         
         // Hero Section
         'hero.badge': '⦿ 40 Лет Традиций С 1985 ⦿',
@@ -2119,45 +2074,11 @@ const translations = {
 };
 
 // i18n functionality
-let currentLang = 'sr'; // Default to Serbian
-
-// Check URL parameter first (has priority)
-const urlParams = new URLSearchParams(window.location.search);
-const urlLang = urlParams.get('lang');
-
-if (urlLang && (urlLang === 'sr' || urlLang === 'en' || urlLang === 'ru')) {
-    currentLang = urlLang;
-    localStorage.setItem('language', urlLang);
-    console.log('i18n INIT - Using URL parameter:', urlLang);
-} else {
-    // Then check localStorage
-    const savedLang = localStorage.getItem('language');
-    if (savedLang && (savedLang === 'sr' || savedLang === 'en' || savedLang === 'ru')) {
-        currentLang = savedLang;
-        console.log('i18n INIT - Using saved language:', savedLang);
-    } else {
-        console.log('i18n INIT - No saved language, defaulting to Serbian');
-    }
-}
+let currentLang = localStorage.getItem('language') || 'sr';
 
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
-    
-    // Add lang parameter to all internal links
-    const currentUrl = new URL(window.location.href);
-    currentUrl.searchParams.set('lang', lang);
-    
-    console.log('i18n - Language changed to:', lang, '(will persist across pages)');
-    
-    // Update all internal links on the page to include lang parameter
-    document.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('javascript:') && !href.includes('lang=')) {
-            const separator = href.includes('?') ? '&' : '?';
-            link.setAttribute('href', href + separator + 'lang=' + lang);
-        }
-    });
     
     // Update HTML lang attribute
     document.documentElement.lang = lang;
@@ -2230,58 +2151,16 @@ function setLanguage(lang) {
     
     // Hide/show blog links based on language (blog is Serbian-only)
     const blogLinks = document.querySelectorAll('a[href*="blog.html"], a[href*="blog-post-"]');
-    console.log('i18n DEBUG - Current lang:', lang, '| Found blog links:', blogLinks.length);
     blogLinks.forEach(link => {
-        const parentLi = link.closest('li.nav-item');
-        console.log('i18n DEBUG - Blog link:', link.href, '| Parent LI:', parentLi);
         if (lang === 'en' || lang === 'ru') {
             // Hide blog links for English and Russian
-            console.log('i18n DEBUG - Hiding blog (lang is', lang, ')');
-            link.style.setProperty('display', 'none', 'important');
-            if (parentLi) parentLi.style.setProperty('display', 'none', 'important');
+            link.style.display = 'none';
         } else {
             // Show blog links for Serbian
-            console.log('i18n DEBUG - Showing blog (lang is', lang, ')');
-            link.style.removeProperty('display');
-            link.style.setProperty('opacity', '1', 'important');
-            link.style.setProperty('visibility', 'visible', 'important');
-            if (parentLi) {
-                parentLi.style.removeProperty('display');
-                parentLi.style.setProperty('opacity', '1', 'important');
-                parentLi.style.setProperty('transform', 'none', 'important');
-                parentLi.style.setProperty('visibility', 'visible', 'important');
-            }
+            link.style.display = '';
         }
     });
 }
-
-// Intercept all link clicks and add lang parameter
-document.addEventListener('click', (e) => {
-    const link = e.target.closest('a');
-    if (!link) return;
-    
-    // Skip language buttons
-    if (link.classList.contains('lang-btn') || link.closest('.mobile-lang-switcher')) {
-        return;
-    }
-    
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('http') || link.target === '_blank') {
-        return; // Skip these
-    }
-    
-    // Check if it's an internal HTML link
-    if (href.endsWith('.html') || href.includes('.html?') || href.includes('.html#')) {
-        e.preventDefault();
-        
-        // Add current language to URL
-        const url = new URL(href, window.location.href);
-        url.searchParams.set('lang', currentLang);
-        
-        console.log('i18n - Navigating to:', url.href, 'with lang:', currentLang);
-        window.location.href = url.href;
-    }
-}, true); // Use capture phase to catch it early
 
 // Initialize language system
 document.addEventListener('DOMContentLoaded', () => {
