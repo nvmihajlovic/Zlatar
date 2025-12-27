@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Language Test</title>
+    <style>
+        body { font-family: monospace; padding: 2rem; background: #1a1410; color: #fff; }
+        .status { padding: 1rem; margin: 1rem 0; background: #2a2410; border: 1px solid #D4AF37; }
+        button { padding: 1rem 2rem; margin: 0.5rem; background: #D4AF37; border: none; color: #000; cursor: pointer; font-weight: bold; }
+        button:hover { background: #FFD700; }
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Language System Test</h1>
+    
+    <div class="status">
+        <h2>Current Status:</h2>
+        <p id="localStorage-status"></p>
+        <p id="current-lang"></p>
+        <p id="i18n-loaded"></p>
+    </div>
+
+    <div>
+        <h2>Actions:</h2>
+        <button onclick="testSetSR()">Set SR</button>
+        <button onclick="testSetEN()">Set EN</button>
+        <button onclick="testSetRU()">Set RU</button>
+        <button onclick="clearStorage()">Clear localStorage</button>
+        <button onclick="showStorage()">Show All Storage</button>
+    </div>
+
+    <div class="status">
+        <h2>Console Log:</h2>
+        <pre id="log"></pre>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script>
+        function log(msg, isError = false) {
+            const logEl = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = isError ? 'error' : 'success';
+            logEl.innerHTML += `<span class="${className}">[${timestamp}] ${msg}</span>\n`;
+        }
+
+        function updateStatus() {
+            const stored = localStorage.getItem('language');
+            const current = typeof currentLang !== 'undefined' ? currentLang : 'UNDEFINED';
+            const i18nLoaded = typeof setLanguage !== 'undefined';
+            
+            document.getElementById('localStorage-status').innerHTML = 
+                `<strong>localStorage:</strong> ${stored || 'NULL'}`;
+            document.getElementById('current-lang').innerHTML = 
+                `<strong>currentLang variable:</strong> ${current}`;
+            document.getElementById('i18n-loaded').innerHTML = 
+                `<strong>i18n.js loaded:</strong> ${i18nLoaded ? '✅ YES' : '❌ NO'}`;
+                
+            log(`Status updated - localStorage: ${stored}, currentLang: ${current}`);
+        }
+
+        function testSetSR() {
+            log('Attempting to set language to SR...');
+            if (typeof setLanguage !== 'undefined') {
+                setLanguage('sr');
+                log('✅ setLanguage("sr") called');
+                setTimeout(updateStatus, 100);
+            } else {
+                log('❌ setLanguage function not found!', true);
+            }
+        }
+
+        function testSetEN() {
+            log('Attempting to set language to EN...');
+            if (typeof setLanguage !== 'undefined') {
+                setLanguage('en');
+                log('✅ setLanguage("en") called');
+                setTimeout(updateStatus, 100);
+            } else {
+                log('❌ setLanguage function not found!', true);
+            }
+        }
+
+        function testSetRU() {
+            log('Attempting to set language to RU...');
+            if (typeof setLanguage !== 'undefined') {
+                setLanguage('ru');
+                log('✅ setLanguage("ru") called');
+                setTimeout(updateStatus, 100);
+            } else {
+                log('❌ setLanguage function not found!', true);
+            }
+        }
+
+        function clearStorage() {
+            log('Clearing localStorage...');
+            localStorage.clear();
+            log('✅ localStorage cleared');
+            setTimeout(updateStatus, 100);
+        }
+
+        function showStorage() {
+            log('=== ALL localStorage ITEMS ===');
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                log(`${key}: ${value}`);
+            }
+            log('=== END ===');
+        }
+
+        // Initial status
+        setTimeout(() => {
+            log('Page loaded');
+            updateStatus();
+        }, 500);
+    </script>
+</body>
+</html>

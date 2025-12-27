@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resetovanje jezika...</title>
+</head>
+<body>
+    <h1>Resetovanje...</h1>
+    <script>
+        // Obriši SVE iz localStorage
+        localStorage.clear();
+        
+        // Postavi srpski
+        localStorage.setItem('language', 'sr');
+        
+        // Obriši keš
+        if ('caches' in window) {
+            caches.keys().then(names => {
+                names.forEach(name => caches.delete(name));
+            });
+        }
+        
+        // Redirektuj nakon 500ms
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Demo - Како ће изгледати апликација</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a1410 0%, #2B210F 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(212,175,55,0.3);
+            border-color: rgba(212,175,55,0.5);
+        }
+        
+        .demo-card h2 {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .demo-card h2 i {
+            font-size: 1.75rem;
+        }
+        
+        .demo-card p {
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .demo-card ul li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .demo-card ul li i {
+            color: #4CAF50;
+            font-size: 1.25rem;
+        }
+        
+        .phone-mockup {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(212,175,55,0.3);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 400px;
+            margin: 0 auto 3rem;
+        }
+        
+        .phone-screen {
+            background: #140f08;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.5);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 8px 24px rgba(212,175,55,0.4);
+        }
+        
+        .app-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .app-name {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-preview {
+            background: rgba(212,175,55,0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            border-left: 3px solid #D4AF37;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+            border: 2px solid rgba(212,175,55,0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: white;
+            box-shadow: 0 4px 16px rgba(212,175,55,0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(212,175,55,0.5);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .steps {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(212,175,55,0.3);
+        }
+        
+        .step-content h3 {
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .step-content p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-mobile-alt"></i> PWA Demo - Златар Апликација</h1>
+        <p class="subtitle">Тако ће изгледати твој сајт као апликација на телефону</p>
+
+        <!-- Phone Mockup -->
+        <div class="phone-mockup">
+            <div class="phone-screen">
+                <div class="app-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="app-name">Ресторан Златар</div>
+                <div class="feature-preview">
+                    <strong>📱 Home Screen икона</strong><br>
+                    Гост види твоју икону поред Instagram, WhatsApp, Facebook
+                </div>
+                <div class="feature-preview">
+                    <strong>⚡ Instant open</strong><br>
+                    Отвара се за &lt;1 секунду (кеширано)
+                </div>
+                <div class="feature-preview">
+                    <strong>🔔 Push поруке</strong><br>
+                    "Ваша резервација је за 2 сата!"
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h2><i class="fas fa-download"></i> Инсталација</h2>
+                <p>Гост посети твој сајт и види промпт:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> "Инсталирај Златар апликацију?"</li>
+                    <li><i class="fas fa-check-circle"></i> Један тап → икона на Home Screen-у</li>
+                    <li><i class="fas fa-check-circle"></i> Нема App Store/Google Play</li>
+                    <li><i class="fas fa-check-circle"></i> Инсталација за 5 секунди</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h2><i class="fas fa-bolt"></i> Брзина</h2>
+                <p>После прве посете:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Instant load (&lt;1 сек)</li>
+                    <li><i class="fas fa-check-circle"></i> Мени из кеша (offline)</li>
+                    <li><i class="fas fa-check-circle"></i> Слике пре-учитане</li>
+                    <li><i class="fas fa-check-circle"></i> Као нативна апликација</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h2><i class="fas fa-bell"></i> Нотификације</h2>
+                <p>Push поруке директно на телефон:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Reminder пре резервације</li>
+                    <li><i class="fas fa-check-circle"></i> Специјалне понуде</li>
+                    <li><i class="fas fa-check-circle"></i> Догађаји (жива музика)</li>
+                    <li><i class="fas fa-check-circle"></i> Нови мени</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h2><i class="fas fa-wifi-slash"></i> Offline Mode</h2>
+                <p>Ради без интернета:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Мени увек доступан</li>
+                    <li><i class="fas fa-check-circle"></i> Контакт информације</li>
+                    <li><i class="fas fa-check-circle"></i> Радно време</li>
+                    <li><i class="fas fa-check-circle"></i> Галерија слика</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h2><i class="fas fa-calendar-check"></i> Брзе Резервације</h2>
+                <p>Једноставније booking:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Сачувани подаци</li>
+                    <li><i class="fas fa-check-circle"></i> Аутоматско попуњавање</li>
+                    <li><i class="fas fa-check-circle"></i> Резервација за 15 сек</li>
+                    <li><i class="fas fa-check-circle"></i> Email + Push потврда</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h2><i class="fas fa-crown"></i> VIP Изглед</h2>
+                <p>Професионално искуство:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Fullscreen (без browser bar-а)</li>
+                    <li><i class="fas fa-check-circle"></i> Splash screen са логом</li>
+                    <li><i class="fas fa-check-circle"></i> Smooth animations</li>
+                    <li><i class="fas fa-check-circle"></i> Брендирани екран</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- How to Test -->
+        <div class="steps">
+            <h2 style="color: #D4AF37; margin-bottom: 2rem; text-align: center; font-size: 2rem;">
+                <i class="fas fa-flask"></i> Како да тестираш САДА
+            </h2>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Отвори index.html на телефону</h3>
+                    <p>Пошаљи линк на свој телефон преко WhatsApp или email-а. Отвори у Chrome-у (Android) или Safari-у (iOS).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Прати install prompt</h3>
+                    <p>После неколико секунди, видећеш golden дугме доле лево: "Инсталирај апликацију Ресторан Златар". Кликни на њега.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Инсталирај апликацију</h3>
+                    <p>Појавиће се native промпт: "Додај Златар на почетни екран". Тапни "Додај" или "Install".</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Отвори са Home Screen-а</h3>
+                    <p>Икона Златар апликације је сада на твом Home Screen-у. Тапни је - отвара се као нативна апликација! 🎉</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>🚀 PWA је спреман!</h2>
+            <p>Све је постављено и ради. Тестирај сада на свом телефону!</p>
+            <div class="button-group">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i>
+                    Иди на Homepage (тестирај install)
+                </a>
+                <button class="btn btn-secondary" onclick="showInstructions()">
+                    <i class="fas fa-question-circle"></i>
+                    Како да тестирам?
+                </button>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div id="instructions" style="display: none; margin-top: 2rem;">
+            <div class="demo-card">
+                <h2><i class="fas fa-mobile-alt"></i> Упутство за тестирање</h2>
+                
+                <h3 style="color: #D4AF37; margin-top: 1.5rem;">Android (Chrome):</h3>
+                <ol style="line-height: 2; padding-left: 1.5rem;">
+                    <li>Отвори Chrome на телефону</li>
+                    <li>Иди на index.html (localhost или deploy)</li>
+                    <li>Видећеш golden button доле лево</li>
+                    <li>Кликни → Install → Додај на почетни екран</li>
+                    <li>Икона је на Home Screen-у!</li>
+                </ol>
+
+                <h3 style="color: #D4AF37; margin-top: 1.5rem;">iOS (Safari):</h3>
+                <ol style="line-height: 2; padding-left: 1.5rem;">
+                    <li>Отвори Safari на iPhone-у</li>
+                    <li>Иди на index.html</li>
+                    <li>Тапни Share button (квадрат са стрелицом горе)</li>
+                    <li>Scroll down → "Add to Home Screen"</li>
+                    <li>Тапни "Add" → Икона је на Home Screen-у!</li>
+                </ol>
+
+                <h3 style="color: #D4AF37; margin-top: 1.5rem;">Desktop (Chrome/Edge):</h3>
+                <ol style="line-height: 2; padding-left: 1.5rem;">
+                    <li>Отвори index.html у Chrome-у</li>
+                    <li>Видећеш install икону у адрес bar-у (десно)</li>
+                    <li>Кликни → Install</li>
+                    <li>Апликација се отвара у посебном прозору!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showInstructions() {
+            const instructions = document.getElementById('instructions');
+            if (instructions.style.display === 'none') {
+                instructions.style.display = 'block';
+                instructions.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                instructions.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

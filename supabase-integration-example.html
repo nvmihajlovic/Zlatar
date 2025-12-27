@@ -1,0 +1,105 @@
+<!-- 
+    SUPABASE INTEGRATION EXAMPLE
+    Primer integracije za blog-post-1.html
+    
+    Копирај овај код у <head> и замени постојећи like handler
+-->
+
+<!-- 1. ДОДАЈ У <HEAD> СЕКЦИЈУ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/blog-stats-supabase.js"></script>
+
+<!-- 2. ДОДАЈ data-post-id У <body> -->
+<body data-post-id="blog-post-1">
+
+<!-- 3. ЗАМЕНИ LIKE BUTTON JAVASCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const postId = 'blog-post-1'; // ПРОМЕНИ за сваки blog post!
+    const likeBtn = document.getElementById('likeBtn');
+    const likeCount = document.getElementById('likeCount');
+    const viewCount = document.getElementById('viewCount');
+    
+    // Initialize Supabase and get stats
+    const stats = await BlogStats.init(postId);
+    
+    // Update UI with current stats
+    likeCount.textContent = stats.likes;
+    viewCount.textContent = stats.views;
+    
+    // Set initial like state
+    if (stats.hasLiked) {
+        likeBtn.classList.add('active');
+        likeBtn.style.background = 'rgba(212,175,55,0.2)';
+        likeBtn.style.borderColor = 'rgba(212,175,55,0.4)';
+        likeBtn.style.color = '#D4AF37';
+    }
+    
+    // Like button click handler
+    likeBtn.addEventListener('click', async function() {
+        // Disable button during request
+        this.disabled = true;
+        
+        try {
+            // Toggle like
+            const result = await BlogStats.toggleLike();
+            
+            // Update count
+            likeCount.textContent = result.likes;
+            
+            // Update button style
+            if (result.action === 'liked') {
+                this.classList.add('active');
+                this.style.background = 'rgba(212,175,55,0.2)';
+                this.style.borderColor = 'rgba(212,175,55,0.4)';
+                this.style.color = '#D4AF37';
+            } else {
+                this.classList.remove('active');
+                this.style.background = 'rgba(255,255,255,0.05)';
+                this.style.borderColor = 'rgba(255,255,255,0.1)';
+                this.style.color = 'rgba(255,255,255,0.8)';
+            }
+        } catch (error) {
+            console.error('Like error:', error);
+            alert('Грешка при лајковању. Покушајте поново.');
+        } finally {
+            // Re-enable button
+            this.disabled = false;
+        }
+    });
+    
+    // ОПЦИОНО: Real-time updates
+    // Ако желиш да корисници виде промене у реалном времену:
+    BlogStats.subscribeToUpdates((updatedStats) => {
+        likeCount.textContent = updatedStats.likes;
+        viewCount.textContent = updatedStats.views;
+    });
+});
+</script>
+
+<!-- 
+═══════════════════════════════════════════════════════════
+    КРАТКИ SETUP КОРАЦИ:
+═══════════════════════════════════════════════════════════
+
+1. Креирај Supabase account на https://supabase.com
+2. Креирај нови пројекат
+3. Покрени SQL из supabase-setup.sql
+4. Копирај Project URL и anon key
+5. Замени их у js/blog-stats-supabase.js (линије 19-20)
+6. Додај горњи код у све blog-post странице
+7. Deploy на Netlify!
+
+═══════════════════════════════════════════════════════════
+    ПРЕДНОСТИ:
+═══════════════════════════════════════════════════════════
+
+✅ Бесплатно (500MB PostgreSQL)
+✅ Real-time sync - сви виде исте бројеве
+✅ Нема backend кода - само JavaScript
+✅ Ради на Netlify без проблема
+✅ Dashboard за преглед статистика
+✅ Аутоматски fallback на localStorage ако Supabase не ради
+
+═══════════════════════════════════════════════════════════
+-->

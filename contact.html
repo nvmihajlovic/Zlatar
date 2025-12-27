@@ -140,7 +140,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 0.875rem;
         }
         
@@ -429,6 +429,22 @@
         }
         
         @media (max-width: 768px) {
+            .hero-contact {
+                min-height: 40vh;
+                padding: 7rem 1rem 3rem 1rem;
+            }
+            
+            .breadcrumbs {
+                margin-bottom: 1.5rem;
+                font-size: 0.75rem;
+                gap: 0.3rem;
+                flex-wrap: wrap;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
             .map-wrapper {
                 height: 350px;
             }
@@ -466,6 +482,101 @@
         }
     </style>
 
+
+<style>
+/* UI/UX Final Polish - Не дира постојеће функционалности */
+
+/* Smooth hover effects for all links */
+a:not([onclick]):not(.btn) {
+    transition: color 0.3s ease, opacity 0.3s ease !important;
+}
+
+a:not([onclick]):not(.btn):hover {
+    opacity: 0.85;
+}
+
+/* Better focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid rgba(212,175,55,0.5);
+    outline-offset: 2px;
+}
+
+/* Smooth animations for modals */
+.modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Better button hover states */
+button:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+}
+
+button:not(:disabled):active {
+    transform: translateY(0);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Loading skeleton animation */
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav,
+    footer,
+    .modal,
+    button:not(.print-visible) {
+        display: none !important;
+    }
+}
+</style>
+
 </head>
 <body>
     <div class="page-transition" id="pageTransition"></div>
@@ -481,6 +592,7 @@
                 <li class="nav-item"><a href="about.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">О нама</a></li>
                 <li class="nav-item"><a href="menu.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Јеловник</a></li>
                 <li class="nav-item"><a href="wine.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Винска карта</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.blog">Блог</span></a></li>
                 <li class="nav-item"><a href="gallery.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Галерија</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link active" style="color: #FFD700; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 100%); backdrop-filter: blur(12px) saturate(150%); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(212,175,55,0.25), inset 0 1px 0 rgba(255,255,255,0.1);">Контакт</a></li>
             </ul>
@@ -488,7 +600,7 @@
             <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
                 <div class="language-switcher" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
                     <button class="lang-btn active" data-lang="sr" style="background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Српски">RS</button>
-                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">GB</button>
+                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">EN</button>
                     <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
                 </div>
                 <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
@@ -514,19 +626,19 @@
             </a>
             
             <ul class="nav-menu" id="navMenu" style="display: flex; align-items: center; gap: 1.4rem;">
-                <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Почетна</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link" data-i18n="nav.about" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">О нама</a></li>
-                <li class="nav-item"><a href="menu.html" class="nav-link" data-i18n="nav.menu" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Јеловник</a></li>
-                <li class="nav-item"><a href="wine.html" class="nav-link" data-i18n="nav.wine" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Винска карта</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link" data-i18n="nav.blog" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Блог</a></li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link" data-i18n="nav.gallery" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">Галерија</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link active" data-i18n="nav.contact" style="color: #FFD700; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 100%); backdrop-filter: blur(12px) saturate(150%); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(212,175,55,0.25), inset 0 1px 0 rgba(255,255,255,0.1);">Контакт</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.home">Почетна</span></a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.about">О нама</span></a></li>
+                <li class="nav-item"><a href="menu.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.menu">Јеловник</span></a></li>
+                <li class="nav-item"><a href="wine.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.wine">Винска карта</span></a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.blog">Блог</span></a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.gallery">Галерија</span></a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link active" style="color: #FFD700; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.3px; background: linear-gradient(135deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 100%); backdrop-filter: blur(12px) saturate(150%); border: 1px solid rgba(212,175,55,0.35); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(212,175,55,0.25), inset 0 1px 0 rgba(255,255,255,0.1);"><span data-i18n="nav.contact">Контакт</span></a></li>
             </ul>
             
             <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
                 <div class="language-switcher" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
                     <button class="lang-btn active" data-lang="sr" style="background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Српски">RS</button>
-                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">GB</button>
+                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">EN</button>
                     <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
                 </div>
                 <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
@@ -541,12 +653,12 @@
             </div>
         </div>
     </nav>
-            <nav class="breadcrumbs" style="margin-bottom: 1.5rem;">
-                <a href="index.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: color 0.3s;">
+            <nav class="breadcrumbs" style="margin-bottom: 2.5rem; padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); display: inline-block;">
+                <a href="index.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s;">
                     <i class="fas fa-home" style="margin-right: 0.5rem;"></i><span data-i18n="contact-page.breadcrumb.home">Почетна</span>
                 </a>
-                <span style="color: rgba(255, 255, 255, 0.4); margin: 0 0.75rem;">/</span>
-                <span style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;" data-i18n="contact-page.breadcrumb.current">Контакт</span>
+                <span style="color: rgba(255, 255, 255, 0.3); margin: 0 0.75rem;">/</span>
+                <span style="color: #D4AF37; font-weight: 500;" data-i18n="contact-page.breadcrumb.current">Контакт</span>
             </nav>
 
             <h1 class="page-title">
@@ -1120,6 +1232,25 @@
                 display: none !important;
             }
         }
+        
+        /* Desktop CSS: Override mobile styles - must be AFTER mobile media query */
+        @media (min-width: 1282px) {
+            .nav-toggle {
+                display: none !important;
+            }
+            .nav-menu .nav-item {
+                opacity: 1 !important;
+                transform: none !important;
+                display: inline-block !important;
+                visibility: visible !important;
+                width: auto !important;
+            }
+            .nav-menu .nav-item a {
+                display: block !important;
+                visibility: visible !important;
+            }
+        }
+        
         @media (min-width: 1025px) {
             .nav-toggle {
                 display: none !important;
@@ -2081,27 +2212,45 @@
         
         // Handle form submission
         if (reservationForm) {
-            reservationForm.addEventListener('submit', (e) => {
+            reservationForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
                 const formData = {
                     name: document.getElementById('resName').value,
+                    email: document.getElementById('resEmail')?.value || '',
                     phone: document.getElementById('resPhone').value,
                     date: document.getElementById('resDate').value,
                     time: document.getElementById('resTime').value,
                     guests: document.getElementById('resGuests').value,
-                    note: document.getElementById('resNote').value
+                    notes: document.getElementById('resNote').value
                 };
                 
-                // Here you would typically send data to server
-                console.log('Reservation data:', formData);
+                // Show loading state
+                const submitBtn = reservationForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Шаље се...';
                 
-                // Show success message
-                alert('Хвала! Ваша резервација је послата. Контактираћемо вас ускоро за потврду.');
-                
-                // Close modal and reset form
-                closeModal();
-                reservationForm.reset();
+                try {
+                    // Send emails via EmailJS
+                    const result = await EmailService.sendReservationEmails(formData);
+                    
+                    // Show toast message
+                    EmailService.showMessage(result.message, result.success);
+                    
+                    if (result.success) {
+                        // Reset form and close modal after 2 seconds
+                        reservationForm.reset();
+                        setTimeout(() => {
+                            closeModal();
+                        }, 2000);
+                    }
+                } catch (error) {
+                    EmailService.showMessage('Дошло је до грешке. Покушајте поново или нас позовите.', false);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
             });
         }
         
@@ -2138,28 +2287,6 @@
             }
         })();
     </script>
-
-<script>
-    // Mobile Menu JavaScript
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.getElementById('navMenu');
-    const body = document.body;
-    
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        body.classList.toggle('menu-open');
-    });
-    
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            body.classList.remove('menu-open');
-        });
-    });
-</script>
 
 <script>
     // Page transition on load
@@ -2401,6 +2528,10 @@
             });
         });
     </script>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/email-service.js"></script>
 
 </body>
 </html>

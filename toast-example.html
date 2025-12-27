@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Toast Пример - Ресторан Златар</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #2B1F15 0%, #3D3226 50%, #5D4E37 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .demo-container {
+            background: rgba(255,255,255,0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+            color: white;
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-error {
+            background: linear-gradient(135deg, #F44336 0%, #D32F2F 100%);
+            color: white;
+            box-shadow: 0 4px 16px rgba(244, 67, 54, 0.3);
+        }
+        
+        .btn-error:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 67, 54, 0.4);
+        }
+        
+        .btn-reservation {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: white;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-reservation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-newsletter {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+        }
+        
+        .btn-newsletter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+        }
+        
+        .info-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.05));
+            border-left: 4px solid #D4AF37;
+            border-radius: 8px;
+        }
+        
+        .info-box h3 {
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .info-box ul {
+            color: #666;
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .code-example {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1><i class="fas fa-bell"></i> Toast Нотификације</h1>
+        <p>
+            Овако ће изгледати аутоматске поруке након submit-а форми на твом сајту. 
+            Кликни на дугмад испод да видиш примере:
+        </p>
+        
+        <div class="button-group">
+            <button class="btn-reservation" onclick="showReservationSuccess()">
+                <i class="fas fa-calendar-check"></i>
+                Резервација - Успех
+            </button>
+            
+            <button class="btn-newsletter" onclick="showNewsletterSuccess()">
+                <i class="fas fa-envelope-open-text"></i>
+                Newsletter - Успех
+            </button>
+            
+            <button class="btn-error" onclick="showError()">
+                <i class="fas fa-exclamation-triangle"></i>
+                Грешка
+            </button>
+            
+            <button class="btn-success" onclick="showCustomSuccess()">
+                <i class="fas fa-check-circle"></i>
+                Општи успех
+            </button>
+        </div>
+        
+        <div class="info-box">
+            <h3><i class="fas fa-info-circle"></i> Карактеристике:</h3>
+            <ul>
+                <li><strong>Аутоматско појављивање</strong> - Toast се појави одмах након submit-а</li>
+                <li><strong>Смут анимације</strong> - Slide-in и fade-out ефекти</li>
+                <li><strong>Ауто-затварање</strong> - Нестаје након 5 секунди</li>
+                <li><strong>Респонсивно</strong> - Прилагођава се мобилном екрану</li>
+                <li><strong>Без alert()</strong> - Модерна UI нотификација</li>
+            </ul>
+        </div>
+        
+        <div class="code-example">
+// Пример коришћења:<br>
+<br>
+// Успешна резервација<br>
+EmailService.showMessage(<br>
+&nbsp;&nbsp;'Резервација је послата! Проверите ваш email за потврду.',<br>
+&nbsp;&nbsp;true  // success = зелена боја<br>
+);<br>
+<br>
+// Грешка<br>
+EmailService.showMessage(<br>
+&nbsp;&nbsp;'Дошло је до грешке. Покушајте поново.',<br>
+&nbsp;&nbsp;false  // error = црвена боја<br>
+);
+        </div>
+    </div>
+
+    <script src="js/email-service.js"></script>
+    <script>
+        function showReservationSuccess() {
+            EmailService.showMessage('Резервација је послата! Проверите ваш email за потврду.', true);
+        }
+        
+        function showNewsletterSuccess() {
+            EmailService.showMessage('Хвала на пријави! Проверите ваш email за добродошлицу.', true);
+        }
+        
+        function showError() {
+            EmailService.showMessage('Дошло је до грешке. Покушајте поново или нас позовите.', false);
+        }
+        
+        function showCustomSuccess() {
+            EmailService.showMessage('Ваша порука је успешно послата. Одговорићемо вам у најкраћем року!', true);
+        }
+    </script>
+</body>
+</html>

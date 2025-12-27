@@ -2119,11 +2119,45 @@ const translations = {
 };
 
 // i18n functionality
-let currentLang = localStorage.getItem('language') || 'sr';
+let currentLang = 'sr'; // Default to Serbian
+
+// Check URL parameter first (has priority)
+const urlParams = new URLSearchParams(window.location.search);
+const urlLang = urlParams.get('lang');
+
+if (urlLang && (urlLang === 'sr' || urlLang === 'en' || urlLang === 'ru')) {
+    currentLang = urlLang;
+    localStorage.setItem('language', urlLang);
+    console.log('i18n INIT - Using URL parameter:', urlLang);
+} else {
+    // Then check localStorage
+    const savedLang = localStorage.getItem('language');
+    if (savedLang && (savedLang === 'sr' || savedLang === 'en' || savedLang === 'ru')) {
+        currentLang = savedLang;
+        console.log('i18n INIT - Using saved language:', savedLang);
+    } else {
+        console.log('i18n INIT - No saved language, defaulting to Serbian');
+    }
+}
 
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
+    
+    // Add lang parameter to all internal links
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set('lang', lang);
+    
+    console.log('i18n - Language changed to:', lang, '(will persist across pages)');
+    
+    // Update all internal links on the page to include lang parameter
+    document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('javascript:') && !href.includes('lang=')) {
+            const separator = href.includes('?') ? '&' : '?';
+            link.setAttribute('href', href + separator + 'lang=' + lang);
+        }
+    });
     
     // Update HTML lang attribute
     document.documentElement.lang = lang;
@@ -2196,16 +2230,58 @@ function setLanguage(lang) {
     
     // Hide/show blog links based on language (blog is Serbian-only)
     const blogLinks = document.querySelectorAll('a[href*="blog.html"], a[href*="blog-post-"]');
+    console.log('i18n DEBUG - Current lang:', lang, '| Found blog links:', blogLinks.length);
     blogLinks.forEach(link => {
+        const parentLi = link.closest('li.nav-item');
+        console.log('i18n DEBUG - Blog link:', link.href, '| Parent LI:', parentLi);
         if (lang === 'en' || lang === 'ru') {
             // Hide blog links for English and Russian
-            link.style.display = 'none';
+            console.log('i18n DEBUG - Hiding blog (lang is', lang, ')');
+            link.style.setProperty('display', 'none', 'important');
+            if (parentLi) parentLi.style.setProperty('display', 'none', 'important');
         } else {
             // Show blog links for Serbian
-            link.style.display = '';
+            console.log('i18n DEBUG - Showing blog (lang is', lang, ')');
+            link.style.removeProperty('display');
+            link.style.setProperty('opacity', '1', 'important');
+            link.style.setProperty('visibility', 'visible', 'important');
+            if (parentLi) {
+                parentLi.style.removeProperty('display');
+                parentLi.style.setProperty('opacity', '1', 'important');
+                parentLi.style.setProperty('transform', 'none', 'important');
+                parentLi.style.setProperty('visibility', 'visible', 'important');
+            }
         }
     });
 }
+
+// Intercept all link clicks and add lang parameter
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    // Skip language buttons
+    if (link.classList.contains('lang-btn') || link.closest('.mobile-lang-switcher')) {
+        return;
+    }
+    
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('http') || link.target === '_blank') {
+        return; // Skip these
+    }
+    
+    // Check if it's an internal HTML link
+    if (href.endsWith('.html') || href.includes('.html?') || href.includes('.html#')) {
+        e.preventDefault();
+        
+        // Add current language to URL
+        const url = new URL(href, window.location.href);
+        url.searchParams.set('lang', currentLang);
+        
+        console.log('i18n - Navigating to:', url.href, 'with lang:', currentLang);
+        window.location.href = url.href;
+    }
+}, true); // Use capture phase to catch it early
 
 // Initialize language system
 document.addEventListener('DOMContentLoaded', () => {

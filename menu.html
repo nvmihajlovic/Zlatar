@@ -133,6 +133,7 @@
         .hero-menu-content {
             position: relative;
             z-index: 2;
+            text-align: center;
         }
         
         .breadcrumbs {
@@ -140,7 +141,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 0.875rem;
         }
         
@@ -161,6 +162,20 @@
         .breadcrumbs .current {
             color: #D4AF37;
             font-weight: 500;
+        }
+        
+        .page-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 50px;
         }
         
         .page-title {
@@ -543,7 +558,14 @@
             
             .hero-menu {
                 min-height: 40vh;
-                padding: 6rem 1rem 2rem 1rem;
+                padding: 7rem 1rem 3rem 1rem;
+            }
+            
+            .breadcrumbs {
+                margin-bottom: 1.5rem;
+                font-size: 0.75rem;
+                gap: 0.3rem;
+                flex-wrap: wrap;
             }
             
             .page-title {
@@ -602,6 +624,101 @@
         }
     </style>
 
+
+<style>
+/* UI/UX Final Polish - Не дира постојеће функционалности */
+
+/* Smooth hover effects for all links */
+a:not([onclick]):not(.btn) {
+    transition: color 0.3s ease, opacity 0.3s ease !important;
+}
+
+a:not([onclick]):not(.btn):hover {
+    opacity: 0.85;
+}
+
+/* Better focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid rgba(212,175,55,0.5);
+    outline-offset: 2px;
+}
+
+/* Smooth animations for modals */
+.modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Better button hover states */
+button:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+}
+
+button:not(:disabled):active {
+    transform: translateY(0);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 768px) {
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Loading skeleton animation */
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav,
+    footer,
+    .modal,
+    button:not(.print-visible) {
+        display: none !important;
+    }
+}
+</style>
+
 </head>
 <body>
     <!-- Navbar -->
@@ -624,7 +741,7 @@
             <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
                 <div class="language-switcher" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
                     <button class="lang-btn active" data-lang="sr" style="background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Српски">RS</button>
-                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">GB</button>
+                    <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">EN</button>
                     <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
                 </div>
                 <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
@@ -643,12 +760,13 @@
     <!-- Hero Section -->
     <section class="hero-menu">
         <div class="hero-menu-content">
-            <div class="breadcrumbs">
-                <a href="index.html"><i class="fas fa-home"></i> <span data-i18n="menu-page.breadcrumb.home">Почетна</span></a>
-                <span class="separator">/</span>
-                <span class="current" data-i18n="menu-page.breadcrumb.current">Јеловник</span>
-            </div>
-            <span class="page-badge" data-i18n="menu-page.badge">ЈЕЛОВНИК</span>
+            <nav class="breadcrumbs" style="margin-bottom: 1.5rem; padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); display: inline-block;">
+                <a href="index.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s;">
+                    <i class="fas fa-home" style="margin-right: 0.5rem;"></i><span data-i18n="menu-page.breadcrumb.home">Почетна</span>
+                </a>
+                <span style="color: rgba(255, 255, 255, 0.3); margin: 0 0.75rem;">/</span>
+                <span style="color: #D4AF37; font-weight: 500;" data-i18n="menu-page.breadcrumb.current">Јеловник</span>
+            </nav>
             <h1 class="page-title"><span data-i18n="menu-page.title">Јеловник</span> <span class="text-gold" data-i18n="menu-page.title.zlatar">Златар</span></h1>
             <p class="page-subtitle" data-i18n="menu-page.subtitle">Традиционална српска кухиња, домаћа печења и специјалитети</p>
             <div style="margin-top: 2rem;">
@@ -2040,12 +2158,12 @@
                 <div class="footer-col">
                     <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;"><span data-i18n="footer.newsletter">Newsletter</span></h4>
                     <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9375rem; margin-bottom: 1.25rem;"><span data-i18n="footer.newsletter-text">Пријавите се за специјалне понуде</span></p>
-                    <div class="newsletter-form" style="display: flex; gap: 0.5rem;">
-                        <input type="email" data-i18n-placeholder="footer.newsletter-placeholder" placeholder="Ваш email" class="newsletter-input" style="font-family: 'Montserrat', sans-serif; flex: 1; padding: 0.875rem 1.25rem; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.9375rem; outline: none; transition: all 0.3s;">
-                        <button class="newsletter-btn" style="width: 48px; height: 48px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 12px; color: #fff; font-size: 1rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(212,175,55,0.3);">
+                    <form id="newsletterForm" class="newsletter-form" style="display: flex; gap: 0.5rem;">
+                        <input type="email" name="email" required data-i18n-placeholder="footer.newsletter-placeholder" placeholder="Ваш email" class="newsletter-input" style="font-family: 'Montserrat', sans-serif; flex: 1; padding: 0.875rem 1.25rem; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; font-size: 0.9375rem; outline: none; transition: all 0.3s;">
+                        <button type="submit" class="newsletter-btn" style="width: 48px; height: 48px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border: none; border-radius: 12px; color: #fff; font-size: 1rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(212,175,55,0.3);">
                             <i class="fas fa-paper-plane"></i>
                         </button>
-                    </div>
+                    </form>
                     <div style="margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.06) 100%); backdrop-filter: blur(12px); border-left: 4px solid #D4AF37; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);">
                         <p style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 0; line-height: 1.7; display: flex; align-items: center; gap: 0.75rem;">
                             <i class="fas fa-info-circle" style="color: #D4AF37; font-size: 1.1rem; flex-shrink: 0;"></i>
@@ -3203,27 +3321,45 @@
         
         // Handle form submission
         if (reservationForm) {
-            reservationForm.addEventListener('submit', (e) => {
+            reservationForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
                 const formData = {
                     name: document.getElementById('resName').value,
+                    email: document.getElementById('resEmail')?.value || '',
                     phone: document.getElementById('resPhone').value,
                     date: document.getElementById('resDate').value,
                     time: document.getElementById('resTime').value,
                     guests: document.getElementById('resGuests').value,
-                    note: document.getElementById('resNote').value
+                    notes: document.getElementById('resNote').value
                 };
                 
-                // Here you would typically send data to server
-                console.log('Reservation data:', formData);
+                // Show loading state
+                const submitBtn = reservationForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Шаље се...';
                 
-                // Show success message
-                alert('Хвала! Ваша резервација је послата. Контактираћемо вас ускоро за потврду.');
-                
-                // Close modal and reset form
-                closeModal();
-                reservationForm.reset();
+                try {
+                    // Send emails via EmailJS
+                    const result = await EmailService.sendReservationEmails(formData);
+                    
+                    // Show toast message
+                    EmailService.showMessage(result.message, result.success);
+                    
+                    if (result.success) {
+                        // Reset form and close modal after 2 seconds
+                        reservationForm.reset();
+                        setTimeout(() => {
+                            closeModal();
+                        }, 2000);
+                    }
+                } catch (error) {
+                    EmailService.showMessage('Дошло је до грешке. Покушајте поново или нас позовите.', false);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
             });
         }
         
@@ -3262,10 +3398,8 @@
     </script>
 
 <script>
-    // Mobile Menu JavaScript
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.getElementById('navMenu');
-    const body = document.body;
+    // Mobile Menu JavaScript (reuse navToggle from above)
+    // const navToggle already declared above, just use it
     
     navToggle.addEventListener('click', () => {
         navToggle.classList.toggle('active');
@@ -3553,5 +3687,9 @@
         });
     </script>
 
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/email-service.js"></script>
 </body>
 </html>

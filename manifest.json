@@ -1,0 +1,60 @@
+{
+  "name": "Ресторан Златар - Етно ресторан Београд",
+  "short_name": "Златар",
+  "description": "Етно ресторан у срцу Београда - 40 година традиције, аутентични укуси, жива музика",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#140f08",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "dir": "ltr",
+  "lang": "sr",
+  "icons": [
+    {
+      "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "restaurant", "lifestyle", "entertainment"],
+  "shortcuts": [
+    {
+      "name": "Резервишите сто",
+      "short_name": "Резервација",
+      "description": "Брзо резервишите ваш сто",
+      "url": "/#reservation",
+      "icons": [
+        {
+          "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Мени",
+      "short_name": "Мени",
+      "description": "Погледајте наш мени",
+      "url": "/menu.html",
+      "icons": [
+        {
+          "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Контакт",
+      "short_name": "Контакт",
+      "description": "Контактирајте нас",
+      "url": "/contact.html",
+      "icons": [
+        {
+          "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
