@@ -1630,6 +1630,10 @@ select:focus {
             btnReserve.addEventListener('click', () => {
                 reservationModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Add history state for back button support
+                history.pushState({ modalOpen: true }, '');
+                
                 // Update translations when modal opens
                 if (typeof setLanguage === 'function' && typeof currentLang !== 'undefined') {
                     setLanguage(currentLang);
@@ -1644,8 +1648,6 @@ select:focus {
                     if (btnReserve) {
                         btnReserve.click();
                     }
-                    // Remove hash without page reload
-                    history.replaceState(null, null, ' ');
                 }, 300);
             }
         }
@@ -1662,12 +1664,32 @@ select:focus {
             document.body.style.overflow = '';
         }
         
+        // Handle browser back button
+        window.addEventListener('popstate', (e) => {
+            if (reservationModal.classList.contains('active')) {
+                // Modal is open, close it without going back
+                closeModal();
+            }
+        });
+        
         if (modalClose) {
-            modalClose.addEventListener('click', closeModal);
+            modalClose.addEventListener('click', () => {
+                closeModal();
+                // Go back in history to remove modal state
+                if (window.history.state?.modalOpen) {
+                    history.back();
+                }
+            });
         }
         
         if (modalOverlay) {
-            modalOverlay.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', () => {
+                closeModal();
+                // Go back in history to remove modal state
+                if (window.history.state?.modalOpen) {
+                    history.back();
+                }
+            });
         }
         
         // Close on ESC key

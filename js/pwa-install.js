@@ -309,7 +309,8 @@ const PWAInstall = {
                 text-align: center;
                 animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
                 font-family: 'Montserrat', sans-serif;
-                max-width: 400px;
+                max-width: 480px;
+                width: 90%;
                 border: 1px solid rgba(212, 175, 55, 0.25);
             ">
                 <div style="
@@ -341,8 +342,8 @@ const PWAInstall = {
                     font-size: 1rem;
                     color: rgba(255, 255, 255, 0.85);
                     font-weight: 500;
-                    line-height: 1.5;
-                ">Златар апликација је додата на ваш Home Screen</p>
+                    line-height: 1.6;
+                ">Златар апликација је додата<br>на ваш Home Screen</p>
                 <div style="
                     margin-top: 1.5rem;
                     padding-top: 1.5rem;
