@@ -82,29 +82,65 @@ const PWAInstall = {
             <div style="
                 position: fixed;
                 bottom: 2rem;
-                left: 2rem;
-                background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 14px;
-                box-shadow: 0 8px 32px rgba(212,175,55,0.4), 0 4px 16px rgba(0,0,0,0.2);
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(20, 15, 8, 0.98);
+                backdrop-filter: blur(20px) saturate(180%);
+                color: #ffffff;
+                padding: 1.5rem 2rem;
+                border-radius: 20px;
+                box-shadow: 
+                    0 20px 60px rgba(0, 0, 0, 0.6),
+                    0 8px 24px rgba(212, 175, 55, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                    0 0 0 1px rgba(212, 175, 55, 0.2);
                 cursor: pointer;
                 z-index: 9998;
                 font-family: 'Montserrat', sans-serif;
-                font-weight: 600;
                 display: flex;
                 align-items: center;
-                gap: 0.75rem;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                animation: slideInLeft 0.5s ease-out;
-                border: 1px solid rgba(255,255,255,0.2);
-            " onmouseover="this.style.transform='translateY(-3px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(212,175,55,0.5), 0 6px 20px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(212,175,55,0.4), 0 4px 16px rgba(0,0,0,0.2)'">
-                <i class="fas fa-mobile-alt" style="font-size: 1.5rem;"></i>
-                <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <span style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.125rem;">Инсталирај апликацију</span>
-                    <span style="font-size: 1.125rem; font-weight: 700;">Ресторан Златар</span>
+                gap: 1.25rem;
+                max-width: 420px;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                animation: slideInUp 0.6s ease-out;
+                border: 1px solid rgba(212, 175, 55, 0.25);
+            " onmouseover="this.style.transform='translateX(-50%) translateY(-5px)'; this.style.boxShadow='0 24px 72px rgba(0, 0, 0, 0.7), 0 12px 32px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 0 1px rgba(212, 175, 55, 0.35)'" onmouseout="this.style.transform='translateX(-50%) translateY(0)'; this.style.boxShadow='0 20px 60px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(212, 175, 55, 0.2)'">
+                <div style="
+                    width: 56px;
+                    height: 56px;
+                    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                ">
+                    <i class="fas fa-download" style="font-size: 1.5rem; color: #140f08;"></i>
                 </div>
-                <i class="fas fa-times" style="margin-left: 0.5rem; opacity: 0.7; font-size: 1rem;" onclick="event.stopPropagation(); PWAInstall.hideInstallButton();"></i>
+                <div style="display: flex; flex-direction: column; align-items: flex-start; flex: 1; min-width: 0;">
+                    <span style="font-size: 0.8125rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0.25rem; font-weight: 500; letter-spacing: 0.3px;">Инсталирај апликацију</span>
+                    <span style="font-size: 1.125rem; font-weight: 700; color: #FFD700; letter-spacing: 0.3px; text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);">Ресторан Златар</span>
+                    <span style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); margin-top: 0.25rem; font-weight: 400;">Брз приступ • Offline режим</span>
+                </div>
+                <button onclick="event.stopPropagation(); PWAInstall.hideInstallButton();" style="
+                    width: 32px;
+                    height: 32px;
+                    background: rgba(255, 255, 255, 0.08);
+                    border: 1px solid rgba(255, 255, 255, 0.12);
+                    border-radius: 8px;
+                    color: rgba(255, 255, 255, 0.6);
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    transition: all 0.3s ease;
+                    font-size: 0.875rem;
+                    padding: 0;
+                " onmouseover="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.color='rgba(255, 255, 255, 0.9)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='rgba(255, 255, 255, 0.6)'">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         `;
 
@@ -113,23 +149,43 @@ const PWAInstall = {
             const style = document.createElement('style');
             style.id = 'pwa-animations';
             style.textContent = `
-                @keyframes slideInLeft {
+                @keyframes slideInUp {
                     from {
-                        transform: translateX(-400px);
+                        transform: translateX(-50%) translateY(100px);
                         opacity: 0;
                     }
                     to {
-                        transform: translateX(0);
+                        transform: translateX(-50%) translateY(0);
                         opacity: 1;
                     }
                 }
-                @keyframes slideOutLeft {
+                @keyframes slideOutDown {
                     from {
-                        transform: translateX(0);
+                        transform: translateX(-50%) translateY(0);
                         opacity: 1;
                     }
                     to {
-                        transform: translateX(-400px);
+                        transform: translateX(-50%) translateY(100px);
+                        opacity: 0;
+                    }
+                }
+                @keyframes fadeInScale {
+                    from {
+                        transform: translate(-50%, -50%) scale(0.8);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translate(-50%, -50%) scale(1);
+                        opacity: 1;
+                    }
+                }
+                @keyframes fadeOutScale {
+                    from {
+                        transform: translate(-50%, -50%) scale(1);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translate(-50%, -50%) scale(0.9);
                         opacity: 0;
                     }
                 }
@@ -139,6 +195,11 @@ const PWAInstall = {
                         right: 1rem !important;
                         bottom: 1rem !important;
                         max-width: calc(100% - 2rem) !important;
+                        transform: translateX(0) !important;
+                        padding: 1.25rem 1.5rem !important;
+                    }
+                    #pwa-install-button > div:hover {
+                        transform: translateX(0) translateY(-5px) !important;
                     }
                 }
             `;
@@ -166,11 +227,11 @@ const PWAInstall = {
     hideInstallButton() {
         if (this.installButton) {
             const btn = this.installButton.querySelector('div');
-            btn.style.animation = 'slideOutLeft 0.3s ease-in';
+            btn.style.animation = 'slideOutDown 0.4s ease-in';
             setTimeout(() => {
                 this.installButton.remove();
                 this.installButton = null;
-            }, 300);
+            }, 400);
         }
     },
 
@@ -234,19 +295,69 @@ const PWAInstall = {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: linear-gradient(135deg, rgba(46, 125, 50, 0.98), rgba(56, 142, 60, 0.95));
-                color: white;
-                padding: 2rem 2.5rem;
-                border-radius: 16px;
-                box-shadow: 0 12px 48px rgba(0,0,0,0.3);
+                background: linear-gradient(135deg, rgba(20, 15, 8, 0.98) 0%, rgba(35, 26, 15, 0.98) 100%);
+                backdrop-filter: blur(30px) saturate(180%);
+                color: #ffffff;
+                padding: 2.5rem 3rem;
+                border-radius: 24px;
+                box-shadow: 
+                    0 24px 80px rgba(0, 0, 0, 0.7),
+                    0 12px 40px rgba(212, 175, 55, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                    0 0 0 1px rgba(212, 175, 55, 0.3);
                 z-index: 10001;
                 text-align: center;
-                animation: fadeInScale 0.4s ease-out;
+                animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
                 font-family: 'Montserrat', sans-serif;
+                max-width: 400px;
+                border: 1px solid rgba(212, 175, 55, 0.25);
             ">
-                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
-                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.5rem; font-weight: 700;">Успешно инсталирано!</h3>
-                <p style="margin: 0; font-size: 1rem; opacity: 0.95;">Златар апликација је на вашем Home Screen-у</p>
+                <div style="
+                    width: 80px;
+                    height: 80px;
+                    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto 1.5rem;
+                    box-shadow: 
+                        0 8px 24px rgba(212, 175, 55, 0.5),
+                        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                        inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+                ">
+                    <i class="fas fa-check" style="font-size: 2.5rem; color: #140f08;"></i>
+                </div>
+                <h3 style="
+                    margin: 0 0 0.75rem 0;
+                    font-size: 1.75rem;
+                    font-weight: 800;
+                    color: #FFD700;
+                    letter-spacing: 0.3px;
+                    text-shadow: 0 2px 12px rgba(255, 215, 0, 0.4);
+                ">Успешно инсталирано!</h3>
+                <p style="
+                    margin: 0;
+                    font-size: 1rem;
+                    color: rgba(255, 255, 255, 0.85);
+                    font-weight: 500;
+                    line-height: 1.5;
+                ">Златар апликација је додата на ваш Home Screen</p>
+                <div style="
+                    margin-top: 1.5rem;
+                    padding-top: 1.5rem;
+                    border-top: 1px solid rgba(212, 175, 55, 0.2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.75rem;
+                    font-size: 0.875rem;
+                    color: rgba(255, 255, 255, 0.6);
+                    font-weight: 500;
+                ">
+                    <i class="fas fa-mobile-alt" style="color: #D4AF37;"></i>
+                    <span>Отворите са Home Screen-а</span>
+                </div>
             </div>
         `;
 
