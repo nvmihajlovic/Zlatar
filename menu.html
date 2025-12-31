@@ -12,7 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="new-style.css">
     
     <style>
         :root {
@@ -744,9 +747,9 @@ html {
                     <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">EN</button>
                     <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
                 </div>
-                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
-                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
-                    <span data-i18n="nav.reserve">Резервација</span>
+                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0; padding: 0; width: 48px; height: 48px; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0; font-size: 1.1rem;"></i>
+                    <span data-i18n="nav.reserve" style="display: none;">Резервација</span>
                 </button>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" style="margin-left: 0.5rem;">
                     <span></span>
@@ -2277,23 +2280,91 @@ html {
 
 <!-- Cookie Consent Banner -->
     <div class="cookie-consent" id="cookieConsent">
-        <div class="cookie-content">
-            <div class="cookie-icon">
+        <div class="cookie-header" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="cookie-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: #1a1410; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3); flex-shrink: 0;">
                 <i class="fas fa-cookie-bite"></i>
             </div>
-            <div class="cookie-text">
-                <h4>Колачићи (Cookies)</h4>
-                <p>Користимо колачиће да бисмо побољшали ваше искуство на нашем сајту. Настављањем коришћења сајта, слажете се са нашом <a href="privacy.html">Политиком приватности</a>.</p>
+            <div>
+                <h4 data-i18n="cookie.title" style="font-family: 'Montserrat', sans-serif; font-size: 1.35rem; font-weight: 700; color: #D4AF37; margin: 0 0 0.5rem 0;">Подешавање колачића</h4>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.95rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin: 0;">
+                    <span data-i18n="cookie.description">Изаберите које врсте колачића желите да прихватите.</span> <a href="privacy.html" style="color: #FFD700; text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: all 0.3s;"><span data-i18n="cookie.learn_more">Сазнајте више</span></a>
+                </p>
             </div>
-            <div class="cookie-actions">
-                <button class="btn-cookie-accept" id="acceptCookies">
-                    <i class="fas fa-check"></i>
-                    Прихватам
-                </button>
-                <button class="btn-cookie-decline" id="declineCookies">
-                    Одбиј
-                </button>
+        </div>
+        
+        <div class="cookie-categories" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+            <!-- Neophodni kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-shield-alt" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.essential.title">Неопходни колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.essential.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Омогућавају основне функције сајта (навигација, безбедност)</p>
+                </div>
+                <div style="margin-left: 1rem;">
+                    <span data-i18n="cookie.essential.always" style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.05em;">Увек укључени</span>
+                </div>
             </div>
+            
+            <!-- Analiticki kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-chart-line" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.analytics.title">Аналитички колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.analytics.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Помажу нам да разумемо како користите сајт (Google Analytics)</p>
+                </div>
+                <label class="cookie-switch" style="margin-left: 1rem;">
+                    <input type="checkbox" id="analyticsConsent" checked>
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+            
+            <!-- Funkcionalni kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-cog" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.functional.title">Функционални колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.functional.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Памте ваше преференције (језик, тема, локација)</p>
+                </div>
+                <label class="cookie-switch" style="margin-left: 1rem;">
+                    <input type="checkbox" id="functionalConsent" checked>
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+            
+            <!-- Marketing kolacici -->
+            <div class="cookie-category" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.05); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="flex: 1;">
+                    <h5 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); margin: 0 0 0.25rem 0;">
+                        <i class="fas fa-bullhorn" style="color: #D4AF37; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                        <span data-i18n="cookie.marketing.title">Маркетиншки колачићи</span>
+                    </h5>
+                    <p data-i18n="cookie.marketing.description" style="font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.5;">Прилагођавају садржај и рекламе (социјалне мреже, маркетинг)</p>
+                </div>
+                <label class="cookie-switch" style="margin-left: 1rem;">
+                    <input type="checkbox" id="marketingConsent" checked>
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="cookie-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button class="btn-cookie-accept-all" id="acceptAllBtn" style="flex: 1; min-width: 140px; background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #1a1410; font-weight: 700; padding: 0.875rem 1.75rem; border: none; border-radius: 50px; cursor: pointer; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3); letter-spacing: 0.03em;">
+                <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                <span data-i18n="cookie.accept_all">Прихвати све</span>
+            </button>
+            <button class="btn-cookie-save" id="savePreferencesBtn" style="flex: 1; min-width: 140px; background: transparent; color: rgba(255, 255, 255, 0.85); font-weight: 600; padding: 0.875rem 1.75rem; border: 1.5px solid rgba(212, 175, 55, 0.4); border-radius: 50px; cursor: pointer; font-size: 0.95rem; transition: all 0.3s; letter-spacing: 0.03em;">
+                <i class="fas fa-save" style="margin-right: 0.5rem;"></i>
+                <span data-i18n="cookie.save_preferences">Сачувај избор</span>
+            </button>
+            <button class="btn-cookie-decline-all" id="declineAllBtn" style="flex: 0 0 auto; background: transparent; color: rgba(255, 255, 255, 0.5); font-weight: 500; padding: 0.875rem 1.5rem; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: 50px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; letter-spacing: 0.03em;">
+                <span data-i18n="cookie.decline_all">Одбиј све</span>
+            </button>
         </div>
     </div>
 
@@ -2301,10 +2372,9 @@ html {
         .cookie-consent {
             position: fixed;
             bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(150%);
-            max-width: 900px;
-            width: calc(100% - 2rem);
+            right: 2rem;
+            max-width: 480px;
+            width: calc(100% - 4rem);
             background: linear-gradient(145deg, rgba(26, 20, 16, 0.98) 0%, rgba(43, 33, 15, 0.98) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -2315,107 +2385,80 @@ html {
                 0 8px 20px rgba(212, 175, 55, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             z-index: 10000;
+            opacity: 0;
+            transform: translateY(120%);
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
         }
 
         .cookie-consent.show {
-            transform: translateX(-50%) translateY(0);
-            }
-
-        .cookie-content {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
         }
-
-        .cookie-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            color: #1a1410;
-            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+        
+        /* Toggle Switch */
+        .cookie-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
             flex-shrink: 0;
         }
-
-        .cookie-text {
-            flex: 1;
-            min-width: 250px;
+        
+        .cookie-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
-
-        .cookie-text h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #D4AF37;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .cookie-text p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.85);
-            margin: 0;
-        }
-
-        .cookie-text a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border-bottom: 1px solid transparent;
-        }
-
-        .cookie-text a:hover {
-            color: #D4AF37;
-            border-bottom-color: #D4AF37;
-        }
-
-        .cookie-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-shrink: 0;
-        }
-
-        .btn-cookie-accept,
-        .btn-cookie-decline {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 0.875rem 1.75rem;
-            border: none;
-            border-radius: 12px;
+        
+        .cookie-slider {
+            position: absolute;
             cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+            border-radius: 26px;
         }
-
-        .btn-cookie-accept {
+        
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .cookie-switch input:checked + .cookie-slider {
             background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-            color: #1a1410;
-            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+            border-color: #D4AF37;
         }
-
-        .btn-cookie-accept:hover {
+        
+        .cookie-switch input:checked + .cookie-slider:before {
+            transform: translateX(24px);
+            background-color: #1a1410;
+        }
+        
+        /* Button Hovers */
+        .btn-cookie-accept-all:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 24px rgba(212, 175, 55, 0.4);
         }
-
-        .btn-cookie-decline {
-            background: rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        
+        .btn-cookie-save:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.6);
         }
-
-        .btn-cookie-decline:hover {
+        
+        .btn-cookie-decline-all:hover {
             background: rgba(255, 255, 255, 0.08);
             color: rgba(255, 255, 255, 0.9);
             border-color: rgba(255, 255, 255, 0.2);
@@ -2424,38 +2467,39 @@ html {
         @media (max-width: 768px) {
             .cookie-consent {
                 bottom: 1rem;
-                width: calc(100% - 1rem);
+                right: 1rem;
+                left: 1rem;
+                width: calc(100% - 2rem);
+                max-width: none;
                 padding: 1.5rem;
             }
-
-            .cookie-content {
-                flex-direction: column;
+            
+            .cookie-header {
+                flex-direction: column !important;
                 text-align: center;
+                gap: 1rem !important;
             }
-
+            
+            .cookie-header .cookie-icon {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 1.5rem !important;
+            }
+            
+            .cookie-header h4 {
+                font-size: 1.15rem !important;
+            }
+            
+            .cookie-header p {
+                font-size: 0.85rem !important;
+            }
+            
             .cookie-actions {
+                flex-direction: column !important;
+            }
+            
+            .cookie-actions button {
                 width: 100%;
-                flex-direction: column;
-            }
-
-            .btn-cookie-accept,
-            .btn-cookie-decline {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .cookie-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-
-            .cookie-text h4 {
-                font-size: 1.125rem;
-            }
-
-            .cookie-text p {
-                font-size: 0.875rem;
             }
         }
     </style>
@@ -2473,20 +2517,71 @@ html {
             
             // Cookie Consent Logic
             const cookieConsent = document.getElementById('cookieConsent');
-            const acceptBtn = document.getElementById('acceptCookies');
-            const declineBtn = document.getElementById('declineCookies');
-            const cookieChoice = localStorage.getItem('cookieConsent');
-            if (!cookieChoice) {
+            const acceptAllBtn = document.getElementById('acceptAllBtn');
+            const savePreferencesBtn = document.getElementById('savePreferencesBtn');
+            const declineAllBtn = document.getElementById('declineAllBtn');
+            
+            // Check if cookie preferences already set
+            const cookiePreferences = localStorage.getItem('cookiePreferences');
+            
+            if (!cookiePreferences) {
                 setTimeout(() => { cookieConsent.classList.add('show'); }, 1000);
             }
-            acceptBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
+
+            // Accept all cookies
+            acceptAllBtn.addEventListener('click', function() {
+                const preferences = {
+                    necessary: true,
+                    analytics: true,
+                    functional: true,
+                    marketing: true
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
                 cookieConsent.classList.remove('show');
+                initializeScripts(preferences);
+                console.log('All cookies accepted');
             });
-            declineBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'declined');
+
+            // Save custom preferences
+            savePreferencesBtn.addEventListener('click', function() {
+                const preferences = {
+                    necessary: true,
+                    analytics: document.getElementById('analyticsConsent').checked,
+                    functional: document.getElementById('functionalConsent').checked,
+                    marketing: document.getElementById('marketingConsent').checked
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
                 cookieConsent.classList.remove('show');
+                initializeScripts(preferences);
+                console.log('Cookie preferences saved:', preferences);
             });
+
+            // Decline all (only necessary)
+            declineAllBtn.addEventListener('click', function() {
+                const preferences = {
+                    necessary: true,
+                    analytics: false,
+                    functional: false,
+                    marketing: false
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                cookieConsent.classList.remove('show');
+                console.log('Only necessary cookies accepted');
+            });
+            
+            // Initialize scripts based on preferences
+            function initializeScripts(prefs) {
+                if (prefs.analytics) {
+                    // Initialize Google Analytics or other analytics
+                    console.log('Analytics initialized');
+                }
+                if (prefs.functional) {
+                    console.log('Functional cookies initialized');
+                }
+                if (prefs.marketing) {
+                    console.log('Marketing cookies initialized');
+                }
+            }
         });
         
         // Set current year in footer
@@ -3174,7 +3269,7 @@ html {
                 justify-content: center !important;
             }
             .btn-reserve i {
-                margin-left: 0 !important;
+                margin-right: 0 !important;
                 font-size: 1.1rem !important;
             }
             .btn-reserve span {

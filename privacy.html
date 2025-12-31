@@ -1138,26 +1138,27 @@
                 border-color: rgba(212,175,55,0.4) !important;
                 color: #FFD700 !important;
             }
-            .nav-menu {
+                        .nav-menu {
                 position: fixed !important;
                 display: flex !important;
                 top: 0 !important;
-                left: -320px !important;
+                right: -320px !important;
                 width: 320px !important;
                 height: 100vh !important;
                 background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
                 backdrop-filter: blur(40px) !important;
                 padding: 6rem 2rem 2rem 2rem !important;
                 flex-direction: column !important;
-                gap: 1rem !important;
-                transition: left 0.4s ease-in-out !important;
+                gap: 0.5rem !important;
+                transition: right 0.4s ease-in-out, top 0.4s ease-in-out !important;
                 z-index: 1000 !important;
                 overflow-y: auto !important;
-                box-shadow: 8px 0 32px rgba(0,0,0,0.5) !important;
+                box-shadow: -8px 0 32px rgba(0,0,0,0.5) !important;
             }
             .nav-menu.active {
-                left: 0 !important;
-                margin-top: 130px !important;
+                right: 0 !important;
+                top: 130px !important;
+                height: calc(100vh - 130px) !important;
             }
             .nav-menu .nav-item {
                 width: 100%;
@@ -1591,11 +1592,11 @@
                 border-color: rgba(212,175,55,0.4) !important;
                 color: #FFD700 !important;
             }
-            .nav-menu {
+                        .nav-menu {
                 position: fixed !important;
                 display: flex !important;
                 top: 0 !important;
-                left: -320px !important;
+                right: -320px !important;
                 width: 320px !important;
                 height: 100vh !important;
                 background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
@@ -1603,13 +1604,13 @@
                 padding: 6rem 2rem 2rem 2rem !important;
                 flex-direction: column !important;
                 gap: 0.5rem !important;
-                transition: left 0.4s ease-in-out, top 0.4s ease-in-out !important;
+                transition: right 0.4s ease-in-out, top 0.4s ease-in-out !important;
                 z-index: 1000 !important;
                 overflow-y: auto !important;
-                box-shadow: 8px 0 32px rgba(0,0,0,0.5) !important;
+                box-shadow: -8px 0 32px rgba(0,0,0,0.5) !important;
             }
             .nav-menu.active {
-                left: 0 !important;
+                right: 0 !important;
                 top: 130px !important;
                 height: calc(100vh - 130px) !important;
             }

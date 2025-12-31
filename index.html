@@ -321,14 +321,14 @@ html {
             </ul>
             
             <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
-                <div class="language-switcher" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                <div class="language-switcher" style="display: none; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); backdrop-filter: blur(15px) saturate(150%); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
                     <button class="lang-btn active" data-lang="sr" style="background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)); border: 1px solid rgba(212,175,55,0.4); color: #FFD700; font-weight: 600; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Српски">RS</button>
                     <button class="lang-btn" data-lang="en" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="English">EN</button>
                     <button class="lang-btn" data-lang="ru" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); font-weight: 500; font-size: 0.8125rem; padding: 0.35rem 0.75rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;" title="Русский">RU</button>
                 </div>
-                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.8rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px;">
-                    <i class="fas fa-calendar-check" style="margin-right: 0.5rem;"></i>
-                    <span data-i18n="nav.reserve">Резервација</span>
+                <button class="btn-reserve" id="btnReserve" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #fff; font-weight: 600; font-size: 0; padding: 0; width: 48px; height: 48px; border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 20px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.3); letter-spacing: 0.5px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-calendar-check" style="margin-right: 0; font-size: 1.1rem;"></i>
+                    <span data-i18n="nav.reserve" style="display: none;">Резервација</span>
                 </button>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" style="margin-left: 0.5rem;">
                     <span></span>
@@ -2118,22 +2118,6 @@ html {
             .nav-actions .language-switcher {
                 display: none !important;
             }
-            .btn-reserve {
-                font-size: 0 !important;
-                padding: 0 !important;
-                width: 48px;
-                height: 48px;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-            .btn-reserve i {
-                margin-right: 0 !important;
-                font-size: 1.1rem !important;
-            }
-            .btn-reserve span {
-                display: none !important;
-            }
             
             /* Hero Section Mobile */
             .hero {
@@ -2313,6 +2297,22 @@ html {
         @media (min-width: 1282px) {
             .nav-toggle {
                 display: none !important;
+            }
+            .nav-actions .language-switcher {
+                display: flex !important;
+            }
+            .btn-reserve {
+                font-size: 0.9rem !important;
+                padding: 0.75rem 1.8rem !important;
+                width: auto !important;
+                height: auto !important;
+            }
+            .btn-reserve i {
+                margin-right: 0.5rem !important;
+                font-size: inherit !important;
+            }
+            .btn-reserve span {
+                display: inline !important;
             }
         }
     </style>

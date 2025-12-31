@@ -2152,12 +2152,23 @@ function setLanguage(lang) {
     // Hide/show blog links based on language (blog is Serbian-only)
     const blogLinks = document.querySelectorAll('a[href*="blog.html"], a[href*="blog-post-"]');
     blogLinks.forEach(link => {
+        // Find parent nav-item (for menu links)
+        const navItem = link.closest('.nav-item');
+        
         if (lang === 'en' || lang === 'ru') {
             // Hide blog links for English and Russian
-            link.style.display = 'none';
+            if (navItem) {
+                navItem.style.display = 'none';
+            } else {
+                link.style.display = 'none';
+            }
         } else {
             // Show blog links for Serbian
-            link.style.display = '';
+            if (navItem) {
+                navItem.style.display = '';
+            } else {
+                link.style.display = '';
+            }
         }
     });
 }
