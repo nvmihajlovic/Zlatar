@@ -45,8 +45,8 @@
       "url": "/#reservation",
       "icons": [
         {
-          "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
-          "sizes": "96x96"
+          "src": "images/icon-192x192.png",
+          "sizes": "192x192"
         }
       ]
     },
@@ -57,8 +57,8 @@
       "url": "/menu.html",
       "icons": [
         {
-          "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
-          "sizes": "96x96"
+          "src": "images/icon-192x192.png",
+          "sizes": "192x192"
         }
       ]
     },
@@ -69,8 +69,8 @@
       "url": "/contact.html",
       "icons": [
         {
-          "src": "images/znak-restoran-zlatar-vektorski_clipped_rev_1.png",
-          "sizes": "96x96"
+          "src": "images/icon-192x192.png",
+          "sizes": "192x192"
         }
       ]
     }

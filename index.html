@@ -1637,6 +1637,25 @@ select:focus {
             });
         }
         
+        // Check URL hash for automatic modal opening (PWA shortcuts)
+        function checkReservationHash() {
+            if (window.location.hash === '#reservation') {
+                setTimeout(() => {
+                    if (btnReserve) {
+                        btnReserve.click();
+                    }
+                    // Remove hash without page reload
+                    history.replaceState(null, null, ' ');
+                }, 300);
+            }
+        }
+        
+        // Check on page load
+        checkReservationHash();
+        
+        // Listen for hash changes (if user navigates back)
+        window.addEventListener('hashchange', checkReservationHash);
+        
         // Close modal functions
         function closeModal() {
             reservationModal.classList.remove('active');
