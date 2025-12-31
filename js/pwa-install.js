@@ -343,7 +343,7 @@ const PWAInstall = {
                     color: rgba(255, 255, 255, 0.85);
                     font-weight: 500;
                     line-height: 1.6;
-                ">Златар апликација је додата<br>на ваш Home Screen</p>
+                ">Апликација је инсталирана<br>на ваш уређај</p>
                 <div style="
                     margin-top: 1.5rem;
                     padding-top: 1.5rem;
@@ -357,7 +357,7 @@ const PWAInstall = {
                     font-weight: 500;
                 ">
                     <i class="fas fa-mobile-alt" style="color: #D4AF37;"></i>
-                    <span>Отворите са Home Screen-а</span>
+                    <span>Проверите Home Screen</span>
                 </div>
             </div>
         `;
