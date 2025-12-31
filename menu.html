@@ -640,18 +640,65 @@ a:not([onclick]):not(.btn):hover {
     opacity: 0.85;
 }
 
+/* Enhanced menu item hover */
+.menu-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px) scale(1.01) !important;
+    box-shadow: 0 16px 40px rgba(212,175,55,0.2), 0 8px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Category button enhanced interaction */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.category-btn:hover::before {
+    left: 100%;
+}
+
 /* Better focus states for accessibility */
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 2px solid rgba(212,175,55,0.5);
-    outline-offset: 2px;
+    outline: 3px solid rgba(212,175,55,0.6) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 6px rgba(212,175,55,0.15) !important;
 }
 
 /* Smooth animations for modals */
 .modal {
     animation: fadeIn 0.3s ease-out;
+}
+
+.modal.active .modal-content {
+    animation: modalContentPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalContentPop {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 @keyframes fadeIn {
@@ -665,8 +712,8 @@ textarea:focus-visible {
 
 /* Better button hover states */
 button:not(:disabled):hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
 }
 
 button:not(:disabled):active {
@@ -2823,6 +2870,91 @@ html {
             .btn-reserve span {
                 display: none !important;
             }
+            
+            /* Footer Mobile Styles */
+            .footer {
+                padding: 3rem 0 1.5rem 0 !important;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+                margin-bottom: 3rem !important;
+            }
+            .footer-col {
+                text-align: left !important;
+            }
+            .footer-col h4 {
+                border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 50%, transparent 100%) 1 !important;
+                max-width: 200px !important;
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .footer-desc {
+                max-width: 90% !important;
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                font-size: 0.9375rem !important;
+            }
+            .footer-contact-info {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.75rem !important;
+            }
+            .footer-socials {
+                justify-content: flex-start !important;
+                gap: 1rem !important;
+            }
+            .footer-links {
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+            .footer-links li {
+                justify-content: flex-start !important;
+            }
+            .newsletter-form {
+                max-width: 320px !important;
+                margin: 0 !important;
+            }
+            
+            /* Newsletter section spacing */
+            .footer-col:last-child h4 {
+                margin-bottom: 1.25rem !important;
+            }
+            .footer-col:last-child p {
+                margin-bottom: 1.5rem !important;
+            }
+            .footer-col:last-child .newsletter-form {
+                margin-bottom: 0 !important;
+            }
+            .footer-col:last-child > div:last-child {
+                display: none !important;
+            }
+            
+            /* Footer features icon alignment */
+            .footer-col div[style*="display: flex"] {
+                align-items: flex-start !important;
+            }
+            .footer-col .fas {
+                margin-top: 2px !important;
+            }
+            
+            /* Footer quick links bar - column layout on mobile */
+            .footer > div > div[style*="padding: 3rem"] > div[style*="justify-content: space-between"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 1.5rem !important;
+            }
+            
+            .footer-bottom {
+                flex-direction: column !important;
+                text-align: center !important;
+                gap: 1.25rem !important;
+            }
+            .footer-links-bottom {
+                justify-content: center !important;
+            }
         }
         @media (min-width: 1025px) {
             .nav-toggle {
@@ -3123,254 +3255,11 @@ html {
                 font-size: 1.5rem;
             }
         }
-
-/* Mobile Navigation and Footer Styles */
-@media (max-width: 1024px) {
-                .nav-toggle {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 6px !important;
-                background: rgba(255,255,255,0.08) !important;
-                border: 1px solid rgba(255,255,255,0.12) !important;
-                border-radius: 12px !important;
-                padding: 10px !important;
-                cursor: pointer;
-                z-index: 1001;
-                position: fixed;
-                right: 1.5rem;
-                top: 1.75rem;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-                transition: all 0.3s ease !important;
-            }
-            .nav-toggle span {
-                width: 24px;
-                height: 2px;
-                background: #D4AF37;
-                border-radius: 2px;
-                transition: all 0.3s;
-                display: block;
-            }
-            .nav-actions {
-                gap: 0 !important;
-                padding-left: 0 !important;
-            }
-            .btn-reserve {
-                position: fixed !important;
-                right: 5.5rem !important;
-                top: 1.5rem !important;
-                z-index: 1001 !important;
-                margin-left: 0 !important;
-            }
-            .nav-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            .nav-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .nav-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-            .nav-menu .nav-link {
-                color: rgba(255,255,255,0.9) !important;
-                background: rgba(255,255,255,0.06) !important;
-                border: 1px solid rgba(255,255,255,0.1) !important;
-                padding: 1rem 1.5rem !important;
-                border-radius: 12px !important;
-                font-size: 1rem !important;
-                font-weight: 500 !important;
-                text-decoration: none !important;
-                display: block !important;
-                transition: all 0.3s ease !important;
-                width: 100% !important;
-            }
-            .nav-menu .nav-link.active,
-            .nav-menu .nav-link:hover {
-                background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15)) !important;
-                border-color: rgba(212,175,55,0.4) !important;
-                color: #FFD700 !important;
-            }
-            .nav-menu {
-                position: fixed !important;
-                display: flex !important;
-                top: 0 !important;
-                left: -320px !important;
-                width: 320px !important;
-                height: 100vh !important;
-                background: linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%) !important;
-                backdrop-filter: blur(40px) !important;
-                padding: 6rem 2rem 2rem 2rem !important;
-                flex-direction: column !important;
-                gap: 0.5rem !important;
-                transition: left 0.4s ease-in-out, top 0.4s ease-in-out !important;
-                z-index: 1000 !important;
-                overflow-y: auto !important;
-                box-shadow: 8px 0 32px rgba(0,0,0,0.5) !important;
-            }
-            .nav-menu.active {
-                left: 0 !important;
-                top: 130px !important;
-                height: calc(100vh - 130px) !important;
-            }
-            .nav-menu .nav-item {
-                width: 100%;
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            .nav-menu.active .nav-item {
-                animation: slideInLeft 0.4s ease-out forwards;
-            }
-            .nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
-            .nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.15s; }
-            .nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.2s; }
-            .nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.25s; }
-            .nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.3s; }
-            .nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.35s; }
-            @keyframes slideInLeft {
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-            .nav-link {
-                width: 100%;
-                text-align: left;
-                padding: 1rem 1.5rem !important;
-                font-size: 1.05rem !important;
-            }
-            body.menu-open {
-                overflow: hidden;
-            }
-            body.menu-open::before {
-                content: '';
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.7);
-                backdrop-filter: blur(4px);
-                z-index: 999;
-                animation: fadeIn 0.3s;
-            }
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
-            }
-            .language-switcher {
-                display: none !important;
-            }
-            .btn-reserve {
-                font-size: 0 !important;
-                padding: 0 !important;
-                width: 48px;
-                height: 48px;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-            .btn-reserve i {
-                margin-right: 0 !important;
-                font-size: 1.1rem !important;
-            }
-            .btn-reserve span {
-                display: none !important;
-            }
-            
-            /* Footer mobilni */
-    .footer {
-        padding: 3rem 0 1.5rem 0 !important;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 3rem !important;
-        margin-bottom: 3rem !important;
-    }
-    .footer-col {
-        text-align: left !important;
-    }
-    .footer-col h4 {
-        border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 50%, transparent 100%) 1 !important;
-        max-width: 200px !important;
-        margin-left: 0 !important;
-        margin-right: auto !important;
-        margin-bottom: 1.5rem !important;
-    }
-    .footer-desc {
-        max-width: 90% !important;
-        margin-left: 0 !important;
-        margin-right: auto !important;
-        font-size: 0.9375rem !important;
-    }
-    .footer-contact-info {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 0.75rem !important;
-    }
-    .footer-socials {
-        justify-content: flex-start !important;
-        gap: 1rem !important;
-    }
-    .footer-links {
-        align-items: flex-start !important;
-        gap: 1rem !important;
-    }
-    .footer-links li {
-        justify-content: flex-start !important;
-    }
-    .newsletter-form {
-        max-width: 320px !important;
-        margin: 0 !important;
-    }
-    
-    /* Newsletter sekcija - više prostora */
-    .footer-col:last-child h4 {
-        margin-bottom: 1.25rem !important;
-    }
-    .footer-col:last-child p {
-        margin-bottom: 1.5rem !important;
-    }
-    .footer-col:last-child .newsletter-form {
-        margin-bottom: 0 !important;
-    }
-    .footer-col:last-child > div:last-child {
-        display: none !important;
-    }
-    
-    /* Footer features ikonice poravnanje */
-    .footer-col div[style*="display: flex"] {
-        align-items: flex-start !important;
-    }
-    .footer-col .fas {
-        margin-top: 2px !important;
-    }
-    
-    /* Footer quick links bar - u kolonu na mobilnom */
-    .footer > div > div[style*="padding: 3rem"] > div[style*="justify-content: space-between"] {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 1.5rem !important;
-    }
-    
-    .footer-bottom {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 1.25rem !important;
-    }
-    .footer-links-bottom {
-        justify-content: center !important;
-    }
-}
-@media (min-width: 1025px) {
-    .nav-toggle {
-        display: none !important;
-    }
-}
     </style>
 
 
     <!-- i18n Script -->
-    <script src="i18n.js"></script>
+    <script src="i18n.js" defer></script>
 
     <!-- Modal JavaScript -->
     <script>
@@ -3491,86 +3380,6 @@ html {
             }
         })();
     </script>
-
-<script>
-    // Mobile Menu JavaScript (reuse navToggle from above)
-    // const navToggle already declared above, just use it
-    
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        body.classList.toggle('menu-open');
-        
-        // Direktno manipulišemo stilovima na mobilnom
-        if (window.innerWidth <= 1024) {
-            if (navMenu.style.right === '0px') {
-                navMenu.style.right = '-320px';
-            } else {
-                // Dodaj language switcher u meni ako već ne postoji
-                if (!navMenu.querySelector('.mobile-lang-switcher')) {
-                    const langSwitcher = document.createElement('div');
-                    langSwitcher.className = 'mobile-lang-switcher';
-                    langSwitcher.style.cssText = 'display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255,255,255,0.08); padding: 0.5rem 0.9rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); margin-top: 2rem;';
-                    
-                    const btnSR = document.querySelector('.lang-btn[data-lang="sr"]').cloneNode(true);
-                    const btnEN = document.querySelector('.lang-btn[data-lang="en"]').cloneNode(true);
-                    const btnRU = document.querySelector('.lang-btn[data-lang="ru"]').cloneNode(true);
-                    
-                    // Dodaj event listenere na klonirana dugmad
-                    btnSR.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (typeof setLanguage === 'function') {
-                            setLanguage('sr');
-                        }
-                    });
-                    btnEN.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (typeof setLanguage === 'function') {
-                            setLanguage('en');
-                        }
-                    });
-                    btnRU.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (typeof setLanguage === 'function') {
-                            setLanguage('ru');
-                        }
-                    });
-                    
-                    langSwitcher.appendChild(btnSR);
-                    langSwitcher.appendChild(btnEN);
-                    langSwitcher.appendChild(btnRU);
-                    navMenu.appendChild(langSwitcher);
-                }
-                
-                navMenu.style.position = 'fixed';
-                navMenu.style.top = '200px';
-                navMenu.style.right = '0px';
-                navMenu.style.width = '320px';
-                navMenu.style.height = 'calc(100vh - 200px)';
-                navMenu.style.background = 'linear-gradient(180deg, rgba(20,15,8,0.98) 0%, rgba(35,26,15,0.97) 50%, rgba(25,18,10,0.96) 100%)';
-                navMenu.style.backdropFilter = 'blur(40px)';
-                navMenu.style.padding = '2rem';
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.gap = '0.5rem';
-                navMenu.style.transition = 'right 0.4s ease-in-out';
-                navMenu.style.zIndex = '1000';
-                navMenu.style.overflowY = 'auto';
-                navMenu.style.boxShadow = '-8px 0 32px rgba(0,0,0,0.5)';
-                navMenu.style.display = 'flex';
-            }
-        }
-    });
-    
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            body.classList.remove('menu-open');
-            if (window.innerWidth <= 1024) {
-                navMenu.style.right = '-320px';
-            }
-        });
-    });
-</script>
 
     <!-- Floating Communication Button -->
     <div class="floating-contact-btn" id="floatingContact">
@@ -3784,7 +3593,7 @@ html {
 
 
     <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="js/email-service.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <script src="js/email-service.js" defer></script>
 </body>
 </html>

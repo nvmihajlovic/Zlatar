@@ -211,18 +211,91 @@ a:not([onclick]):not(.btn):hover {
     opacity: 0.85;
 }
 
+/* Enhanced hero stats hover effect */
+.stat {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.stat:hover {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 16px 48px rgba(212,175,55,0.35), 0 8px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+    border-color: rgba(212,175,55,0.4) !important;
+}
+
+.stat:hover .stat-number {
+    transform: scale(1.1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Parallax effect for hero background */
+.hero-slide.active {
+    animation: subtleZoom 20s ease-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Enhanced button hovers */
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 12px 32px rgba(212,175,55,0.55), 0 6px 16px rgba(212,175,55,0.4), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+}
+
+.btn-outline:hover {
+    transform: translateY(-3px) scale(1.02) !important;
+    background: rgba(255,255,255,0.15) !important;
+    border-color: rgba(255,255,255,0.5) !important;
+    box-shadow: 0 12px 32px rgba(255,255,255,0.25), inset 0 1px 0 rgba(255,255,255,0.2) !important;
+}
+
+.btn-outline:hover .fa-arrow-down {
+    transform: translateY(4px) !important;
+}
+
 /* Better focus states for accessibility */
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 2px solid rgba(212,175,55,0.5);
-    outline-offset: 2px;
+    outline: 3px solid rgba(212,175,55,0.6) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 6px rgba(212,175,55,0.15) !important;
 }
 
 /* Smooth animations for modals */
 .modal {
     animation: fadeIn 0.3s ease-out;
+}
+
+/* Enhanced modal entrance */
+.modal.active {
+    animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal.active .modal-content {
+    animation: modalContentPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalContentPop {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 @keyframes fadeIn {
@@ -234,10 +307,75 @@ textarea:focus-visible {
     }
 }
 
+/* Nav link enhanced interactions */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+/* Loading state animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading-skeleton {
+    background: linear-gradient(90deg, rgba(212,175,55,0.05) 25%, rgba(212,175,55,0.15) 50%, rgba(212,175,55,0.05) 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Ripple effect for buttons */
+.btn-primary,
+.btn-outline {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-outline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::after,
+.btn-outline:active::after {
+    width: 300px;
+    height: 300px;
+    transition: width 0s, height 0s;
+}
+
 /* Better button hover states */
 button:not(:disabled):hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
 }
 
 button:not(:disabled):active {
@@ -247,6 +385,73 @@ button:not(:disabled):active {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Enhanced card depth and hover effects */
+.specialty-card,
+.feature-card,
+.menu-card,
+.testimonial-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.specialty-card:hover,
+.feature-card:hover,
+.menu-card:hover,
+.testimonial-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 20px 50px rgba(212,175,55,0.25), 0 10px 25px rgba(0,0,0,0.2) !important;
+}
+
+/* Smooth image transitions */
+img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease !important;
+}
+
+img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05) saturate(1.1);
+}
+
+/* Enhanced scroll indicator */
+.scroll-down {
+    transition: all 0.3s ease !important;
+}
+
+.scroll-down:hover {
+    transform: translateX(-50%) scale(1.1) !important;
+    opacity: 1 !important;
+}
+
+.scroll-down:hover div:first-child {
+    border-color: rgba(212,175,55,0.8) !important;
+}
+
+/* Form elements enhancement */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    transition: all 0.3s ease !important;
+    border: 2px solid rgba(212,175,55,0.2) !important;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: rgba(212,175,55,0.4) !important;
+    box-shadow: 0 4px 12px rgba(212,175,55,0.1) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: rgba(212,175,55,0.6) !important;
+    box-shadow: 0 6px 20px rgba(212,175,55,0.2), 0 0 0 4px rgba(212,175,55,0.1) !important;
+    transform: translateY(-2px);
 }
 
 /* Better mobile touch targets */
@@ -317,7 +522,7 @@ html {
                 <li class="nav-item"><a href="wine.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.wine">Винска карта</span></a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.blog">Блог</span></a></li>
                 <li class="nav-item"><a href="gallery.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.gallery">Галерија</span></a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.contact">Контакт</span></a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link" style="color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.3px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 0.7rem 1.3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"><span data-i18n="nav.contact">Contact</span></a></li>
             </ul>
             
             <div class="nav-actions" style="display: flex; align-items: center; gap: 1.5rem; margin-left: auto; padding-left: 3rem;">
@@ -977,7 +1182,7 @@ html {
                         <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.wine">Винска карта</span></a></li>
                         <li><a href="blog.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.blog">Блог</span></a></li>
                         <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.gallery">Галерија</span></a></li>
-                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.contact">Контакт</span></a></li>
+                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.contact">Contact</span></a></li>
                     </ul>
                 </div>
                 
@@ -1687,7 +1892,6 @@ html {
             background: rgba(255, 255, 255, 0.08);
             color: rgba(255, 255, 255, 0.9);
             border-color: rgba(255, 255, 255, 0.2);
-        }
             box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
             flex-shrink: 0;
         }
@@ -1963,6 +2167,11 @@ html {
                     navMenu.style.overflowY = 'auto';
                     navMenu.style.boxShadow = '-8px 0 32px rgba(0,0,0,0.5)';
                     navMenu.style.display = 'flex';
+                    
+                    // Apply current language to mobile menu after opening
+                    if (typeof setLanguage === 'function' && typeof currentLang !== 'undefined') {
+                        setTimeout(() => setLanguage(currentLang), 50);
+                    }
                 }
             }
         });
