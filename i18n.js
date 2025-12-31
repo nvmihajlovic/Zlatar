@@ -144,6 +144,7 @@ const translations = {
         'terms-page.badge': 'ПРАВНЕ ИНФОРМАЦИЈЕ',
         'terms-page.title': 'Услови коришћења',
         'terms-page.subtitle': 'Општи услови коришћења веб сајта и услуга Ресторана Златар',
+        'terms-page.language-notice': 'Правна документација је доступна само на српском језику због правне специфичности и усклађености са законодавством Републике Србије.',
         
         // Privacy Page
         'privacy-page.breadcrumb.home': 'Почетна',
@@ -151,6 +152,7 @@ const translations = {
         'privacy-page.badge': 'ЗАШТИТА ПОДАТАКА',
         'privacy-page.title': 'Политика приватности',
         'privacy-page.subtitle': 'Заштита ваших личних података је наш највиши приоритет',
+        'privacy-page.language-notice': 'Правна документација је доступна само на српском језику због правне специфичности и усклађености са законодавством Републике Србије.',
         
         // Sitemap Page
         'sitemap-page.breadcrumb.home': 'Почетна',
@@ -158,6 +160,7 @@ const translations = {
         'sitemap-page.badge': 'НАВИГАЦИЈА САЈТА',
         'sitemap-page.title': 'Мапа сајта',
         'sitemap-page.subtitle': 'Брз и лак приступ свим садржајима веб сајта Ресторана Златар',
+        'sitemap-page.language-notice': 'Мапа сајта је доступна само на српском језику.',
         
         // Footer
         'footer.about.text': 'Етно ресторан у срцу Београда. 40 година традиције, аутентични укуси и незаборавна атмосфера.',
@@ -661,6 +664,7 @@ const translations = {
         'terms-page.badge': 'LEGAL INFORMATION',
         'terms-page.title': 'Terms of Service',
         'terms-page.subtitle': 'General terms of use of the Zlatar Restaurant website and services',
+        'terms-page.language-notice': 'Legal documentation is available only in Serbian due to legal specificity and compliance with the legislation of the Republic of Serbia.',
         
         // Privacy Page
         'privacy-page.breadcrumb.home': 'Home',
@@ -668,6 +672,7 @@ const translations = {
         'privacy-page.badge': 'DATA PROTECTION',
         'privacy-page.title': 'Privacy Policy',
         'privacy-page.subtitle': 'Protecting your personal data is our highest priority',
+        'privacy-page.language-notice': 'Legal documentation is available only in Serbian due to legal specificity and compliance with the legislation of the Republic of Serbia.',
         
         // Sitemap Page
         'sitemap-page.breadcrumb.home': 'Home',
@@ -675,6 +680,7 @@ const translations = {
         'sitemap-page.badge': 'SITE NAVIGATION',
         'sitemap-page.title': 'Sitemap',
         'sitemap-page.subtitle': 'Quick and easy access to all content on the Zlatar Restaurant website',
+        'sitemap-page.language-notice': 'Sitemap is available only in Serbian.',
         
         // Footer
         'footer.about.text': 'Ethno restaurant in the heart of Belgrade. 40 years of tradition, authentic flavors and unforgettable atmosphere.',
@@ -1445,6 +1451,7 @@ const translations = {
         'terms-page.badge': 'ПРАВОВАЯ ИНФОРМАЦИЯ',
         'terms-page.title': 'Условия использования',
         'terms-page.subtitle': 'Общие условия использования веб-сайта и услуг ресторана Златар',
+        'terms-page.language-notice': 'Правовая документация доступна только на сербском языке из-за правовой специфики и соответствия законодательству Республики Сербия.',
         
         // Privacy Page
         'privacy-page.breadcrumb.home': 'Главная',
@@ -1452,6 +1459,7 @@ const translations = {
         'privacy-page.badge': 'ЗАЩИТА ДАННЫХ',
         'privacy-page.title': 'Политика конфиденциальности',
         'privacy-page.subtitle': 'Защита ваших личных данных - наш высший приоритет',
+        'privacy-page.language-notice': 'Правовая документация доступна только на сербском языке из-за правовой специфики и соответствия законодательству Республики Сербия.',
         
         // Sitemap Page
         'sitemap-page.breadcrumb.home': 'Главная',
@@ -1459,6 +1467,7 @@ const translations = {
         'sitemap-page.badge': 'НАВИГАЦИЯ САЙТА',
         'sitemap-page.title': 'Карта сайта',
         'sitemap-page.subtitle': 'Быстрый и легкий доступ ко всему содержанию веб-сайта ресторана Златар',
+        'sitemap-page.language-notice': 'Карта сайта доступна только на сербском языке.',
         
         // Footer
         'footer.description': 'Этно-ресторан в сердце Белграда. 40 лет традиций, аутентичные вкусы и незабываемая атмосфера.',

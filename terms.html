@@ -98,11 +98,32 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
+        /* Nav link enhanced interactions */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
         .nav-link:hover, .nav-link.active {
-            background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(212,175,55,0.15));
-            border-color: rgba(212,175,55,0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212,175,55,0.3);
+            background: linear-gradient(135deg, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.15) 100%) !important;
+            border-color: rgba(212,175,55,0.45) !important;
+            color: #FFD700 !important;
+            box-shadow: 0 8px 24px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,255,255,0.15) !important;
         }
         
         .hero-about {
@@ -398,6 +419,29 @@
         }
     </style>
 
+    <style id="footer-hover-effect">
+        .footer-links a:hover {
+            color: #FFD700 !important;
+            transform: translateX(5px);
+            text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(0);
+            width: 8px;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #FFD700);
+            border-radius: 2px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+        }
+        .footer-links a:hover::before {
+            transform: translateY(-50%) scaleX(1);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar" id="navbar" style="display: flex; align-items: center; background: linear-gradient(180deg, rgba(20,15,8,0.97) 0%, rgba(35,26,15,0.95) 50%, rgba(25,18,10,0.93) 100%); backdrop-filter: blur(30px) saturate(180%); border-bottom: 1px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.4) 30%, rgba(255,215,0,0.3) 50%, rgba(212,175,55,0.4) 70%, transparent 100%) 1; box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(212,175,55,0.08), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(212,175,55,0.1); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); justify-content: center;">
@@ -436,17 +480,25 @@
 
     <!-- Hero Section -->
     <div class="hero-about">
-        <div class="hero-about-content">
-            <nav class="breadcrumbs" style="margin-bottom: 2.5rem; padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); display: inline-block;">
+        <div class="hero-about-content" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <nav class="breadcrumbs" style="margin-bottom: 2.5rem; padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
                 <a href="index.html" style="color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s;">
-                    <i class="fas fa-home" style="margin-right: 0.5rem;"></i>Почетна
+                    <i class="fas fa-home" style="margin-right: 0.5rem;"></i><span data-i18n="terms-page.breadcrumb.home">Почетна</span>
                 </a>
                 <span style="color: rgba(255, 255, 255, 0.3); margin: 0 0.75rem;">/</span>
-                <span style="color: #D4AF37; font-weight: 500;">Услови коришћења</span>
+                <span style="color: #D4AF37; font-weight: 500;" data-i18n="terms-page.breadcrumb.current">Услови коришћења</span>
             </nav>
-            <span class="page-badge">ПРАВНЕ ИНФОРМАЦИЈЕ</span>
-            <h1 class="page-title">Услови <span class="text-gold">коришћења</span></h1>
-            <p class="page-subtitle">Општи услови коришћења веб сајта и услуга Ресторана Златар</p>
+            <span class="page-badge" data-i18n="terms-page.badge">ПРАВНЕ ИНФОРМАЦИЈЕ</span>
+            <h1 class="page-title" data-i18n="terms-page.title">Услови <span class="text-gold">коришћења</span></h1>
+            <p class="page-subtitle" data-i18n="terms-page.subtitle">Општи услови коришћења веб сајта и услуга Ресторана Златар</p>
+        </div>
+    </div>
+
+    <!-- Language Notice -->
+    <div id="languageNotice" style="display: none; background: linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(212,175,55,0.08) 100%); border-left: 4px solid #D4AF37; padding: 1.25rem 2rem; margin: 2rem auto; max-width: 1200px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <i class="fas fa-info-circle" style="color: #D4AF37; font-size: 1.5rem;"></i>
+            <p style="margin: 0; font-family: 'Montserrat', sans-serif; color: #555; font-size: 1rem; line-height: 1.6;" data-i18n="terms-page.language-notice">Правна документација је доступна само на српском језику због правне специфичности и усклађености са законодавством Републике Србије.</p>
         </div>
     </div>
 
@@ -591,7 +643,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
+    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; margin: 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: 5fr 3.5fr 2.5fr 3fr; gap: 9rem; margin-bottom: 5rem;">
                 <div class="footer-col">
@@ -623,7 +675,7 @@
                 
                 <div class="footer-col">
                     <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;">Радно време</h4>
-                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.875rem;">
+                    <ul $10.5rem;">
                         <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; white-space: nowrap;">
                             <span style="white-space: nowrap;">Пон-Пет</span>
                             <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem; white-space: nowrap; margin-left: 0.5rem;">09:00 - 00:00</span>
@@ -641,12 +693,12 @@
                 
                 <div class="footer-col">
                     <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;">Навигација</h4>
-                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem;">
-                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;">О нама</a></li>
-                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;">Јеловник</a></li>
-                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;">Винска карта</a></li>
-                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;">Галерија</a></li>
-                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;">Контакт</a></li>
+                    <ul $10.5rem;">
+                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;">О нама</a></li>
+                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;">Јеловник</a></li>
+                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;">Винска карта</a></li>
+                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;">Галерија</a></li>
+                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;">Контакт</a></li>
                     </ul>
                 </div>
                 
@@ -2129,6 +2181,24 @@
     </script>
 
 <script src="i18n.js"></script>
+<script>
+    // Show language notice if language is not Serbian
+    function updateLanguageNotice() {
+        const languageNotice = document.getElementById('languageNotice');
+        const currentLang = localStorage.getItem('language') || 'sr';
+        
+        if (languageNotice) {
+            languageNotice.style.display = currentLang !== 'sr' ? 'block' : 'none';
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        updateLanguageNotice();
+        
+        // Check periodically for language changes
+        setInterval(updateLanguageNotice, 500);
+    });
+</script>
 
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>

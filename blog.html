@@ -1042,6 +1042,27 @@
             }
         }
         
+        /* Nav link enhanced interactions */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
         .nav-link:hover {
             background: linear-gradient(135deg, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.15) 100%) !important;
             border-color: rgba(212,175,55,0.45) !important;
@@ -1629,6 +1650,29 @@ html {
 }
 </style>
 
+    <style id="footer-hover-effect">
+        .footer-links a:hover {
+            color: #FFD700 !important;
+            transform: translateX(5px);
+            text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(0);
+            width: 8px;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #FFD700);
+            border-radius: 2px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+        }
+        .footer-links a:hover::before {
+            transform: translateY(-50%) scaleX(1);
+        }
+    </style>
 </head>
 <body>
     <!-- Page Transition Overlay -->
@@ -1871,7 +1915,7 @@ html {
     </main>
 
     <!-- Footer -->
-    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
+    <footer class="footer" style="background: linear-gradient(180deg, rgba(28,20,12,1) 0%, rgba(20,14,8,1) 40%, rgba(15,10,5,1) 80%, rgba(10,7,3,1) 100%); backdrop-filter: blur(30px) saturate(180%); border-top: 2px solid transparent; border-image: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.3) 20%, rgba(212,175,55,0.5) 50%, rgba(212,175,55,0.3) 80%, transparent 100%) 1; padding: 5rem 0 2rem 0; margin: 0; position: relative; box-shadow: inset 0 1px 0 rgba(212,175,55,0.12), inset 0 20px 60px rgba(212,175,55,0.03);">
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: 5fr 3.5fr 2.5fr 3fr; gap: 9rem; margin-bottom: 5rem;">
                 <div class="footer-col">
@@ -1903,7 +1947,7 @@ html {
                 
                 <div class="footer-col">
                     <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;" data-i18n="footer.working-hours.title">Радно време</h4>
-                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.875rem;">
+                    <ul $10.5rem;">
                         <li style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; justify-content: space-between; align-items: center; white-space: nowrap;">
                             <span style="white-space: nowrap;" data-i18n="footer.working-hours.weekdays">Пон-Пет</span>
                             <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem; white-space: nowrap; margin-left: 0.5rem;">09:00 - 00:00</span>
@@ -1921,13 +1965,13 @@ html {
                 
                 <div class="footer-col">
                     <h4 style="font-family: 'Montserrat', sans-serif; color: #D4AF37; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.02em; padding-bottom: 0.75rem; border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.3) 70%, transparent 100%) 1; position: relative;" data-i18n="footer.navigation.title">Навигација</h4>
-                    <ul class="footer-links" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem;">
-                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.about">О нама</span></a></li>
-                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.menu">Јеловник</span></a></li>
-                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.wine">Винска карта</span></a></li>
-                        <li><a href="blog.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.blog">Блог</span></a></li>
-                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.gallery">Галерија</span></a></li>
-                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.3s;"><span data-i18n="nav.contact">Контакт</span></a></li>
+                    <ul $10.5rem;">
+                        <li><a href="about.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;"><span data-i18n="nav.about">О нама</span></a></li>
+                        <li><a href="menu.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;"><span data-i18n="nav.menu">Јеловник</span></a></li>
+                        <li><a href="wine.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;"><span data-i18n="nav.wine">Винска карта</span></a></li>
+                        <li><a href="blog.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;"><span data-i18n="nav.blog">Блог</span></a></li>
+                        <li><a href="gallery.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;"><span data-i18n="nav.gallery">Галерија</span></a></li>
+                        <li><a href="contact.html" style="font-family: 'Montserrat', sans-serif; color: rgba(255,255,255,0.7); font-size: 1rem; text-decoration: none; transition: all 0.8s ease-out; display: inline-block; position: relative;"><span data-i18n="nav.contact">Контакт</span></a></li>
                     </ul>
                 </div>
                 

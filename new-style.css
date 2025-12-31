@@ -1493,7 +1493,7 @@ select.form-input {
 
 .footer-links a:hover {
     color: var(--color-primary);
-    padding-left: var(--space-xs);
+    transform: none;
 }
 
 .newsletter-form {
