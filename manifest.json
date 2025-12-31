@@ -2,7 +2,7 @@
   "name": "Ресторан Златар - Етно ресторан Београд",
   "short_name": "Златар",
   "description": "Етно ресторан у срцу Београда - 40 година традиције, аутентични укуси, жива музика",
-  "start_url": "/",
+  "start_url": "/?lang=sr",
   "scope": "/",
   "display": "standalone",
   "background_color": "#140f08",

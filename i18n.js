@@ -2074,7 +2074,21 @@ const translations = {
 };
 
 // i18n functionality
+// Check URL parameters first (for PWA launch)
+const urlParams = new URLSearchParams(window.location.search);
+const langParam = urlParams.get('lang');
+
+// Force Serbian as default if no language is stored
 let currentLang = localStorage.getItem('language') || 'sr';
+
+// Priority: URL param > localStorage > default 'sr'
+if (langParam && ['sr', 'en', 'ru'].includes(langParam)) {
+    currentLang = langParam;
+    localStorage.setItem('language', langParam);
+} else if (!localStorage.getItem('language') || !['sr', 'en', 'ru'].includes(currentLang)) {
+    currentLang = 'sr';
+    localStorage.setItem('language', 'sr');
+}
 
 function setLanguage(lang) {
     currentLang = lang;
