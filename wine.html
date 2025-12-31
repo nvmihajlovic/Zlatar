@@ -3646,17 +3646,6 @@ html {
 
 <script>
     window.addEventListener('load', () => document.getElementById('pageTransition').classList.remove('active'));
-    document.addEventListener('DOMContentLoaded', () => {
-        const t = document.getElementById('pageTransition');
-        document.querySelectorAll('a[href]:not([href^="#"]):not([target="_blank"])').forEach(l => {
-            l.addEventListener('click', e => {
-                const h = l.getAttribute('href');
-                if (h.startsWith('javascript:') || h === window.location.pathname) return;
-                e.preventDefault(); t.classList.add('active');
-                setTimeout(() => window.location.href = h, 300);
-            });
-        });
-    });
 </script>
 
     <!-- Floating Communication Button -->

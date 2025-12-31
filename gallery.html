@@ -2317,21 +2317,6 @@ html {
     window.addEventListener('load', function() {
         document.getElementById('pageTransition').classList.remove('active');
     });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const pageTransition = document.getElementById('pageTransition');
-        const links = document.querySelectorAll('a[href]:not([href^="#"]):not([target="_blank"])');
-        
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('javascript:') || href === window.location.pathname) return;
-                e.preventDefault();
-                pageTransition.classList.add('active');
-                setTimeout(() => { window.location.href = href; }, 400);
-            });
-        });
-    });
 </script>
 
     <!-- Floating Communication Button -->
